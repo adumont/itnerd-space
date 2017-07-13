@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8) ]><!-->
+<html lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<!--<![endif]-->
+<head>
+<base href="" />
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="text/javascript">
+//<![CDATA[
+var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-75609256-3']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"0cc09662a81aa9e0f8d5a19ca613ee25",petok:"897890122a368bea8bb408c3b793e39fa334d868-1499981676-3600",zone:"",rocket:"0",apps:{"ga_key":{"ua":"UA-75609256-3","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=85b614c0f6/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link rel="profile" href="http://gmpg.org/xfn/11"/>
+<link rel="pingback" href="/xmlrpc.php"/>
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/interface/js/html5.js"></script>
+	<![endif]-->
+<title>How to control your TP-Link HS100 smartplug from Internet | IT Nerd Space</title>
+ 
+<meta name="description" content="In this post I&#039;ll show how to control a TP-Link HS100 smart plug from the command line from any device connected to Internet (not only from the local Wifi). This can then be used to expand the possibilities of your smart plug and automate it with apps like Tasker for Android and IFTTT."/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="How to control your TP-Link HS100 smartplug from Internet"/>
+<meta property="og:description" content="In this post I&#039;ll show how to control a TP-Link HS100 smart plug from the command line from any device connected to Internet (not only from the local Wifi). This can then be used to expand the possibilities of your smart plug and automate it with apps like Tasker for Android and IFTTT."/>
+<meta property="og:url" content="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/"/>
+<meta property="og:image" content="/wp-content/uploads/2017/01/SmartThings-1.png"/>
+<meta property="article:published_time" content="2017-01-22"/>
+<meta property="article:modified_time" content="2017-06-19"/>
+<meta property="article:author" content="/author/alex/"/>
+<meta property="article:tag" content="Android"/>
+<meta property="article:tag" content="Automation"/>
+<meta property="article:tag" content="How-to"/>
+<meta property="article:tag" content="IoT"/>
+<meta property="article:tag" content="Smart Things"/>
+<meta property="og:site_name" content="IT Nerd Space"/>
+<meta name="twitter:card" content="summary"/>
+ 
+ 
+<meta name="google-site-verification" content="3C6qJH5ousp4dTSblXkCoJb93sxJMNrM5agFVn2fKm4"/>
+<link rel='dns-prefetch' href='//s0.wp.com'/>
+<link rel='dns-prefetch' href='//s.gravatar.com'/>
+<link rel='dns-prefetch' href='//fonts.googleapis.com'/>
+<link rel='dns-prefetch' href='//s.w.org'/>
+<link rel="alternate" type="application/rss+xml" title="IT Nerd Space &raquo; Feed" href="/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="IT Nerd Space &raquo; Comments Feed" href="/comments/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="IT Nerd Space &raquo; How to control your TP-Link HS100 smartplug from Internet Comments Feed" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/feed/"/>
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-0.1em!important;background:none!important;padding:0!important;}</style>
+<link rel='stylesheet' id='pc_google_analytics-frontend-css' href='/wp-content/plugins/pc-google-analytics/assets/css/frontend.css?ver=1.0.0' type='text/css' media='all'/>
+<link rel='stylesheet' id='interface_style-css' href='/wp-content/themes/interface/style.css?ver=4.8' type='text/css' media='all'/>
+<link rel='stylesheet' id='interface-responsive-css' href='/wp-content/themes/interface/css/responsive.css?ver=4.8' type='text/css' media='all'/>
+<link rel='stylesheet' id='google_fonts-css' href='//fonts.googleapis.com/css?family=PT+Sans%3A400%2C700italic%2C700%2C400italic&#038;ver=4.8' type='text/css' media='all'/>
+<link rel='stylesheet' id='amazon-link-style-css' href='/wp-content/plugins/amazon-link/Amazon.css?ver=3.2.7' type='text/css' media='all'/>
+<link rel='stylesheet' id='social-logos-css' href='/wp-content/plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=1' type='text/css' media='all'/>
+<link rel='stylesheet' id='jetpack_css-css' href='/wp-content/plugins/jetpack/css/jetpack.css?ver=5.1' type='text/css' media='all'/>
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/related-posts/related-posts.js?ver=20150408'></script>
+<script type='text/javascript' src='/wp-content/plugins/pc-google-analytics/assets/js/frontend.min.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/themes/interface/js/backtotop.js?ver=4.8'></script>
+<script type='text/javascript' src='/wp-content/themes/interface/js/scripts.js?ver=4.8'></script>
+<link rel='https://api.w.org/' href='/wp-json/'/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml"/>
+<link rel='prev' title='Script to open URLs and take screenshots' href='/2017/01/03/batch-to-open-urls-and-take-screenshots/'/>
+<link rel='next' title='Control your TP-Link HS100 smart plug with IFTTT' href='/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/'/>
+<meta name="generator" content="WordPress 4.8"/>
+<link rel="canonical" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/"/>
+<link rel='shortlink' href='http://wp.me/p83nbS-34'/>
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2017%2F01%2F22%2Fhow-to-control-your-tp-link-hs100-smartplug-from-internet%2F"/>
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2017%2F01%2F22%2Fhow-to-control-your-tp-link-hs100-smartplug-from-internet%2F&#038;format=xml"/>
+ 
+<meta name="theme-color" content="#454545">
+<link rel="icon" sizes="192x192" href="">
+<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-75609256-3', 'auto');
+		ga('send', 'pageview');
+		
+		</script>
+<meta name="google-site-verification" content="3C6qJH5ousp4dTSblXkCoJb93sxJMNrM5agFVn2fKm4"/>
+<link rel='dns-prefetch' href='//v0.wordpress.com'>
+<link rel='dns-prefetch' href='//i0.wp.com'>
+<link rel='dns-prefetch' href='//i1.wp.com'>
+<link rel='dns-prefetch' href='//i2.wp.com'>
+<link rel='dns-prefetch' href='//widgets.wp.com'>
+<link rel='dns-prefetch' href='//s0.wp.com'>
+<link rel='dns-prefetch' href='//0.gravatar.com'>
+<link rel='dns-prefetch' href='//1.gravatar.com'>
+<link rel='dns-prefetch' href='//2.gravatar.com'>
+<style type='text/css'>img#wpstats{display:none}</style> <style type="text/css">.recentcomments a{display:inline!important;padding:0!important;margin:0!important;}</style>
+<link rel="icon" href="https://i2.wp.com//wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=32%2C32" sizes="32x32"/>
+<link rel="icon" href="https://i2.wp.com//wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=192%2C192" sizes="192x192"/>
+<link rel="apple-touch-icon-precomposed" href="https://i2.wp.com//wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=180%2C180"/>
+<meta name="msapplication-TileImage" content="https://i2.wp.com//wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=270%2C270"/>
+<meta data-pso-pv="1.2.1" data-pso-pt="singlePost" data-pso-th="79821e47f2754b6a352ff05ddc78510c"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script pagespeed_no_defer="" data-pso-version="20170403_083938">window.dynamicgoogletags={config:[]};dynamicgoogletags.config=["ca-pub-2190762825637663",[[[["DIV",null,null,["hgroup-wrap"]],["10px","10px",1],0,[4],"8175609288",0,null,null,5],[["ASIDE",null,"categories-4",[]],["10px","50px",1],3,[1],"1989474887",0,null,null,7],[["ARTICLE",0,null,[],3],["10px","20px",0],0,[0],"8036008482",0,null,null,11]]],[[[[null,[[20,20]],null,34,1,1]],[[["BODY",0,null,[]],["10px","10px",1],1,[4],null,0,null,null,2],[["HEADER",0,null,[]],["10px","10px",1],0,[4],null,0,null,null,4],[["DIV",null,null,["hgroup-wrap"]],["10px","10px",1],0,[0],null,0,null,null,5],[["SECTION",null,"site-logo",[]],["32px","10px",1],0,[4],null,0,null,null,7],[["NAV",0,null,[]],["10px","10px",1],0,[2],null,0,null,null,8],[["H1",0,null,[]],["10px","10px",1],0,[2],null,0,null,null,7],[["HEADER",0,null,[]],["10px","10px",1],3,[2],null,0,null,null,4],[["DIV",null,"content",[]],["10px","10px",1],3,[1],null,0,null,null,7],[["ASIDE",null,"top-posts-3",[]],["10px","40px",1],3,[1],null,0,null,null,7],[["ASIDE",null,"categories-4",[]],["10px","40px",1],3,[1],null,0,null,null,7],[["DIV",null,"secondary",[]],["10px","40px",1],3,[1],null,0,null,null,6],[["ASIDE",null,"categories-6",[]],["10px","10px",1],0,[1],null,0,null,null,9],[["ASIDE",null,"categories-6",[]],["10px","30px",1],3,[3],null,0,null,null,9],[["ASIDE",null,"top-posts-5",[]],["10px","30px",1],3,[3],null,0,null,null,9],[["ASIDE",null,"rss_links-3",[]],["10px","30px",1],3,[3],null,0,null,null,9],[["DIV",null,"site-generator",[]],["10px","10px",1],0,[3],null,0,null,null,5],[["DIV",null,"site-generator",[]],["10px","10px",1],1,[3],null,0,null,null,5],[["DIV",null,"site-generator",[]],["10px","10px",1],2,[5],null,0,null,null,5],[["DIV",null,"site-generator",[]],["10px","10px",1],3,[5],null,0,null,null,5],[["BODY",0,null,[]],["10px","10px",1],2,[5],null,0,null,null,2],[["ARTICLE",0,null,[],1],["10px","15px",0],0,[0],null,0,null,null,11],[["ARTICLE",0,null,[],2],["10px","10px",0],0,[0],null,0,null,null,11],[["ARTICLE",0,null,[],3],["10px","20px",0],0,[0],null,0,null,null,11],[["ARTICLE",0,null,[],-1],["10px","10px",0],3,[0],null,0,null,null,14]],["7100672085","8577405287","1054138489","2530871684","4007604882"],["ARTICLE",null,null,[]],"20170214_040801"]],"WordPressSinglePost","4615212881",null,0.01,null,[null,1494926346442],0.01,0,null,null,""];(function(){var h=this,aa=function(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
+else if("function"==b&&"undefined"==typeof a.call)return"object";return b},p=function(a){return"number"==typeof a},ba=function(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}},r=function(a,b){function c(){}c.prototype=b.prototype;a.Ra=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.Ta=function(a,c,f){for(var d=Array(arguments.length-2),e=2;e<arguments.length;e++)d[e-2]=arguments[e];return b.prototype[c].apply(a,
+d)}};var ca=String.prototype.trim?function(a){return a.trim()}:function(a){return a.replace(/^[\s\xa0]+|[\s\xa0]+$/g,"")},da=function(a,b){return a<b?-1:a>b?1:0},ea=function(a){return String(a).replace(/\-([a-z])/g,function(a,c){return c.toUpperCase()})};var fa=Array.prototype.forEach?function(a,b,c){Array.prototype.forEach.call(a,b,c)}:function(a,b,c){for(var d=a.length,e="string"==typeof a?a.split(""):a,f=0;f<d;f++)f in e&&b.call(c,e[f],f,a)};var ga=function(a){ga[" "](a);return a};ga[" "]=function(){};var ia=function(a,b){var c=ha;Object.prototype.hasOwnProperty.call(c,a)||(c[a]=b(a))};var t;a:{var ja=h.navigator;if(ja){var ka=ja.userAgent;if(ka){t=ka;break a}}t=""}var v=function(a){return-1!=t.indexOf(a)};var la=v("Opera"),w=v("Trident")||v("MSIE"),ma=v("Edge"),na=v("Gecko")&&!(-1!=t.toLowerCase().indexOf("webkit")&&!v("Edge"))&&!(v("Trident")||v("MSIE"))&&!v("Edge"),oa=-1!=t.toLowerCase().indexOf("webkit")&&!v("Edge"),pa=function(){var a=h.document;return a?a.documentMode:void 0},qa;
+a:{var ra="",sa=function(){var a=t;if(na)return/rv\:([^\);]+)(\)|;)/.exec(a);if(ma)return/Edge\/([\d\.]+)/.exec(a);if(w)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(oa)return/WebKit\/(\S+)/.exec(a);if(la)return/(?:Version)[ \/]?(\S+)/.exec(a)}();sa&&(ra=sa?sa[1]:"");if(w){var ta=pa();if(null!=ta&&ta>parseFloat(ra)){qa=String(ta);break a}}qa=ra}
+var ua=qa,ha={},va=function(a){ia(a,function(){for(var b=0,c=ca(String(ua)).split("."),d=ca(String(a)).split("."),e=Math.max(c.length,d.length),f=0;0==b&&f<e;f++){var g=c[f]||"",k=d[f]||"";do{g=/(\d*)(\D*)(.*)/.exec(g)||["","","",""];k=/(\d*)(\D*)(.*)/.exec(k)||["","","",""];if(0==g[0].length&&0==k[0].length)break;b=da(0==g[1].length?0:parseInt(g[1],10),0==k[1].length?0:parseInt(k[1],10))||da(0==g[2].length,0==k[2].length)||da(g[2],k[2]);g=g[3];k=k[3]}while(0==b)}return 0<=b})},wa;var xa=h.document;
+wa=xa&&w?pa()||("CSS1Compat"==xa.compatMode?parseInt(ua,10):5):void 0;var x=function(){},ya="function"==typeof Uint8Array,z=function(a,b,c){a.a=null;b||(b=[]);a.Va=void 0;a.M=-1;a.l=b;a:{if(a.l.length){b=a.l.length-1;var d=a.l[b];if(d&&"object"==typeof d&&"array"!=aa(d)&&!(ya&&d instanceof Uint8Array)){a.R=b-a.M;a.G=d;break a}}a.R=Number.MAX_VALUE}a.Ua={};if(c)for(b=0;b<c.length;b++)d=c[b],d<a.R?(d+=a.M,a.l[d]=a.l[d]||y):a.G[d]=a.G[d]||y},y=[],A=function(a,b){if(b<a.R){b+=a.M;var c=a.l[b];return c===y?a.l[b]=[]:c}c=a.G[b];return c===y?a.G[b]=[]:c},Aa=function(a){a=
+A(za,a);return null==a?a:+a},B=function(a,b,c){b<a.R?a.l[b+a.M]=c:a.G[b]=c},C=function(a,b,c){a.a||(a.a={});if(!a.a[c]){var d=A(a,c);d&&(a.a[c]=new b(d))}return a.a[c]},D=function(a,b,c){a.a||(a.a={});if(!a.a[c]){for(var d=A(a,c),e=[],f=0;f<d.length;f++)e[f]=new b(d[f]);a.a[c]=e}b=a.a[c];b==y&&(b=a.a[c]=[]);return b},Ba=function(a,b,c){a.a||(a.a={});c=c||[];for(var d=[],e=0;e<c.length;e++)d[e]=E(c[e]);a.a[b]=c;B(a,b,d)},Ca=function(a){if(a.a)for(var b in a.a){var c=a.a[b];if("array"==aa(c))for(var d=
+0;d<c.length;d++)c[d]&&E(c[d]);else c&&E(c)}},E=function(a){Ca(a);return a.l};x.prototype.toString=function(){Ca(this);return this.l.toString()};var Da=function(a){var b;if("array"==aa(a)){for(var c=Array(a.length),d=0;d<a.length;d++)null!=(b=a[d])&&(c[d]="object"==typeof b?Da(b):b);return c}if(ya&&a instanceof Uint8Array)return new Uint8Array(a);c={};for(d in a)null!=(b=a[d])&&(c[d]="object"==typeof b?Da(b):b);return c};var Ea=function(a,b){this.events=[];this.Ga=b||h;var c=null;b&&(b.google_js_reporting_queue=b.google_js_reporting_queue||[],this.events=b.google_js_reporting_queue,c=b.google_measure_js_timing);this.ia=null!=c?c:Math.random()<a};Ea.prototype.disable=function(){fa(this.events,this.ya,this);this.events.length=0;this.ia=!1};Ea.prototype.ya=function(a){var b=this.Ga.performance;a&&b&&b.clearMarks&&(b.clearMarks("goog_"+a.uniqueId+"_start"),b.clearMarks("goog_"+a.uniqueId+"_end"))};var Fa=function(){var a=!1;try{var b=Object.defineProperty({},"passive",{get:function(){a=!0}});h.addEventListener("test",null,b)}catch(c){}return a}();var Ha=function(){var a=Ga;try{var b;if(b=!!a&&null!=a.location.href)a:{try{ga(a.foo);b=!0;break a}catch(c){}b=!1}return b}catch(c){return!1}},Ia=function(a,b){for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&&b.call(void 0,a[c],c,a)};var Ja=function(a,b,c,d,e){this.la=c||4E3;this.H=a||"&";this.wa=b||",$";this.T=void 0!==d?d:"trn";this.Sa=e||null;this.va=!1;this.V={};this.Ja=0;this.L=[]},Ma=function(a,b,c,d){b=b+"//"+c+d;var e=Ka(a)-d.length-0;if(0>e)return"";a.L.sort(function(a,b){return a-b});d=null;c="";for(var f=0;f<a.L.length;f++)for(var g=a.L[f],k=a.V[g],m=0;m<k.length;m++){if(!e){d=null==d?g:d;break}var l=La(k[m],a.H,a.wa);if(l){l=c+l;if(e>=l.length){e-=l.length;b+=l;c=a.H;break}else a.va&&(c=e,l[c-1]==a.H&&--c,b+=l.substr(0,
+c),c=a.H,e=0);d=null==d?g:d}}f="";a.T&&null!=d&&(f=c+a.T+"="+(a.Sa||d));return b+f+""},Ka=function(a){if(!a.T)return a.la;var b=1,c;for(c in a.V)b=c.length>b?c.length:b;return a.la-a.T.length-b-a.H.length-1},La=function(a,b,c,d,e){var f=[];Ia(a,function(a,k){(a=Na(a,b,c,d,e))&&f.push(k+"="+a)});return f.join(b)},Na=function(a,b,c,d,e){if(null==a)return"";b=b||"&";c=c||",$";"string"==typeof c&&(c=c.split(""));if(a instanceof Array){if(d=d||0,d<c.length){for(var f=[],g=0;g<a.length;g++)f.push(Na(a[g],
+b,c,d+1,e));return f.join(c[d])}}else if("object"==typeof a)return e=e||0,2>e?encodeURIComponent(La(a,b,c,d,e+1)):"...";return encodeURIComponent(String(a))};var Ra=function(a,b,c,d){var e=Pa;if((c?e.Pa:Math.random())<(d||e.za))try{var f;b instanceof Ja?f=b:(f=new Ja,Ia(b,function(a,b){var c=f,d=c.Ja++,e={};e[b]=a;a=[e];c.L.push(d);c.V[d]=a}));var g=Ma(f,e.Ma,e.Ba,e.La+a+"&");g&&Qa(g)}catch(k){}},Qa=function(a){h.google_image_requests||(h.google_image_requests=[]);var b=h.document.createElement("img");b.src=a;h.google_image_requests.push(b)};var Sa;if(!(Sa=!na&&!w)){var Ta;if(Ta=w)Ta=9<=Number(wa);Sa=Ta}Sa||na&&va("1.9.1");w&&va("9");var F=function(a,b,c,d){this.top=a;this.right=b;this.bottom=c;this.left=d};F.prototype.floor=function(){this.top=Math.floor(this.top);this.right=Math.floor(this.right);this.bottom=Math.floor(this.bottom);this.left=Math.floor(this.left);return this};var Ua=document,Va=window;var Wa=!!window.google_async_iframe_id,Ga=Wa&&window.parent||window;var Pa,G;if(Wa&&!Ha()){var Xa="."+Ua.domain;try{for(;2<Xa.split(".").length&&!Ha();)Ua.domain=Xa=Xa.substr(Xa.indexOf(".")+1),Ga=window.parent}catch(a){}Ha()||(Ga=window)}G=Ga;var Ya=new Ea(1,G);Pa=new function(){this.Ma="http:"===Va.location.protocol?"http:":"https:";this.Ba="pagead2.googlesyndication.com";this.La="/pagead/gen_204?id=";this.za=.01;this.Pa=Math.random()};
+if("complete"==G.document.readyState)G.google_measure_js_timing||Ya.disable();else if(Ya.ia){var Za=function(){G.google_measure_js_timing||Ya.disable()};G.addEventListener?G.addEventListener("load",Za,Fa?void 0:!1):G.attachEvent&&G.attachEvent("onload",Za)};var H=function(a){this.na={};this.na.c=a;this.o=[];this.u=null;this.v=[];this.ea=0};H.prototype.g=function(a){for(var b=0;b<this.o.length;b++)if(this.o[b]==a)return this;this.o.push(a);return this};var $a=function(a,b){a.u=a.u?a.u:b;return a};H.prototype.C=function(a){for(var b=0;b<this.v.length;b++)if(this.v[b]==a)return this;this.v.push(a);return this};
+H.prototype.getData=function(a){var b=this.na,c={},d;for(d in b)c[d]=b[d];0<this.ea&&(c.t=this.ea);c.err=this.o.join();c.warn=this.v.join();if(this.u){c.excp_n=this.u.name;c.excp_m=this.u.message&&this.u.message.substring(0,512);if(b=this.u.stack){d=this.u.stack;try{-1==d.indexOf("")&&(d="\n"+d);for(var e;d!=e;)e=d,d=d.replace(/((https?:\/..*\/)[^\/:]*:\d+(?:.|\n)*)\2/,"$1");b=d.replace(/\n */g,"\n")}catch(f){b=""}}c.excp_s=b}c.w=0<a.innerWidth?a.innerWidth:null;c.h=0<a.innerHeight?a.innerHeight:
+null;return c};var bb=function(a,b){ab(a,a.Ea,a.X,b)},ab=function(a,b,c,d){var e=d.u;d=d.getData(a.K);a.Ha?(d.type=b,a.K.console.log(d),e&&a.K.console.error(e)):0<c&&(d.r=c,Ra(b,d,"jserror"!=b,c))};var I=function(a){return a.dynamicgoogletags=a.dynamicgoogletags||{}};var J=function(a){z(this,a,cb)};r(J,x);var cb=[4];J.prototype.getId=function(){return A(this,3)};var K=function(a){z(this,a,null)};r(K,x);var db=function(a){z(this,a,null)};r(db,x);var L=function(a){return C(a,J,1)},fb=function(a){z(this,a,eb)};r(fb,x);var eb=[1];fb.prototype.i=function(){return D(this,db,1)};fb.prototype.pa=function(a){Ba(this,1,a)};var M=function(a){z(this,a,gb)};r(M,x);var gb=[2];M.prototype.ka=function(){return A(this,3)};M.prototype.qa=function(a){B(this,3,a)};var hb=function(a){z(this,a,null)};r(hb,x);var N=function(a){z(this,a,ib)};r(N,x);var ib=[1,2,3];N.prototype.i=function(){return D(this,db,2)};
+N.prototype.pa=function(a){Ba(this,2,a)};var O=function(a){z(this,a,jb)};r(O,x);var jb=[3];O.prototype.A=function(){return A(this,1)};O.prototype.D=function(){return C(this,fb,2)};O.prototype.O=function(){return A(this,4)};O.prototype.ka=function(){return A(this,5)};O.prototype.qa=function(a){B(this,5,a)};O.prototype.N=function(){return C(this,kb,9)};var kb=function(a){z(this,a,null)};r(kb,x);var lb=function(a){this.m=a;this.sa=[]};lb.prototype.f=function(){return 0<D(this.m,N,3).length?D(this.m,N,3)[0]:null};var mb=function(a){var b=["adsbygoogle-placeholder"];a=a.className?a.className.split(/\s+/):[];for(var c={},d=0;d<a.length;++d)c[a[d]]=!0;for(d=0;d<b.length;++d)if(!c[b[d]])return!1;return!0};var nb=function(a,b){for(var c=0;c<b.length;c++){var d=b[c],e=ea(d.Wa);a[e]=d.value}},qb=function(a,b){var c=ob;b.setAttribute("data-adsbygoogle-status","reserved");b={element:b};(c=c&&c.Na)&&(b.params=c);pb(a).push(b)},pb=function(a){return a.adsbygoogle=a.adsbygoogle||[]};var rb=function(a,b){if(!a)return!1;a=b.getComputedStyle?b.getComputedStyle(a,null):a.currentStyle;if(!a)return!1;a=a.cssFloat||a.styleFloat;return"left"==a||"right"==a},sb=function(a){for(a=a.previousSibling;a&&1!=a.nodeType;)a=a.previousSibling;return a?a:null},tb=function(a){return!!a.nextSibling||!!a.parentNode&&tb(a.parentNode)};var ub=function(a,b){var c=a.length;if(null!=c)for(var d=0;d<c;d++)b.call(void 0,a[d],d)};var vb=function(a,b,c,d){this.ma=a;this.$=b;this.aa=c;this.P=d};vb.prototype.query=function(a){var b=[];try{b=a.querySelectorAll(this.ma)}catch(f){}if(!b.length)return[];a=b;b=a.length;if(0<b){for(var c=Array(b),d=0;d<b;d++)c[d]=a[d];a=c}else a=[];a=wb(this,a);p(this.$)&&(b=this.$,0>b&&(b+=a.length),a=0<=b&&b<a.length?[a[b]]:[]);if(p(this.aa)){b=[];for(c=0;c<a.length;c++){var d=xb(a[c]),e=this.aa;0>e&&(e+=d.length);0<=e&&e<d.length&&b.push(d[e])}a=b}return a};
+vb.prototype.toString=function(){return JSON.stringify({nativeQuery:this.ma,occurrenceIndex:this.$,paragraphIndex:this.aa,ignoreMode:this.P})};
+var wb=function(a,b){if(null==a.P)return b;switch(a.P){case 1:return b.slice(1);case 2:return b.slice(0,b.length-1);case 3:return b.slice(1,b.length-1);case 0:return b;default:throw Error("Unknown ignore mode: "+a.P);}},xb=function(a){var b=[];ub(a.getElementsByTagName("p"),function(a){100<=yb(a)&&b.push(a)});return b},yb=function(a){if(3==a.nodeType)return a.length;if(1!=a.nodeType||"SCRIPT"==a.tagName)return 0;var b=0;ub(a.childNodes,function(a){b+=yb(a)});return b},zb=function(a){return 0==a.length||
+isNaN(a[0])?a:"\\"+(30+parseInt(a[0],10))+" "+a.substring(1)};var Ab=function(a,b){var c=0,d=A(a,6);if(void 0!==d)switch(d){case 0:c=1;break;case 1:c=2;break;case 2:c=3}var d=null,e=A(a,7);if(A(a,1)||a.getId()||0<A(a,4).length){var f=a.getId(),g=A(a,1),e=A(a,4),d=A(a,2);a=A(a,5);var k="";g&&(k+=g);f&&(k+="#"+zb(f));if(e)for(f=0;f<e.length;f++)k+="."+zb(e[f]);d=(e=k)?new vb(e,d,a,c):null}else e&&(d=new vb(e,A(a,2),A(a,5),c));return d?d.query(b):[]},Bb=function(a,b){if(a==b)return!0;if(!a||!b||A(a,1)!=A(b,1)||A(a,2)!=A(b,2)||a.getId()!=b.getId()||A(a,7)!=A(b,
+7)||A(a,5)!=A(b,5)||A(a,6)!=A(b,6))return!1;a=A(a,4);b=A(b,4);if(a||b)if(a&&b&&a.length==b.length)for(var c=0;c<a.length;c++){if(a[c]!=b[c])return!1}else return!1;return!0};var Cb=function(a){a=a.document;return("CSS1Compat"==a.compatMode?a.documentElement:a.body)||{}},Db=function(a){return void 0===a.pageYOffset?(a.document.documentElement||a.document.body.parentNode||a.document.body).scrollTop:a.pageYOffset};var Eb=function(a,b){b=L(b);if(!b)return null;a=Ab(b,a);return 0<a.length?a[0]:null},Gb=function(a,b){b=Fb(a,b,!0);return p(b)&&!(b<=Cb(a).clientHeight)},Hb=function(a,b){return a.body?b-a.body.getBoundingClientRect().top:b},Fb=function(a,b,c){if(!c||!p(A(b,8))){var d=Eb(a.document,b);if(d){var e=null!=C(b,K,2)?A(C(b,K,2),3):void 0;c=a.document.createElement("div");c.className="googlepublisherpluginad";var f=c.style;f.textAlign="center";f.width="100%";f.height="0px";f.clear=e?"both":"none";Ib(c,d,
+A(b,3));d=c.getBoundingClientRect().top+Db(a);c.parentNode.removeChild(c);B(b,8,d)}}b=A(b,8);return p(b)?b-Db(a):null},Jb={0:0,1:1,2:2,3:3},Kb={0:"auto",1:"horizontal",2:"vertical",3:"rectangle"},Lb=function(a,b){a.sort(function(a,d){a=Fb(b,a,!0);a=p(a)?a:Number.POSITIVE_INFINITY;d=Fb(b,d,!0);d=p(d)?d:Number.POSITIVE_INFINITY;return a-d})},Ib=function(a,b,c){switch(Jb[c]){case 0:b.parentNode&&b.parentNode.insertBefore(a,b);break;case 3:if(c=b.parentNode){var d=b.nextSibling;if(d&&d.parentNode!=c)for(;d&&
+8==d.nodeType;)d=d.nextSibling;c.insertBefore(a,d)}break;case 1:b.insertBefore(a,b.firstChild);break;case 2:b.appendChild(a)}if(1!=b.nodeType?0:"INS"==b.tagName&&mb(b))b.style.display="block"};var ob=new function(){this.ha="googlepublisherpluginad";this.Na={google_tag_origin:"pso"}},P=function(a){this.b=a;this.j=[];this.da=0;this.o=[];this.v=[];this.Y=null;this.oa=!1},Mb=function(a,b){a=C(a.f(),J,4);if(!(a&&b&&A(b,1)==A(a,1)&&b.getId()==a.getId()&&p(A(b,2))&&p(A(b,5))))return!1;a=A(a,4);b=A(b,4);if(a.length!=b.length)return!1;for(var c=0;c<a.length;++c)if(b[c]!=a[c])return!1;return!0},Nb=function(a){var b=p(void 0)?void 0:20,c=a.f(),d=c.i(),e=C(c,J,4);if(!(a.oa||0>=b)&&e&&0!=Ab(e,a.b.document).length){a.oa=
+!0;for(var c=[],f=0;f<d.length;++f){var g=d[f],k=L(g);if(Mb(a,k)){var m=A(k,2),k=A(k,5);null!=m&&null!=k&&0<=m&&0<=k&&(!c[m]||A(L(c[m]),5)<k)&&(c[m]=g)}}k=0;d=Ab(e,a.b.document);for(m=0;m<c.length&&k<b;++m){var e=k,f=a,l=d[m],g=c[m],k=b-k,u=f.f().i(),q=0;if(l&&g){l=xb(l).length;switch(A(L(g),6)){case 0:case 1:--l;break;case 2:l-=2}for(var n=A(L(g),5)+1;n<l&&q<k;++n){var Oa=new g.constructor(Da(E(g))),Hc=L(Oa);B(Hc,5,n);u.push(Oa);q++}}q&&f.f().pa(u);k=e+q}}};
+P.prototype.g=function(a){for(var b=0;b<this.o.length;++b)if(this.o[b]==a)return;this.o.push(a)};P.prototype.C=function(a){for(var b=0;b<this.v.length;++b)if(this.v[b]==a)return;this.v.push(a)};
+var Ob=function(a,b,c){var d=Jb[A(b,3)],e=Eb(a.b.document,b);if(e){var f=L(b)?A(L(b),2):void 0,g;a:{g=a.b;if(null!=f)switch(d){case 0:g=rb(sb(e),g);break a;case 3:g=rb(e,g);break a;case 2:f=e.lastChild;g=rb(f?1==f.nodeType?f:sb(f):null,g);break a}g=!1}if(!g&&(c||2!=d||tb(e))&&(c=1==d||2==d?e:e.parentNode,!c||(1!=c.nodeType?0:"INS"==c.tagName&&mb(c))||!(0>=c.offsetWidth)))a:if(A(b,7))a.C(8);else{b:if(A(b,5))c=A(b,5);else{if(c=Q(a).f())if(c=A(c,3),a.da<c.length){c=c[a.da++];break b}a.g(4);c=null}if(null!=
+c){B(b,7,!0);d=[];(g=a.O())&&d.push(g);g=Q(a).sa;for(f=0;f<g.length;++f)d.push(g[f]);p(A(b,9))&&d.push("pso-lv-"+A(b,9));var k=a.b.document;g=a.A();var f=A(b,6),f=null!=f?Kb[f]:f,m=C(b,K,2),l={};m&&(l.ra=A(m,1),l.ga=A(m,2),l.xa=!!A(m,3));var m=c,u=ob,q=k.createElement("div"),n=q.style;n.textAlign="center";n.width="100%";n.height="auto";n.clear=l.xa?"both":"none";l.Ka&&nb(n,l.Ka);k=k.createElement("ins");n=k.style;n.display="block";n.margin="auto";n.backgroundColor="transparent";l.ra&&(n.marginTop=
+l.ra);l.ga&&(n.marginBottom=l.ga);l.ta&&nb(n,l.ta);q.appendChild(k);k.setAttribute("data-ad-format",f?f:"auto");if(f=u&&u.ha)q.className=f;k.className="adsbygoogle";k.setAttribute("data-ad-client",g);m&&k.setAttribute("data-ad-slot",m);d.length&&k.setAttribute("data-ad-channel",d.join("+"));Ib(q,e,A(b,3));try{qb(a.b,k)}catch(Oa){A(b,5)!=c&&a.da--;B(b,7,!1);a.C(6);q&&q.parentNode&&q.parentNode.removeChild(q);break a}a.j.push(q)}}}},Pb=function(a,b){for(var c=Number.POSITIVE_INFINITY,d=0;d<a.j.length;++d)var e=
+a.j[d].getBoundingClientRect().top,f=a.j[d].getBoundingClientRect().bottom,c=Math.min(c,b<e?e-b:f<b?b-f:0);return c},Q=function(a){a=I(a.b).ps||null;if(!a)throw Error("No placementState");return a},Qb=function(a,b){var c=Q(a).m;if(!c||!c.A())return a.g(5),!1;c=D(c,N,3)[0];return c?A(c,3).length<b?(a.g(4),a.g(5),!1):!0:(a.g(5),!1)};P.prototype.A=function(){return Q(this).m.A()||""};P.prototype.O=function(){return Q(this).m.O()||void 0};P.prototype.D=function(){return Q(this).m.D()||new fb};
+P.prototype.f=function(){var a=Q(this).f();if(!a)throw Error("No mConfig");return a};var Rb=function(a){a=A(a.f(),6);return null!=a&&0<a};var Sb=function(){this.I=this.J=this.ba=null};var R=function(a){P.call(this,a)};r(R,P);R.prototype.apply=function(a){var b;(b=Q(this).m)&&b.A()&&b.D()?b=!0:(this.g(5),b=!1);if(b){b=this.D().i();for(var c=0;c<b.length;c++){var d=b[c];A(d,7)||Ob(this,d,a)}}};R.prototype.B=function(){return(0==this.D().i().length||0<this.j.length)&&0==this.o.length};var Tb=function(a){P.call(this,a);if(Qb(this,0)){a=this.D().i();for(var b=this.f().i(),c=0;c<a.length;c++){var d=a[c],e;a:{e=d;var f=b;if(e&&L(e))for(var g=0;g<f.length;g++){var k=f[g];if(A(e,3)==A(k,3)&&Bb(L(e),L(k))){e=k;break a}}e=null}e&&C(e,K,2)&&(e=C(e,K,2),d.a||(d.a={}),f=e?E(e):e,d.a[2]=e,B(d,2,f))}}};r(Tb,R);var Vb=function(a,b){var c=void 0===b.pageXOffset?(b.document.documentElement||b.document.body.parentNode||b.document.body).scrollLeft:b.pageXOffset,d=Db(b);if(a.getBoundingClientRect)return a=a.getBoundingClientRect(),Ub(a)?new F(a.top+d,a.right+c,a.bottom+d,a.left+c):new F(0,0,0,0);b=b.document.createRange();b.selectNodeContents(a);return b.collapsed?new F(0,0,0,0):b.getBoundingClientRect?(a=b.getBoundingClientRect(),Ub(a)?new F(a.top+d,a.right+c,a.bottom+d,a.left+c):new F(0,0,0,0)):new F(0,0,0,
+0)},Ub=function(a){return!!a&&p(a.top)&&!isNaN(a.top)&&p(a.right)&&!isNaN(a.right)&&p(a.bottom)&&!isNaN(a.bottom)&&p(a.left)&&!isNaN(a.left)};var $b=function(a){this.K=a;this.Fa=Wb(a);this.ua=S("ins.adsbygoogle",a);this.fa=Xb(a);this.Oa=S("[__lsu_res=reserved]",a);this.U=[];a=Yb(this);for(var b=0;b<a.length;b++)this.U.push(new Zb(a[b]))},Wb=function(a){var b=a.googletag;if(!b||"function"!=typeof b.pubads)return S("div[id^=div-gpt-ad]",a);var c=[];try{for(var d=b.pubads().getSlots(),b=0;b<d.length;b++){var e=d[b].getSlotElementId(),f=a.document.getElementById(e);null!=f&&c.push(f)}}catch(g){Ra("ladd_evt",{ok:0,err:g.toString()},!0,.1)}return c},
+Xb=function(a){return S("iframe[id^=aswift_],iframe[id^=google_ads_frame]",a)},S=function(a,b){return Array.prototype.slice.call(b.document.querySelectorAll(a))},Yb=function(a){return[].concat(a.Fa,a.ua,a.fa,a.Oa)},Zb=function(a){this.Ca=a;this.W=null};var T=function(a){P.call(this,a)};r(T,P);T.prototype.apply=function(){};T.prototype.B=function(){var a;if(Rb(this)){a=this.b;var b=Wb(a);a=0<[].concat(b,S("ins.adsbygoogle",a),Xb(a),S("[__lsu_res=reserved]",a)).length}else a=!0;return a};var ac=function(a){P.call(this,a);this.F=null};r(ac,P);
+ac.prototype.apply=function(a){if(a&&Qb(this,2)){Nb(this);a=Cb(this.b).clientHeight||640;null==this.F&&(this.F=new $b(this.b));var b=this.F.fa.length;if(!(5<=b)){var b=Math.min(2,5-b),c=this.f().i();Lb(c,this.b);for(var d=0;d<c.length&&this.j.length<b;++d){var e=c[d];if(Gb(this.b,e)){var f=Fb(this.b,e,!0);if(void 0!==f){var g;a:{g=this.F;for(var k=a,m=f,l=0;l<g.U.length;l++){var u=m,q=k,n;n=g.U[l];n.W||(n.W=Vb(n.Ca,g.K));n=n.W;if(n.top-q<u&&u<n.bottom+q){g=!0;break a}}g=!1}g||Pb(this,f)<a||Ob(this,
+e,!0)}}}0==this.j.length&&this.C(1)}}};ac.prototype.B=function(){return Rb(this)?0<Yb(this.F).length:!0};var bc=function(a){P.call(this,a);this.Z=!1};r(bc,T);
+bc.prototype.apply=function(a){if(a&&!this.Z){var b;a:{var c=this.b.document;b=c.body;if(a&&b){a=this.A();var d=ob,e=c.createElement("div");e.style.display="block";if(d=d&&d.ha)e.className=d;c=c.createElement("ins");c.className="adsbygoogle";c.setAttribute("data-ad-client",a);c.setAttribute("data-reactive-ad-format","1");c.style.display="none";e.appendChild(c);Ib(e,b,2);try{qb(this.b,c)}catch(f){this.C(6);e&&e.parentNode&&e.parentNode.removeChild(e);b=5;break a}this.j.push(e);b=0}else b=4}this.Z=
+0==b}};bc.prototype.B=function(){return this.Z&&T.prototype.B.call(this)};var cc=function(a){P.call(this,a);a=Cb(a).clientHeight;this.Aa=.1*a;this.Ia=.75*a};r(cc,P);
+cc.prototype.apply=function(a){if(Qb(this,3)&&!this.B()){Nb(this);var b=this.f().i();Lb(b,this.b);var c;c=this.Aa;var d;d=document;d=d.querySelectorAll?d.querySelectorAll("header,#header,#masthead,.header,.site-header"):[];for(var e=d.length,f=0<e?d[0]:null,g=1;g<e;g++)d[g].getBoundingClientRect().top<f.getBoundingClientRect().top&&(f=d[g]);(d=f)&&(d=d.getBoundingClientRect())&&d.top!=d.bottom&&d.left!=d.right&&(c=Math.min(c,Hb(document,d.bottom)));for(d=0;d<b.length&&3>this.j.length;d++){e=b[d];
+var f=c,g=this.b.document,k=Fb(this.b,e,!1);!p(k)||Hb(g,k)<f?f=!1:(f=Pb(this,k),f=this.Ia<f);f&&(f=Gb(this.b,e),g=A(e,6)||0,f&&0==g&&B(e,6,3),!f&&a||Ob(this,e,a))}}};cc.prototype.B=function(){return 3==this.j.length};var U={};U[16]=R;U[17]=R;U[19]=T;U[29]=ac;U[33]=T;U[30]=bc;U[28]=cc;U[34]=cc;U[32]=Tb;U[1]=R;U[8]=T;U[11]=R;var dc=[19,29,33,30,16,32,17,34],ec=[16,19,33,30,17,1,6,8,11];var fc=function(a,b){a=a.google_ad_modifications=a.google_ad_modifications||{};(a.ad_channels=a.ad_channels||[]).push(b)};var gc=function(a){return 0>a||99<a?null:10>a?"0"+a:""+a};var hc=function(a,b){a=a.google_ad_modifications=a.google_ad_modifications||{};a=a.loeids=a.loeids||[];for(var c=0;c<b.length;c++)a.push(b[c])};var ic=function(a,b,c){this.ja=a;this.Da=c?c:new kb};ic.prototype.N=function(){return this.Da||new kb};var jc=function(a){if(!p(a))return!1;for(var b=0;b<dc.length;++b)if(a==dc[b])return!1;return!0},oc=function(){var a=V,b=kc,c=lc,d=b.f();if(!d)return mc(16);var e=null,f;a:{var g=D(d,M,1);for(f=0;f<g.length;++f){for(var k=!0,m=0;m<ec.length;++m)A(g[f],4)==ec[m]&&(k=!1);if(k){g=[];0==d.i().length&&g.push("PsoInvalidVariant");0==A(d,3).length&&g.push("PsoNoAdSlotCodes");f=g;break a}}f=[]}g=c.ja;if(0==f.length)a:{e=D(d,M,1);if(p(g))for(f=0;f<e.length;f++)if(k=e[f],U[A(k,4)])for(var m=D(k,hb,2),l=0;l<
+m.length;l++){var u=m[l],q=A(u,1),u=A(u,2);if(p(q)&&p(u)&&g>=q&&g<=u){e=k;break a}}e=null}else for(k=0;k<f.length;++k)b.sa.push(f[k]);if(!e){f=D(d,M,1);e={};for(k=0;k<f.length;k++)e[A(f[k],4)]=!0;f=null;e[19]||e[8]?f=19:e[16]||e[1]?f=16:0<d.i().length&&0<A(d,3).length&&e[34]&&(f=34);null!=f?(e=new M,B(e,6,3),B(e,4,f),16!=f&&19!=f&&e.qa("pso-ama-fallback")):e=null}(f=!e)||(!p(g)||800>g?f=!1:820>g?(hc(a,["26835111"]),f=!0):(840>g&&hc(a,["26835112"]),f=!1));if(f)return mc(16);(g=e.ka())&&fc(a,g);g=!0;
+A(c.N(),2)&&(Date.now?Date.now():+new Date)<A(c.N(),2)||(fc(a,"pso-ama-exd"),g=!1);A(b.m,11)&&(fc(a,"pso-ama-stl-tmp"),g=!1);g&&fc(a,"pso-ama-elig");2==A(e,6)&&(b=A(e,1),null!=b&&hc(a,[""+b]));if(g&&(2==A(e,6)||1==A(e,6))){d=D(d,M,1);if(null===c.ja)c=[];else{b={};c=[];for(g=0;g<d.length;g++)f=nc(d[g]),null==f||b[f]||(b[f]=!0,c.push(f));b=nc(e);if(null!=b){d=[];b=gc(b);g=!1;if(b)for(f=0;f<c.length;f++)k=gc(c[f]),b==k&&(g=!0),k&&d.push("950"+b+k);g||(d=[]);c=d}else c=[]}hc(a,c)}a=new Sb;a.ba=A(e,5);
+a.J=A(e,4);return a},mc=function(a){var b=new Sb;b.J=a;return b},pc=function(a){a=a.google_ad_modifications=a.google_ad_modifications||{};a.remove_ads_by_default=!0;a.ad_whitelist=[{ad_tag_origin:"pso"}];a.ad_blacklist=[];a.space_collapsing="slot"},nc=function(a){var b;switch(A(a,6)){case 1:b=A(a,4);break;case 2:b=A(a,7)}return null!=b?b:null};var qc=function(a){this.document=a};var W=function(a){H.call(this,a)};r(W,H);W.prototype.getData=function(a){var b=W.Ra.getData.call(this,a),c;a:{c=(new qc(a.document)).document.getElementsByTagName("script");for(var d=0;d<c.length;++d)if(c[d].hasAttribute("data-pso-version")){c=c[d].getAttribute("data-pso-version");break a}c=null}b.sv=c;if(d=I(a).ps||null){c=d.m;var d=d.f(),e=b.wpc;b.wpc=null!=e?e:c.A();b.su=A(c,14);b.tn=c.O();b.ev=d&&A(d,5)}if(a=I(a).ss||null)b.s=a.J,b.st=a.ba;return b};var rc=null,sc=!1,vc=function(a){var b=tc,c=uc;b.addEventListener?(a&&b.addEventListener("DOMContentLoaded",a,!1),c&&b.addEventListener("load",c,!1)):b.attachEvent&&c&&b.attachEvent("onload",c)},xc=function(a){p(rc)&&a.clearInterval&&(a.clearInterval(rc),rc=null);sc||wc(a,!1);wc(a,!0)},yc=function(a,b){try{xc(b);var c=I(b).ss||null;if(c&&c.I){var d=c.I,e=d.B(),f=d.o,g=d.v,k=d.Y,m=d.j.length;e||0!=m||f.push(6);for(var l=new W(m),c=0;c<g.length;c++)l.C(g[c]);if(e&&0==f.length&&null===k)ab(a,a.Qa,a.ca,
+l);else{for(e=0;e<f.length;e++)l.g(f[e]);bb(a,$a(l,k))}}else bb(a,(new W(0)).g(2))}catch(u){bb(a,$a((new W(0)).g(1),u))}I(b).loaded=!0},wc=function(a,b){b||(sc=!0);if((a=I(a).ss||null)&&a.I){a=a.I;try{a.apply(b)}catch(c){a.g(1),null===a.Y&&(a.Y=c)}}},zc=function(){wc(window,!1)};var X=new function(a){this.Qa="pso_success";this.Ea="pso_failure";this.X=this.ca=.01;this.Ha=!1;this.K=a}(window);
+try{var V=window,za,Ac=I(V).config;za=Ac?new O(Ac):null;if(!za)throw Error("No config");var Bc=Aa(10),Cc=Aa(7);X.ca=null!=Bc?Bc:X.ca;X.X=null!=Cc?Cc:X.X;var kc=new lb(za),Dc=kc;I(V).ps=Dc;var Y,lc;if(v("iPad")||v("Android")&&!v("Mobile")||v("Silk")||!(v("iPod")||v("iPhone")||v("Android")||v("IEMobile")))Y=mc(16);else{var Ec,Fc=/^#([^=]*)=(\d+)$/.exec(V.location.hash);if((Ec=Fc&&3==Fc.length&&"pso_strategy"==Fc[1]?+Fc[2]:null)&&U[Ec]){Y=mc(Ec);var Gc=V;jc(Ec)&&pc(Gc)}else{var Ic=V,Jc=kc.m.N(),Z;try{var Kc=
+parseInt(Ic.localStorage.getItem("PSO_EXP0"),10);Z=isNaN(Kc)?null:Kc}catch(a){Z=null}if(null==Z){Z=Math.floor(1024*Math.random());var Lc=Z;try{Ic.localStorage.setItem("PSO_EXP0",Lc.toString())}catch(a){}}lc=new ic(Z,0,Jc);Y=oc()}if(1==Y.ba){var Mc=V;jc(Y.J)&&pc(Mc)}}if(!Y)throw Error("No strategyState created!");var Nc=Y;I(V).ss=Nc;var Oc=V,Pc=Y,Qc=Pc.J;if(p(Qc)){var Rc=U[Qc];Qc&&Rc&&(Pc.I=new Rc(Oc))}var tc=V,uc=ba(yc,X,tc),Sc=ba(xc,tc);switch(tc.document.readyState){case "complete":uc();break;case "interactive":Sc();
+vc();break;default:var Tc=tc,Uc=pb(Tc);Uc.loaded||(Uc.onload=zc);rc=Tc.setInterval(zc,10);vc(Sc)}}catch(a){bb(X,$a(new W(0),a))};})();
+</script></head>
+<body class="post-template-default single single-post postid-190 single-format-standard ">
+<div class="wrapper">
+<header id="branding">
+<div class="info-bar">
+<div class="container clearfix"><div class="social-profiles clearfix">
+<ul><li class="twitter"><a href="https://twitter.com/adumont" title="IT Nerd Space on Twitter" target="_blank"></a></li><li class="linkedin"><a href="https://es.linkedin.com/in/alexandredumont" title="IT Nerd Space on LinkedIn" target="_blank"></a></li>
+</ul>
+</div> </div>
+ 
+</div>
+ 
+<a href="/"><img src="/wp-content/uploads/2016/10/cropped-light-bulb-231416_960_720.jpg" class="header-image" width="960" height="200" alt="IT Nerd Space"> </a>
+<div class="hgroup-wrap">
+<div class="container clearfix">
+<section id="site-logo" class="clearfix">
+<h2 id="site-title"> <a href="/" title="IT Nerd Space" rel="home">
+IT Nerd Space </a> </h2>
+<h2 id="site-description">
+Blog about Cloud, Automation, Android, Smart things&#8230; </h2>
+</section>
+ 
+<button class="menu-toggle">Responsive Menu</button>
+<section class="hgroup-right">
+<nav id="access" class="clearfix"></nav>  <div class="search-toggle"></div>
+ 
+<div id="search-box" class="hide">
+<form action="/" method="get" class="searchform clearfix">
+<label class="assistive-text">
+Search </label>
+<input type="search" placeholder="Search" class="s field" name="s">
+<input type="submit" value="Search" class="search-submit">
+</form>
+ 
+<span class="arrow"></span> </div>
+ 
+</section>
+ 
+</div>
+ 
+</div>
+ 
+<div class="page-title-wrap">
+<div class="container clearfix">
+<h1 class="page-title">How to control your TP-Link HS100 smartplug from Internet</h1>
+ 
+</div>
+</div>
+</header>
+<div id="main">
+<div class="container clearfix">
+<div id="primary" class="no-margin-left">
+<div id="content"><section id="post-190" class="post-190 post type-post status-publish format-standard has-post-thumbnail hentry category-android category-automation category-how-to tag-iot tag-smart-things">
+<article>
+<figure class="post-featured-image"><a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/" title="How to control your TP-Link HS100 smartplug from Internet"><img width="670" height="300" src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?resize=670%2C300" class="lazy lazy-hidden attachment-featured size-featured wp-post-image" alt="How to control your TP-Link HS100 smartplug from Internet" title="How to control your TP-Link HS100 smartplug from Internet" data-attachment-id="231" data-permalink="/smartthings-2/" data-orig-file="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?fit=1024%2C512" data-orig-size="1024,512" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="#SmartThings" data-image-description="" data-medium-file="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?fit=300%2C150" data-large-file="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?fit=700%2C350"/><noscript><img width="670" height="300" src="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?resize=670%2C300" class="attachment-featured size-featured wp-post-image" alt="How to control your TP-Link HS100 smartplug from Internet" title="How to control your TP-Link HS100 smartplug from Internet" data-attachment-id="231" data-permalink="/smartthings-2/" data-orig-file="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?fit=1024%2C512" data-orig-size="1024,512" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="#SmartThings" data-image-description="" data-medium-file="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?fit=300%2C150" data-large-file="https://i1.wp.com//wp-content/uploads/2017/01/SmartThings-1.png?fit=700%2C350"/></noscript></a><span class="arrow"></span></figure> <header class="entry-header">
+<div class="entry-meta"> <span class="cat-links">
+<a href="/category/android/" rel="category tag">Android</a>, <a href="/category/automation/" rel="category tag">Automation</a>, <a href="/category/how-to/" rel="category tag">How-to</a> </span> 
+</div>
+ 
+<h2 class="entry-title">
+How to control your TP-Link HS100 smartplug from Internet </h2>
+ 
+<div class="entry-meta clearfix">
+<div class="by-author vcard author"><span class="fn"><a href="/author/alex/" title="Alex D.">
+Alex D. </a></span></div>
+<div class="date updated"><a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/" title="2:04 pm">
+January 22, 2017 </a></div>
+<div class="comments">
+<a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comments"><span class="dsq-postid" data-dsqidentifier="190 /?p=190">121 Comments</span></a> </div>
+</div>
+ 
+</header>
+ 
+<div class="entry-content clearfix">
+<p>I recently acquired a TP-Link HS100 smart plug. <a href="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg"><img data-attachment-id="193" data-permalink="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/hs100_un_v1_1116_large_2-00_20151006093353/" data-orig-file="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=960%2C720" data-orig-size="960,720" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="HS100_un_V1_1116_large_2.00_20151006093353" data-image-description="" data-medium-file="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=300%2C225" data-large-file="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=700%2C525" class="lazy lazy-hidden size-thumbnail wp-image-193 alignright" src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150" alt="" data-lazy-srcset="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150 150w, https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=100%2C100 100w, https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=2&amp;resize=150%2C150 300w, https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=3&amp;resize=150%2C150 450w" sizes="(max-width: 150px) 100vw, 150px" data-recalc-dims="1"/><noscript><img data-attachment-id="193" data-permalink="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/hs100_un_v1_1116_large_2-00_20151006093353/" data-orig-file="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=960%2C720" data-orig-size="960,720" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="HS100_un_V1_1116_large_2.00_20151006093353" data-image-description="" data-medium-file="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=300%2C225" data-large-file="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=700%2C525" class="size-thumbnail wp-image-193 alignright" src="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150" alt="" srcset="https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150 150w, https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=100%2C100 100w, https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=2&amp;resize=150%2C150 300w, https://i1.wp.com//wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=3&amp;resize=150%2C150 450w" sizes="(max-width: 150px) 100vw, 150px" data-recalc-dims="1"/></noscript></a>Once you install and register the plug and the companion app (Kasa), you&#8217;ll be able to do some cool things like turn on/off the plug from your smartphone, schedule on/off at some time. You can also put the plug in Away Mode, so that the plug will randomly turn on/off in the specified time/date interval.</p>
+ 
+<div class="wpappbox wpappbox-2ca5ffcc0172103179d8b467fbc7860f googleplay colorful simple">
+<div class="qrcode"><img class="lazy lazy-hidden" src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.tplink.kasa_android%26hl%3Den&chs=200x200&chld=L|0" alt="Kasa for Mobile"/><noscript><img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.tplink.kasa_android%26hl%3Den&chs=200x200&chld=L|0" alt="Kasa for Mobile"/></noscript></div>
+<div class="appicon">
+<a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=com.tplink.kasa_android&hl=en"><img class="lazy lazy-hidden" src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="//lh3.googleusercontent.com/e3xV1TP8CpuDqcCvKsVTWaW1SJG-8uOCOs5x-fmdhz53lj3iQfFO_PjC8rQpOJnX0Lc=w128" alt="Kasa for Mobile"/><noscript><img src="//lh3.googleusercontent.com/e3xV1TP8CpuDqcCvKsVTWaW1SJG-8uOCOs5x-fmdhz53lj3iQfFO_PjC8rQpOJnX0Lc=w128" alt="Kasa for Mobile"/></noscript></a>
+</div>
+<div class="applinks">
+<div class="appbuttons">
+<a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=com.tplink.kasa_android&hl=en">Download</a>
+<span onMouseOver="jQuery('.wpappbox-2ca5ffcc0172103179d8b467fbc7860f .qrcode').show();" onMouseOut="jQuery('.wpappbox-2ca5ffcc0172103179d8b467fbc7860f .qrcode').hide();">QR-Code</span>
+</div>
+</div>
+<div class="appdetails">
+<div class="apptitle"><a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=com.tplink.kasa_android&hl=en" title="Kasa for Mobile" class="apptitle">Kasa for Mobile</a></div>
+<div class="developer">Developer: <a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/developer?id=TP-LINK+Research+America">TP-LINK Research America</a></div>
+<div class="price"><span>Price: Free</span> <div title="4.5 of 5 stars" class="rating-stars stars-monochrome stars45"></div></div>
+</div>
+</div> 
+<p>These are already really cool features, but I wanted to be able to do more with it: for example, turn on the plug when I arrive home, and turn it off 5min after I leave home. This is of course out of the scope of the Kasa app features, but I was more thinking about being able to control the plug from a smartphone automation App like Tasker, or a cloud service like IFTTT.</p>
+<p>While there are some <a href="https://www.softscheck.com/en/reverse-engineering-tp-link-hs110/">resources</a> available explaining how to control the TP-Link HS100 plug from another device connected to the same Wifi network, I haven&#8217;t been able to find any that would explain how to do it via the TP-Link web service, so this is what I&#8217;ll show here.</p>
+<p>In this post I&#8217;ll show how to change the relay state of the plug via command line from any device connected to Internet, <strong>not only from the local Wifi</strong>, which can then be called from a script, or from Tasker on Android.</p>
+<h1>Arquitecture</h1>
+<p>There are basically 3 components involved here:</p>
+<ul>
+<li>A web service from TP-Link</li>
+<li>The Kasa app that runs on your Smartphone, connected to Internet (via your Wifi network, or any network for that matter). It does (at least) two things:
+<ul>
+<li>Periodically get the status of the plug (is it turned on/off), and show the status in teh app (green icon if the plug is switched on). This happens every two seconds, when the app is in foreground and visible.</li>
+<li>When the user toggles the switch from the app, it will send the new relay state change request to the TP-Link web service.</li>
+</ul>
+</li>
+<li>The plug, connected to Internet via your wifi network: It will periodically contact the TP-Link web service for any status change, like a request to turn on/off.</li>
+</ul>
+<h1>Communication overview</h1>
+<p>This is how the Kasa app communicates itself with the TP-Link web service. In this case when the user switches the plug On, the app will send an HTTP POST request (over SSL) like this one:</p>
+<pre>POST https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">74adcc7e-64f7-47c1-a751-dece6d2f4704</span>&amp;appName=Kasa_Android&amp;termID=<span style="color: #800080;">c69d10e5-5307-4602-b2c8-eee8f3761238</span>&amp;appVer=1.4.4.607&amp;ospf=Android+6.0.1&amp;netType=wifi&amp;locale=en_US HTTP/1.1
+Content-Type: application/json
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; <em>XXPhoneModelXX</em>)
+Connection: Keep-Alive
+Content-Length: 160
+Host: eu-wap.tplinkcloud.com
+
+{
+ "method":"passthrough",
+ "params":{
+ "deviceId":"<span style="color: #800080;">80067AC4FDBD41C54C55896BFA28EAD38A87A5A4</span>",
+ "requestData":"{\"system\":{\"set_relay_state\":{\"state\":<strong><span style="color: #008000;">1</span></strong>}}}"
+ }
+}</pre>
+<p>To which the TP-Link server will respond (when successful):</p>
+<pre>{
+ "error_code":0,
+ "result":{
+ "responseData":"{\"system\":{\"set_relay_state\":{\"err_code\":0}}}"
+ }
+}</pre>
+<p>As expected, almost instantly, the plug will switch On.</p>
+<p>I have highlighted 4 fields/values in the request above. This values are specific to you and your plug. This is how the TP-Link web service identifies you and which of your plugs you want to switch.</p>
+<ul>
+<li><strong>Token</strong> (token=74adcc7e-64f7-47c1-a751-dece6d2f4704): passed in the URL, this is acting as a authentication. The Kasa app obtains it from the TP-Link server when you log in to the service via the App. The user and passwords are not used anymore after that. All communications use the token.</li>
+<li><strong>DeviceID</strong> (&#8220;deviceId&#8221;:&#8221;80067AC4FDBD41C54C55896BFA28EAD38A87A5A4&#8243;): passed in the Json payload, it references the device we wan&#8217;t to control.</li>
+<li><strong>TermID</strong> (termID=c69d10e5-5307-4602-b2c8-eee8f3761238): ID of the Client (the Kasa app installed in that particular phone). This doesn&#8217;t seem to be a compulsory field.</li>
+<li><strong>state</strong>: this is the desired state we want to put the relay into. 1 for On, 0 for Off.</li>
+</ul>
+<p><span style="text-decoration: underline;">Note</span>: I have changed all the values shown above, to avoid having anyone control my plug by error. I have also formated the Json payloads.</p>
+<p>Knowing that, we can now reproduce the same requests, for example using curl, from the command line (even in a Tasker task!). The TP-Link server will have aboslutely no way of telling of the request was originating from the Kasa app or a script.</p>
+<p>Now, let see how we can call again the same request from a linux command line using curl. I have removed some parameters, like the User-Agent, and some others in the URL query string, and it still works, so I assume they eventually use them for statistical reasons only:</p>
+<pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=74adcc7e-64f7-47c1-a751-dece6d2f4704 HTTP/1.1" \
+ --data '{"method":"passthrough", "params": {"deviceId": "80067AC4FDBD41C54C55896BFA28EAD38A87A5A4", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":1}}}" }}' \
+--header "Content-Type: application/json"</pre>
+<p>Of course, we need a way to identify the value of this fields. That&#8217;s what I&#8217;ll cover below.</p>
+<h1>Data extraction</h1>
+<p><span style="color: #ff0000;"><strong>UPDATE</strong> (06/20/2017): this &#8220;Data extraction&#8221; part is now obsolete. I leave it here for historical purpose. <span style="color: #339966;">Instead you can now follow the following steps:</span></span></p>
+<ol>
+<li><span style="color: #ff0000;"><a href="/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/">Authenticate to TP-Link cloud API and get a token</a></span></li>
+<li><span style="color: #ff0000;"><a href="/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/">Get the end point URL and Device ID</a></span></li>
+</ol>
+<p><span style="color: #ff0000;"><em><strong>OBSOLETE CONTENT STARTS HERE</strong></em></span></p>
+<p>This is what we&#8217;ll need:</p>
+<ol>
+<li>Android phone with Kasa app installed and already registred, with the plug added to the app</li>
+<li>Computer with some tools to unpack the Android Backup file (adb, python, sqlite3,&#8230;)</li>
+<li>Phone with adb enabled</li>
+</ol>
+<p>First let&#8217;s take an Android Backup of the Kasa app:</p>
+<pre>adb backup -f backup.ab com.tplink.kasa_android</pre>
+<p>Now let&#8217;s unpack the backup with this one-liner:</p>
+<pre>dd if=backup.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" | tar -xvf -</pre>
+<p>Now we just need to find the relevant information. I show you how to retrieve the values for each field:</p>
+<ul>
+<li><strong>Token</strong></li>
+</ul>
+<pre>$ sqlite3 db/iot.1.db "select token from accounts;"
+<span style="color: #800080;">74adcc7e-64f7-47c1-a751-dece6d2f4704</span></pre>
+<ul>
+<li><strong>deviceID</strong></li>
+</ul>
+<pre>$ sqlite3 db/iot.1.db "select deviceAlias,deviceID from devices;"My Smart Plug|<span style="color: #800080;">80067AC4FDBD41C54C55896BFA28EAD38A87A5A4</span></pre>
+<ul>
+<li><strong>termId</strong></li>
+</ul>
+<pre>$ cat f/INSTALLATION
+<span style="color: #800080;">c69d10e5-5307-4602-b2c8-eee8f3761238</span></pre>
+<p>For people on Windows, some users reported in the comments below that you can use Android Backup Extractor (ABE) to extract the backup, instead of dd. See these links:</p>
+<ul>
+<li><a href="https://sourceforge.net/projects/adbextractor/">https://sourceforge.net/projects/adbextractor/</a></li>
+<li><a href="https://github.com/nelenkov/android-backup-extractor">https://github.com/nelenkov/android-backup-extractor</a></li>
+<li><a href="https://forum.xda-developers.com/showthread.php?t=2011811">https://forum.xda-developers.com/showthread.php?t=2011811</a></li>
+</ul>
+<p><span style="color: #ff0000;"><em><strong>OBSOLETE CONTENT ENDS HERE</strong></em></span></p>
+<h1>Now, control the plug without the Kasa App</h1>
+<p>If you follow these steps above you can extract the token and device ID corresponding to your Kasa app and smartplug. You can now control the smart plug from anywhere, without the need to use the Kasa app. For example, you can use the curl expression below, after you replace the values with yours:</p>
+<ul>
+<li><strong>Turn On the plug:</strong></li>
+</ul>
+<pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">YOUR_TOKEN_HERE HTTP</span>/1.1" \
+  --data '{"method":"passthrough", "params": {"deviceId": "<span style="color: #800080;">YOUR_DEVICEID_HERE</span>", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":<span style="color: #339966;"><strong>1</strong></span>}}}" }}' \
+  --header "Content-Type: application/json"</pre>
+<ul>
+<li><strong>Turn Off the plug:</strong></li>
+</ul>
+<pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">YOUR_TOKEN_HERE HTTP</span>/1.1" \
+ --data '{"method":"passthrough", "params": {"deviceId": "<span style="color: #800080;">YOUR_DEVICEID_HERE</span>", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":<span style="color: #339966;"><strong>0</strong></span>}}}" }}' \
+ --header "Content-Type: application/json"</pre>
+<h1 id="CommonIssues">Common issues</h1>
+<ul>
+<li><strong><em>AppServerURL</em></strong>: You&#8217;ll need to change the URL used to control the plug with the correct one specific for your plug: <a href="/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/" target="_blank" rel="noopener noreferrer">See how to find it here</a>.</li>
+<li><span style="color: #999999;"><strong><span style="color: #ff6600;">[obsolete]</span></strong>{&#8220;error_code&#8221;:-20580,&#8221;msg&#8221;:&#8221;<strong>Account is not binded to the device</strong>&#8220;}: Some have reported issues with the URL eu-wap.tplinkcloud.com used in this tutorial. Here are all the known (to me) URLs of different TP-Link backend instances. If you have some problem like the previous error, try a different URL:</span>
+<ul>
+<li><span style="color: #999999;"><strong>use1-wap.tplinkcloud.com</strong> if you are near the <strong>US</strong> region</span></li>
+<li><span style="color: #999999;"><b>aps</b><strong>1-wap.tplinkcloud.com</strong> if you are near the <strong>Asia Pacific</strong> region</span></li>
+<li><span style="color: #999999;"><strong>eu-wap.tplinkcloud.com</strong> if you are near the <strong>Europe</strong> region</span></li>
+<li><span style="color: #999999;"><b>wap.tplinkcloud.com, </b>without any region prefix<strong><span style="color: #ff6600;">[/obsolete]</span></strong></span></li>
+</ul>
+</li>
+<li>If you get an <b>expired or invalid token</b> error, logout from Kasa app, then login again with your account and extract again the token from the app. Some have needed to uninstall the app completely, reinstall it and start over.</li>
+<li><strong>Be sure to enable Remote Control of the plug</strong>. You will find the option in the Kasa App, enter the Plug, then there&#8217;s a Plug settings button. There enable Remote control.</li>
+</ul>
+<p>If you have any questions or comment, please, do not hesitate to let me know, using the comments below :).</p>
+<p>In future posts I&#8217;ll show how to integrate your HS100 smart plug with the cloud Automation service IFTTT (<a href="/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/">see here</a>), and how to <a href="/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/">control it from the Android Automation app Tasker</a> or <a href="/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/">your Smartwatch</a>, as well as <a href="/2017/01/29/get-the-state-of-your-hs100-smart-plug/">how to get the state (On/Off) of the plug</a>.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-190" class="share-linkedin sd-button share-icon" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/?share=linkedin" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-190" class="share-twitter sd-button share-icon" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/?share=twitter" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-jetpack-whatsapp"><a rel="nofollow" data-shared="" class="share-jetpack-whatsapp sd-button share-icon" href="whatsapp://send?text=How%20to%20control%20your%20TP-Link%20HS100%20smartplug%20from%20Internet http%3A%2F%2F%2F2017%2F01%2F22%2Fhow-to-control-your-tp-link-hs100-smartplug-from-internet%2F" target="_blank" title="Click to share on WhatsApp"><span>WhatsApp</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/?share=reddit" target="_blank" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-190" class="share-facebook sd-button share-icon" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/?share=facebook" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-190" class="share-google-plus-1 sd-button share-icon" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/?share=google-plus-1" target="_blank" title="Click to share on Google+"><span>Google</span></a></li><li class="share-pocket"><a rel="nofollow" data-shared="" class="share-pocket sd-button share-icon" href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/?share=pocket" target="_blank" title="Click to share on Pocket"><span>Pocket</span></a></li><li class="share-end"></li></ul></div></div></div>
+<div id='jp-relatedposts' class='jp-relatedposts'>
+<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div> </div>
+</header>
+ 
+<footer class="entry-meta clearfix"> <span class="tag-links">
+<a href="/tag/iot/" rel="tag">IoT</a> <a href="/tag/smart-things/" rel="tag">Smart Things</a> </span> 
+</footer>
+ 
+<ul class="default-wp-page clearfix">
+<li class="previous">
+<a href="/2017/01/03/batch-to-open-urls-and-take-screenshots/" rel="prev"><span class="meta-nav">&larr;</span> Script to open URLs and take screenshots</a> </li>
+<li class="next">
+<a href="/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/" rel="next">Control your TP-Link HS100 smart plug with IFTTT <span class="meta-nav">&rarr;</span></a> </li>
+</ul>
+<div id="disqus_thread">
+<div id="dsq-content">
+<ul id="dsq-comments">
+<li class="comment even thread-even depth-1" id="dsq-comment-13">
+<div id="dsq-comment-header-13" class="dsq-comment-header">
+<cite id="dsq-cite-13">
+<span id="dsq-author-user-13">harvard2006</span>
+</cite>
+</div>
+<div id="dsq-comment-body-13" class="dsq-comment-body">
+<div id="dsq-comment-message-13" class="dsq-comment-message"><p>Is it possible to learn the token and deviceID with an iphone?</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-admin odd alt depth-2" id="dsq-comment-14">
+<div id="dsq-comment-header-14" class="dsq-comment-header">
+<cite id="dsq-cite-14">
+<span id="dsq-author-user-14">admin</span>
+</cite>
+</div>
+<div id="dsq-comment-body-14" class="dsq-comment-body">
+<div id="dsq-comment-message-14" class="dsq-comment-message"><p>Yes it should be possible, I&#8217;ll try to write about it in a future post</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-15">
+<div id="dsq-comment-header-15" class="dsq-comment-header">
+<cite id="dsq-cite-15">
+<a id="dsq-author-user-15" href="http://adumont.serveblog.net/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-15" class="dsq-comment-body">
+<div id="dsq-comment-message-15" class="dsq-comment-message"><p>It should be possible, I&#8217;ll try to post about. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-26">
+<div id="dsq-comment-header-26" class="dsq-comment-header">
+<cite id="dsq-cite-26">
+<span id="dsq-author-user-26">Craig Poirier</span>
+</cite>
+</div>
+<div id="dsq-comment-body-26" class="dsq-comment-body">
+<div id="dsq-comment-message-26" class="dsq-comment-message"><p>Yes, I would really appreciate that also. I have no experience in this type of data extraction, so please make it as dummy-proof as possible please 😀</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-28">
+<div id="dsq-comment-header-28" class="dsq-comment-header">
+<cite id="dsq-cite-28">
+<span id="dsq-author-user-28">Craig Poirier</span>
+</cite>
+</div>
+<div id="dsq-comment-body-28" class="dsq-comment-body">
+<div id="dsq-comment-message-28" class="dsq-comment-message"><p>FYI, I was able to extract and decrypt the TP-Link file from my iPhone via iExplorer (<a href="https://macroplant.com/iexplorer/release-notes?v_major=4&#038;os=pc" rel="nofollow">https://macroplant.com/iexplorer/release-notes?v_major=4&#038;os=pc</a>). Once the file was decrypted and exported to my hard drive, I used Notepad++ to find the token and DeviceID. They were in row 89 of the .db file, although that will likely differ depending on how you view the file.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-5" id="dsq-comment-29">
+<div id="dsq-comment-header-29" class="dsq-comment-header">
+<cite id="dsq-cite-29">
+<a id="dsq-author-user-29" href="http://adumont.serveblog.net/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-29" class="dsq-comment-body">
+<div id="dsq-comment-message-29" class="dsq-comment-message"><p>Thanks Craig, great news! I assume this requires Jailbreak, right?</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-30">
+<div id="dsq-comment-header-30" class="dsq-comment-header">
+<cite id="dsq-cite-30">
+<span id="dsq-author-user-30">Craig Poirier</span>
+</cite>
+</div>
+<div id="dsq-comment-body-30" class="dsq-comment-body">
+<div id="dsq-comment-message-30" class="dsq-comment-message"><p>No Jailbreak necessary. I didn&#8217;t download anything to my phone, and I just opened the backup file from my last iPhone sync. Once I downloaded iExplorer, the decrypting just required my iTunes password. </p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-31">
+<div id="dsq-comment-header-31" class="dsq-comment-header">
+<cite id="dsq-cite-31">
+<span id="dsq-author-user-31">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-31" class="dsq-comment-body">
+<div id="dsq-comment-message-31" class="dsq-comment-message"><p>Thanks for the tip, Craig. I&#8217;m pulling the file, but it doesn&#8217;t have anything beyond row ~85, just &#8216;garbage&#8217;. I tried values on 85/86 but i get expired token. Tried logging out/in, deleting the app. When I use a sqlite browser, it shows 0 records for accounts and devices</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-32">
+<div id="dsq-comment-header-32" class="dsq-comment-header">
+<cite id="dsq-cite-32">
+<span id="dsq-author-user-32">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-32" class="dsq-comment-body">
+<div id="dsq-comment-message-32" class="dsq-comment-message"><p>Doing a wireshark trace, looks like my iPhone is talking to:<br/>
+use1-wap.tplinkcloud.com</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-33">
+<div id="dsq-comment-header-33" class="dsq-comment-header">
+<cite id="dsq-cite-33">
+<span id="dsq-author-user-33">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-33" class="dsq-comment-body">
+<div id="dsq-comment-message-33" class="dsq-comment-message"><p>Just as a follow-up, I borrowed a friend&#8217;s android tablet and was able to extract the data correctly. Wondering why the iphone data wasn&#8217;t there&#8230;</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-35">
+<div id="dsq-comment-header-35" class="dsq-comment-header">
+<cite id="dsq-cite-35">
+<span id="dsq-author-user-35">Craig Poirier</span>
+</cite>
+</div>
+<div id="dsq-comment-body-35" class="dsq-comment-body">
+<div id="dsq-comment-message-35" class="dsq-comment-message"><p>Boom! I found my other 4 device IDs from the iPhone back-up file within the Kasa app folder. Unlike the initial 2 device IDs I found, the other 4 were harder to find because they didn&#8217;t say &#8220;deviceId:&#8221; next to them. Instead, they all started with 8006, so I did a Ctrl + f to look for other 8006 instances within the Notepad++ file. From there, I did trial and error w/ IFTTT recipes until I figured out which device ID mapped to each device. </p>
+<p>Although it&#8217;s great to have everything TP-Link connected to Google Home, it&#8217;s going to be pretty cumbersome to reproduce the scenes I easily created in Alexa by grouping my products.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-36">
+<div id="dsq-comment-header-36" class="dsq-comment-header">
+<cite id="dsq-cite-36">
+<a id="dsq-author-user-36" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-36" class="dsq-comment-body">
+<div id="dsq-comment-message-36" class="dsq-comment-message"><p>Thanks Craig for the pointers!<br/>
+Re. IFTTT maybe have a look at Conjure <a href="https://beta.conjureapp.com" rel="nofollow">https://beta.conjureapp.com</a>. Not tried myself yet, but looks like it might match your use case here. </p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-37">
+<div id="dsq-comment-header-37" class="dsq-comment-header">
+<cite id="dsq-cite-37">
+<span id="dsq-author-user-37">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-37" class="dsq-comment-body">
+<div id="dsq-comment-message-37" class="dsq-comment-message"><p>Where else did you find device IDs other than iot.db?</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-38">
+<div id="dsq-comment-header-38" class="dsq-comment-header">
+<cite id="dsq-cite-38">
+<span id="dsq-author-user-38">Craig Poirier</span>
+</cite>
+</div>
+<div id="dsq-comment-body-38" class="dsq-comment-body">
+<div id="dsq-comment-message-38" class="dsq-comment-message"><p>They were all in the iot.db file. </p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-39">
+<div id="dsq-comment-header-39" class="dsq-comment-header">
+<cite id="dsq-cite-39">
+<span id="dsq-author-user-39">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-39" class="dsq-comment-body">
+<div id="dsq-comment-message-39" class="dsq-comment-message"><p>I&#8217;d sure like to figure out why my iot.db file contains only a location record. Accounts, Devices, and Scenes tables are all empty. Yet the app works correctly with all four devices I have</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-40">
+<div id="dsq-comment-header-40" class="dsq-comment-header">
+<cite id="dsq-cite-40">
+<span id="dsq-author-user-40">Craig Poirier</span>
+</cite>
+</div>
+<div id="dsq-comment-body-40" class="dsq-comment-body">
+<div id="dsq-comment-message-40" class="dsq-comment-message"><p>What did you use to view the db? I initially used SQLite and couldn&#8217;t find any records in the tables (accounts, devices, scenes). Knowing there had to be data sitting there, I used Notepad++ to view the file. 99% of the file was junk &#8220;Null&#8221; and random characters.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-41">
+<div id="dsq-comment-header-41" class="dsq-comment-header">
+<cite id="dsq-cite-41">
+<span id="dsq-author-user-41">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-41" class="dsq-comment-body">
+<div id="dsq-comment-message-41" class="dsq-comment-message"><p>I was using DB Browser for SQLite on the Mac. It shows the structure correctly, but no data. I&#8217;ve looked at the file in TextWrangler and didn&#8217;t find anything originally. I will go back and look again</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-42">
+<div id="dsq-comment-header-42" class="dsq-comment-header">
+<cite id="dsq-cite-42">
+<span id="dsq-author-user-42">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-42" class="dsq-comment-body">
+<div id="dsq-comment-message-42" class="dsq-comment-message"><p>Nope, nothing there. Even used 0xED to look at the byte level. Just no device data in that file from the iPhone.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-43">
+<div id="dsq-comment-header-43" class="dsq-comment-header">
+<cite id="dsq-cite-43">
+<span id="dsq-author-user-43">Jim Harry</span>
+</cite>
+</div>
+<div id="dsq-comment-body-43" class="dsq-comment-body">
+<div id="dsq-comment-message-43" class="dsq-comment-message"><p>For others pulling from the iPhone, the token can be found at the bottom of Library/Preferences/com.tplink.kasa-ios.plist</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-34">
+<div id="dsq-comment-header-34" class="dsq-comment-header">
+<cite id="dsq-cite-34">
+<a id="dsq-author-user-34" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-34" class="dsq-comment-body">
+<div id="dsq-comment-message-34" class="dsq-comment-message"><p>Thanks for reporting that URL as well. I&#8217;ve added it top the Common Issues section,it might help others as well.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-89">
+<div id="dsq-comment-header-89" class="dsq-comment-header">
+<cite id="dsq-cite-89">
+<span id="dsq-author-user-89">Ben Gunsberger</span>
+</cite>
+</div>
+<div id="dsq-comment-body-89" class="dsq-comment-body">
+<div id="dsq-comment-message-89" class="dsq-comment-message"><p>Hi Craig, which file are you talking about? The only one I could find was com.tplink.kasa-ios.plist. It has the token but I can&#8217;t seem to find the deviceID, even when opening it with plist viewer. Thanks.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-45">
+<div id="dsq-comment-header-45" class="dsq-comment-header">
+<cite id="dsq-cite-45">
+<span id="dsq-author-user-45">Nicholas John</span>
+</cite>
+</div>
+<div id="dsq-comment-body-45" class="dsq-comment-body">
+<div id="dsq-comment-message-45" class="dsq-comment-message"><p>You can proxy it through fiddler its easy.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-46">
+<div id="dsq-comment-header-46" class="dsq-comment-header">
+<cite id="dsq-cite-46">
+<span id="dsq-author-user-46">Nicholas John</span>
+</cite>
+</div>
+<div id="dsq-comment-body-46" class="dsq-comment-body">
+<div id="dsq-comment-message-46" class="dsq-comment-message"><p>Basically you connect to your wifi and get your phone to proxy traffic through fiddler. If you install the fidler certificate it allows fidler to decypt the traffic and if you take a look when opening the kasa app you&#8217;ll see it records the device ID and also your token. This works for any phone.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="dsq-comment-47">
+<div id="dsq-comment-header-47" class="dsq-comment-header">
+<cite id="dsq-cite-47">
+<span id="dsq-author-user-47">Martin N</span>
+</cite>
+</div>
+<div id="dsq-comment-body-47" class="dsq-comment-body">
+<div id="dsq-comment-message-47" class="dsq-comment-message"><p>Hi Nicholas. Any chance you could explain what you mean about Fiddler to a complete novice like me? Appreciate your help,</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-5" id="dsq-comment-48">
+<div id="dsq-comment-header-48" class="dsq-comment-header">
+<cite id="dsq-cite-48">
+<span id="dsq-author-user-48">Nicholas John</span>
+</cite>
+</div>
+<div id="dsq-comment-body-48" class="dsq-comment-body">
+<div id="dsq-comment-message-48" class="dsq-comment-message"><p>Hi Martin,</p>
+<p>So basically what fiddler does is lets you simulate a &#8220;man in the middle&#8221; attack. That is to say you&#8217;re intercepting traffic before it gets to its destination. In this case its http traffic going to the wifi plug.<br/>
+To achieve this we set up our iphone to run through a proxy, fiddler&#8217;s proxy. We then install a certificate on the iphone (which we remove later) that allows us to decrypt the traffic. </p>
+<p>Google &#8220;how to proxy iphone through fiddler&#8221; and they have a guide on their site on how to do this.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-49">
+<div id="dsq-comment-header-49" class="dsq-comment-header">
+<cite id="dsq-cite-49">
+<span id="dsq-author-user-49">Nicholas John</span>
+</cite>
+</div>
+<div id="dsq-comment-body-49" class="dsq-comment-body">
+<div id="dsq-comment-message-49" class="dsq-comment-message"><p><a href="http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForiOS" rel="nofollow">http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForiOS</a></p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-18">
+<div id="dsq-comment-header-18" class="dsq-comment-header">
+<cite id="dsq-cite-18">
+<span id="dsq-author-user-18">David Cooke</span>
+</cite>
+</div>
+<div id="dsq-comment-body-18" class="dsq-comment-body">
+<div id="dsq-comment-message-18" class="dsq-comment-message"><p>Hi Alexandre, </p>
+<p>When I perform the tutorial above I am able to extract all of the information without an issue. When trying to send post commands using my information I receive the following error</p>
+<p>{&#8220;error_code&#8221;:-20651,&#8221;msg&#8221;:&#8221;Token expired&#8221;}</p>
+<p>Any idea what could be causing this problem? Thanks for your help Alexandre.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-19">
+<div id="dsq-comment-header-19" class="dsq-comment-header">
+<cite id="dsq-cite-19">
+<a id="dsq-author-user-19" href="http://adumont.serveblog.net/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-19" class="dsq-comment-body">
+<div id="dsq-comment-message-19" class="dsq-comment-message"><p>That&#8217;s weird. Check that you have enabled the Remote Control of your smart plug (in the Kasa App, open your plug, then it&#8217;s settings, and check the Remote control). </p>
+<p>Then, disconnect your phone from your local WiFi (where the plug is connected), you should now be using data connection. Now try the Kasa App, and check that you can turn on/off the plug from the app. </p>
+<p>Try again the curl commands. If it still fails, I&#8217;d suggest you go to the Kasa App, menu, View Account, Sign out of Kasa. Then sign in again, and then only, you do again the tutorial above to get the new token and try again. </p>
+<p>Don&#8217;t hesitate to report your findings here to help anyone else that may be in the same situation as yours, and so we can help you further if needed. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-96">
+<div id="dsq-comment-header-96" class="dsq-comment-header">
+<cite id="dsq-cite-96">
+<span id="dsq-author-user-96">Josiah Eubank</span>
+</cite>
+</div>
+<div id="dsq-comment-body-96" class="dsq-comment-body">
+<div id="dsq-comment-message-96" class="dsq-comment-message"><p>I am having this issue as well. Have attempted to sign in/out and even reinstall the app/clear data. Immediately upon attempting use the token is expired.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="dsq-comment-101">
+<div id="dsq-comment-header-101" class="dsq-comment-header">
+<cite id="dsq-cite-101">
+<a id="dsq-author-user-101" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-101" class="dsq-comment-body">
+<div id="dsq-comment-message-101" class="dsq-comment-message"><p>Do you have the Kasa App installed on more than one device? </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-5" id="dsq-comment-102">
+<div id="dsq-comment-header-102" class="dsq-comment-header">
+<cite id="dsq-cite-102">
+<span id="dsq-author-user-102">Josiah Eubank</span>
+</cite>
+</div>
+<div id="dsq-comment-body-102" class="dsq-comment-body">
+<div id="dsq-comment-message-102" class="dsq-comment-message"><p>Not the app directly, however Amazon Alexa is connected to the tp-link/kasa system.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-106">
+<div id="dsq-comment-header-106" class="dsq-comment-header">
+<cite id="dsq-cite-106">
+<span id="dsq-author-user-106">Joe H</span>
+</cite>
+</div>
+<div id="dsq-comment-body-106" class="dsq-comment-body">
+<div id="dsq-comment-message-106" class="dsq-comment-message"><p>I&#8217;ve had the same problem, I have one app and Alexa connected to TP-Link/Kasa and when I send a CURL or use a REST Client like POSTMAN I get the {&#8220;error_code&#8221;:-20651,&#8221;msg&#8221;:&#8221;Token expired&#8221;} Response, even after uninstalling the app. Maybe activating Alexa on Kasa changes how the authentication works? Looking at the communication from Kasa though, the app uses the same token each time and works fine&#8230; strange!</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even depth-3" id="dsq-comment-152">
+<div id="dsq-comment-header-152" class="dsq-comment-header">
+<cite id="dsq-cite-152">
+<span id="dsq-author-user-152">Megan Marshall</span>
+</cite>
+</div>
+<div id="dsq-comment-body-152" class="dsq-comment-body">
+<div id="dsq-comment-message-152" class="dsq-comment-message"><p>Did all these steps, however I&#8217;m still getting a token expired error. However, I have the kasa app only installed on my iPhone and nothing else.</p>
+<p>Any idea how to fix this?</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="dsq-comment-153">
+<div id="dsq-comment-header-153" class="dsq-comment-header">
+<cite id="dsq-cite-153">
+<a id="dsq-author-user-153" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-153" class="dsq-comment-body">
+<div id="dsq-comment-message-153" class="dsq-comment-message"><p>When I get some time I&#8217;ll write how one can do the full process: login(and get token) /getdevices(retrieve deviceid from alias) /power on off.<br/>
+I&#8217;ve got it working in NodeRed BTW. </p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-20">
+<div id="dsq-comment-header-20" class="dsq-comment-header">
+<cite id="dsq-cite-20">
+<span id="dsq-author-user-20">David Cooke</span>
+</cite>
+</div>
+<div id="dsq-comment-body-20" class="dsq-comment-body">
+<div id="dsq-comment-message-20" class="dsq-comment-message"><p>I gave this another go, and tried getting a new token, and ensured I can turn the plugs on and off on my cellular network. When trying to run the final terminal input, I am now getting a new error</p>
+<p>{&#8220;error_code&#8221;:-20571,&#8221;msg&#8221;:&#8221;Device is offline&#8221;}</p>
+<p>Not sure why when they are clearly online&#8230;Any ideas? Thanks again</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-59">
+<div id="dsq-comment-header-59" class="dsq-comment-header">
+<cite id="dsq-cite-59">
+<span id="dsq-author-user-59">Martin Bans</span>
+</cite>
+</div>
+<div id="dsq-comment-body-59" class="dsq-comment-body">
+<div id="dsq-comment-message-59" class="dsq-comment-message"><p>I also ran into the same issue, however I&#8217;m based out in Hong Kong so was certain must be related to an Asia based host rather than eu-wap.</p>
+<p>Set up Fiddler to sniff out the POST requests, which are going to <a href="https://aps1-wap.tplinkcloud.com" rel="nofollow">https://aps1-wap.tplinkcloud.com</a></p>
+<p>Works perfectly now.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-60">
+<div id="dsq-comment-header-60" class="dsq-comment-header">
+<cite id="dsq-cite-60">
+<a id="dsq-author-user-60" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-60" class="dsq-comment-body">
+<div id="dsq-comment-message-60" class="dsq-comment-message"><p>Thanks for reporting back your finding here @martinbans:disqus ! I&#8217;ll add the URL later to the post above.</p>
+<p>I can see something of a pattern here in the prefix: use1 (US East 1), aps1 (Asia Pacific Southeast 1),&#8230; those are some of AWS region codes. We might find more :).</p>
+<p>We might also find a list, try a DNS lookup and see the corresponding xxx-wap.tplinkcloud.com DNS name is valid or not.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-154">
+<div id="dsq-comment-header-154" class="dsq-comment-header">
+<cite id="dsq-cite-154">
+<a id="dsq-author-user-154" href="https://about.me/eazyigz" target="_blank" rel="nofollow">Igor Ganapolsky</a>
+</cite>
+</div>
+<div id="dsq-comment-body-154" class="dsq-comment-body">
+<div id="dsq-comment-message-154" class="dsq-comment-message"><p>I am having the same error. I am based in New Jersey. Kasa app sees and controls my TPLink plugs just fine. But the curl command in this article doesn&#8217;t work&#8230;</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-180">
+<div id="dsq-comment-header-180" class="dsq-comment-header">
+<cite id="dsq-cite-180">
+<span id="dsq-author-user-180">Robson Schmidt</span>
+</cite>
+</div>
+<div id="dsq-comment-body-180" class="dsq-comment-body">
+<div id="dsq-comment-message-180" class="dsq-comment-message"><p>I am in Brazil and having the same error.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-21">
+<div id="dsq-comment-header-21" class="dsq-comment-header">
+<cite id="dsq-cite-21">
+<span id="dsq-author-user-21">David Cooke</span>
+</cite>
+</div>
+<div id="dsq-comment-body-21" class="dsq-comment-body">
+<div id="dsq-comment-message-21" class="dsq-comment-message"><p>Okay ma&#8217;man. Coming to you from Canada :&gt;) </p>
+<p>I have identified the problem. Your steps worked well, but the problem lies in the webhook address. I know this because I programmed my router to direct all traffic on a VPN in the Netherlands. When doing so all devices on the network are routed to a VPN in the Netherlands, including my 2 HS100 plugs and my (1) TP-Link HS200 plug. Both are now operational with your tutorial in Canada.</p>
+<p>The problem seems to be with the webhook address. So, that raises my new question&#8230;How did you find the webhook address in the EU???</p>
+<p><a href="https://eu-wap.tplinkcloud.com/?token=****DEVICE_ID****" rel="nofollow">https://eu-wap.tplinkcloud.com/?token=****DEVICE_ID****</a></p>
+<p>I would enjoy doing my part to sniff out the North American Address. I tried using a traffic sniffer on android, but it just gave me the IP addresses w ports, geographic location, but nothing static.</p>
+<p>In summary. You are a genius. This completely sychs my Harmony remote Philip Hue Light scenes in 1 command with Amazon Echo VIA IFTTT. I.e. &#8220;Alexa, trigger *scene name*&#8221; and with multiple IFTTT recipes (2, 1 for the Logitech Harmony scene to cue the scene for Philips Hue, and 1 for turning off the IFTT trigger for TP-Link lights, (white lights that are not smart)&#8221;.</p>
+<p>Man that took forever. The VPN is fast, BlackVPN, +100 mbs per second, but isn&#8217;t as good as my Gigabit connection. I would really enjoy your input on how to sniff out the webhook address here in North America. Can you push me in the right direction?</p>
+<p>Thanks again for your assistance so far. I am really happy with this progress thus far. You the Man!!!</p>
+<p>David.</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-22">
+<div id="dsq-comment-header-22" class="dsq-comment-header">
+<cite id="dsq-cite-22">
+<span id="dsq-author-user-22">David Cooke</span>
+</cite>
+</div>
+<div id="dsq-comment-body-22" class="dsq-comment-body">
+<div id="dsq-comment-message-22" class="dsq-comment-message"><p>Also, there is a known problem with copy and paste functions, meaning, when copying from terminal, the paste isn&#8217;t the same. This is a known issue with .sh. Using the original code from the links works with the right device and token details.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-24">
+<div id="dsq-comment-header-24" class="dsq-comment-header">
+<cite id="dsq-cite-24">
+<a id="dsq-author-user-24" href="http://adumont.serveblog.net/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-24" class="dsq-comment-body">
+<div id="dsq-comment-message-24" class="dsq-comment-message"><p>I have edited the post above and added a Common issues based on people feedback with tips to help solve them. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-25">
+<div id="dsq-comment-header-25" class="dsq-comment-header">
+<cite id="dsq-cite-25">
+<a id="dsq-author-user-25" href="http://adumont.serveblog.net/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-25" class="dsq-comment-body">
+<div id="dsq-comment-message-25" class="dsq-comment-message"><p>The url wap.tplinkcloud.com actually seem to work for me as well. I guess it&#8217;s more generic and will work for anyone then. I will amend both posts to reflect it. </p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-44">
+<div id="dsq-comment-header-44" class="dsq-comment-header">
+<cite id="dsq-cite-44">
+<span id="dsq-author-user-44">Rex Roof</span>
+</cite>
+</div>
+<div id="dsq-comment-body-44" class="dsq-comment-body">
+<div id="dsq-comment-message-44" class="dsq-comment-message"><p>How were you able to figure out the format of the json payload? I have a tp-link bulb that I&#8217;d like to manipulate but the set_relay_state method isn&#8217;t supported.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-50">
+<div id="dsq-comment-header-50" class="dsq-comment-header">
+<cite id="dsq-cite-50">
+<a id="dsq-author-user-50" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-50" class="dsq-comment-body">
+<div id="dsq-comment-message-50" class="dsq-comment-message"><p>You will need to use a proxy, like Fiddler or Zap Proxy and configure your phone to use the proxy when connected to your Wifi. In the proxy log you will see all the traffic from the app (add the proxy certificate to your phone so the proxy can decrypt the SSL traffic). As pointed out by @disqus_Wz7GK9ShLN:disqus in the comments below, Fiddler&#8217;s documentation have instructions for iPhone and Android. That method is very generic and should work for any device controled via the Kasa app.</p>
+<p><a href="http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForiOS" rel="nofollow">http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForiOS</a><br/>
+<a href="http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForAndroid" rel="nofollow">http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForAndroid</a></p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-51">
+<div id="dsq-comment-header-51" class="dsq-comment-header">
+<cite id="dsq-cite-51">
+<span id="dsq-author-user-51">Rex Roof</span>
+</cite>
+</div>
+<div id="dsq-comment-body-51" class="dsq-comment-body">
+<div id="dsq-comment-message-51" class="dsq-comment-message"><p>nice, thank you. the bit about adding ssl to the proxy was the part I was missing.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-53">
+<div id="dsq-comment-header-53" class="dsq-comment-header">
+<cite id="dsq-cite-53">
+<span id="dsq-author-user-53">vivekkrish</span>
+</cite>
+</div>
+<div id="dsq-comment-body-53" class="dsq-comment-body">
+<div id="dsq-comment-message-53" class="dsq-comment-message"><p>Hi @adumont:disqus<br/>
+Thank you for the wonderful write-up, very easy to follow instructions. It worked well for my HS100 smartplug, when I tried in January!</p>
+<p>I recently bought the new HS105 smartplug mini. Trying to follow the same instructions, I was able to dump the apk contents and extract both the $TOKEN and $DEVICEID from the sqlite DB. However, upon issuing the cURL command, I encountered the following new error from their API:<br/>
+{&#8220;error_code&#8221;:-20580,&#8221;msg&#8221;:&#8221;Account is not binded to the device&#8221;}</p>
+<p>Could it be that, they are now checking to see that the web service call is originating from the correct device?</p>
+<p>I&#8217;ve tried adding the &#8220;termId&#8221; value to the JSON payload being posted, but that doesn&#8217;t seem to help either.</p>
+<p>Any thoughts?</p>
+<p>Thanks!</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-54">
+<div id="dsq-comment-header-54" class="dsq-comment-header">
+<cite id="dsq-cite-54">
+<a id="dsq-author-user-54" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-54" class="dsq-comment-body">
+<div id="dsq-comment-message-54" class="dsq-comment-message"><p>Unfortunately right now I don&#8217;t have any HS105 to test with. I would think the HS105 works like the HS100/110 though. Furthermore the message seems to indicate a problem with your request parameters. I would recommend you follow the &#8220;proxy&#8221; approach, as explained in another comment here ,(<a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-3145023762" rel="nofollow">/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-3145023762</a>) and check the corresponding requests. Look at the parameters of the request (in the URL), as well as the payload. If you do, please report here, or email me the info you get (redacting any sensitive information), and I&#8217;ll write about it.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-55">
+<div id="dsq-comment-header-55" class="dsq-comment-header">
+<cite id="dsq-cite-55">
+<span id="dsq-author-user-55">vivekkrish</span>
+</cite>
+</div>
+<div id="dsq-comment-body-55" class="dsq-comment-body">
+<div id="dsq-comment-message-55" class="dsq-comment-message"><p>Will do! Thanks for your insight on this.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="dsq-comment-71">
+<div id="dsq-comment-header-71" class="dsq-comment-header">
+<cite id="dsq-cite-71">
+<a id="dsq-author-user-71" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-71" class="dsq-comment-body">
+<div id="dsq-comment-message-71" class="dsq-comment-message"><p>try changing the URL. Have a look at the Common Issues section of my post. TP-Link seems to use different back end instances, published at different URLs, at least on in the US, one in Europe and one in Asia Pacific as we&#8217;ve discovered so far.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-5" id="dsq-comment-92">
+<div id="dsq-comment-header-92" class="dsq-comment-header">
+<cite id="dsq-cite-92">
+<span id="dsq-author-user-92">Ben Gunsberger</span>
+</cite>
+</div>
+<div id="dsq-comment-body-92" class="dsq-comment-body">
+<div id="dsq-comment-message-92" class="dsq-comment-message"><p>I&#8217;m running into the same problem, trying any of the servers listed (I&#8217;m in Australia). @vivekkrish:disqus or @jeffteitelbaum:disqus did you get this working?</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-93">
+<div id="dsq-comment-header-93" class="dsq-comment-header">
+<cite id="dsq-cite-93">
+<a id="dsq-author-user-93" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-93" class="dsq-comment-body">
+<div id="dsq-comment-message-93" class="dsq-comment-message"><p>Can you try this url: aps2-wap.tplinkcloud.com</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-94">
+<div id="dsq-comment-header-94" class="dsq-comment-header">
+<cite id="dsq-cite-94">
+<span id="dsq-author-user-94">Ben Gunsberger</span>
+</cite>
+</div>
+<div id="dsq-comment-body-94" class="dsq-comment-body">
+<div id="dsq-comment-message-94" class="dsq-comment-message"><p>Thanks. Turns out I had a typo in my device ID. All working now. FWIW, I don&#8217;t have an Android device but was able to use the same method you outline with the BlueStacks emulator on a Mac.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt depth-4" id="dsq-comment-85">
+<div id="dsq-comment-header-85" class="dsq-comment-header">
+<cite id="dsq-cite-85">
+<span id="dsq-author-user-85">Jeff</span>
+</cite>
+</div>
+<div id="dsq-comment-body-85" class="dsq-comment-body">
+<div id="dsq-comment-message-85" class="dsq-comment-message"><p>@vivekkrish:disqus I&#8217;m having the exact same issue with the HS105. Did you ever manage to find a solution? None of the URLs work for me and all throw this error.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-57">
+<div id="dsq-comment-header-57" class="dsq-comment-header">
+<cite id="dsq-cite-57">
+<span id="dsq-author-user-57">Rohan Patel</span>
+</cite>
+</div>
+<div id="dsq-comment-body-57" class="dsq-comment-body">
+<div id="dsq-comment-message-57" class="dsq-comment-message"><p>I&#8217;ve made an IFTTT tutorial for the TP-Link light bulb, the LB100. </p>
+<p>See <a href="https://sites.google.com/site/phoenixproductionsblender/home-automation/projectarcturus/lb100-ifttt-tutorial" rel="nofollow">https://sites.google.com/site/phoenixproductionsblender/home-automation/projectarcturus/lb100-ifttt-tutorial</a>.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-58">
+<div id="dsq-comment-header-58" class="dsq-comment-header">
+<cite id="dsq-cite-58">
+<a id="dsq-author-user-58" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-58" class="dsq-comment-body">
+<div id="dsq-comment-message-58" class="dsq-comment-message"><p>Amazing Rohan. I was trying to acquire a tp-link smartbulb but there&#8217;re not in sell here yet.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-163">
+<div id="dsq-comment-header-163" class="dsq-comment-header">
+<cite id="dsq-cite-163">
+<span id="dsq-author-user-163">Kian</span>
+</cite>
+</div>
+<div id="dsq-comment-body-163" class="dsq-comment-body">
+<div id="dsq-comment-message-163" class="dsq-comment-message"><p>Hey Rohan, thanks! Any chance you can look into the LB130, with color options? Any ways to control color options on this? Thanks a bunch!</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-164">
+<div id="dsq-comment-header-164" class="dsq-comment-header">
+<cite id="dsq-cite-164">
+<span id="dsq-author-user-164">Rohan Patel</span>
+</cite>
+</div>
+<div id="dsq-comment-body-164" class="dsq-comment-body">
+<div id="dsq-comment-message-164" class="dsq-comment-message"><p>I&#8217;ve already done it for the LB130, and it can be controlled the same way as the HS100, but with the color as well. Using hex codes, you can pick 16 million different colors. I didn&#8217;t make a tutorial because I figured that few people owned the LB130, but will get to it now. Check back on Arcturus enterprises website soon.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-166">
+<div id="dsq-comment-header-166" class="dsq-comment-header">
+<cite id="dsq-cite-166">
+<span id="dsq-author-user-166">charly</span>
+</cite>
+</div>
+<div id="dsq-comment-body-166" class="dsq-comment-body">
+<div id="dsq-comment-message-166" class="dsq-comment-message"><p>Rohan and Alexandre you are my heroes 😀 I was able to curl to my LB100 !! very happy. Now I&#8217;ll try ifttt. But I have a LB130 so very interested in your tutorial about that. THANKS BOTH OF YOU GUYS!!</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-5" id="dsq-comment-167">
+<div id="dsq-comment-header-167" class="dsq-comment-header">
+<cite id="dsq-cite-167">
+<span id="dsq-author-user-167">Rohan Patel</span>
+</cite>
+</div>
+<div id="dsq-comment-body-167" class="dsq-comment-body">
+<div id="dsq-comment-message-167" class="dsq-comment-message"><p>Thanks! I&#8217;ll post here when the tutorial is done, which will be on my website arcturusenterprises.weebly.com.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-168">
+<div id="dsq-comment-header-168" class="dsq-comment-header">
+<cite id="dsq-cite-168">
+<span id="dsq-author-user-168">charly</span>
+</cite>
+</div>
+<div id="dsq-comment-body-168" class="dsq-comment-body">
+<div id="dsq-comment-message-168" class="dsq-comment-message"><p>Great! I was able to implement the iftttt stuff with the button, I tried to make it react to an Android event (wifi disconnect) but so far no luck. Will review everything. Hope the token sticks around for a while? Or should I renew it?</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-61">
+<div id="dsq-comment-header-61" class="dsq-comment-header">
+<cite id="dsq-cite-61">
+<span id="dsq-author-user-61">David Evans</span>
+</cite>
+</div>
+<div id="dsq-comment-body-61" class="dsq-comment-body">
+<div id="dsq-comment-message-61" class="dsq-comment-message"><p>Hi, when I try to unpack the backup, I get this:<br/>
+skip to 24<br/>
+14949+0 records in<br/>
+14949+0 records out<br/>
+Traceback (most recent call last):<br/>
+File &#8220;&#8221;, line 1, in<br/>
+TypeError: a bytes-like object is required, not &#8216;str&#8217;<br/>
+tar: This does not look like a tar archive<br/>
+tar: Exiting with failure status due to previous errors</p>
+<p>What am I doing wrong? Thanks for your help!</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-70">
+<div id="dsq-comment-header-70" class="dsq-comment-header">
+<cite id="dsq-cite-70">
+<a id="dsq-author-user-70" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-70" class="dsq-comment-body">
+<div id="dsq-comment-message-70" class="dsq-comment-message"><p>Hi @disqus_BDL1a542AS:disqus , I don&#8217;t know what can be wrong in your case. Maybe something with the Python version&#8230; Anyway, you can try an alternative method to extract the Android Backup, using ABE (Android Backup Extractor).</p>
+<p><a href="https://sourceforge.net/projects/adbextractor/" rel="nofollow">https://sourceforge.net/projects/adbextractor/</a></p>
+<p>Run java -jar abe.jar unpack backup.ab backup.tar , then use tar or even 7zip on Windows to extract files from the backup.tar file.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-62">
+<div id="dsq-comment-header-62" class="dsq-comment-header">
+<cite id="dsq-cite-62">
+<span id="dsq-author-user-62">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-62" class="dsq-comment-body">
+<div id="dsq-comment-message-62" class="dsq-comment-message"><p>Help! I cant find the token in the document.</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-63">
+<div id="dsq-comment-header-63" class="dsq-comment-header">
+<cite id="dsq-cite-63">
+<span id="dsq-author-user-63">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-63" class="dsq-comment-body">
+<div id="dsq-comment-message-63" class="dsq-comment-message"><p>I found the Device ID but the token is nowhere to be found&#8230;</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-64">
+<div id="dsq-comment-header-64" class="dsq-comment-header">
+<cite id="dsq-cite-64">
+<span id="dsq-author-user-64">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-64" class="dsq-comment-body">
+<div id="dsq-comment-message-64" class="dsq-comment-message"><p>Can you do this on windows???</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-65">
+<div id="dsq-comment-header-65" class="dsq-comment-header">
+<cite id="dsq-cite-65">
+<a id="dsq-author-user-65" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-65" class="dsq-comment-body">
+<div id="dsq-comment-message-65" class="dsq-comment-message"><p>Not strictly as explained in this post, but you can get the same information as explained in this comment <a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-3145023762" rel="nofollow">/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-3145023762</a>. Then you can use curl on Windows for example.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-66">
+<div id="dsq-comment-header-66" class="dsq-comment-header">
+<cite id="dsq-cite-66">
+<span id="dsq-author-user-66">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-66" class="dsq-comment-body">
+<div id="dsq-comment-message-66" class="dsq-comment-message"><p>I used a different command to unpack the backup and i found the Device ID but i really can&#8217;t find the token anywhere i even did multiple Ctrl+F searches with notepad++ which is odd.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-67">
+<div id="dsq-comment-header-67" class="dsq-comment-header">
+<cite id="dsq-cite-67">
+<a id="dsq-author-user-67" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-67" class="dsq-comment-body">
+<div id="dsq-comment-message-67" class="dsq-comment-message"><p>Could you share the command/tools you used to unpack the backup? </p>
+<p>Do you see the iot.1.db file? </p>
+<p>Regarding the token, did you try the sqlite command? </p>
+<p>sqlite3 db/iot.1.db &#8220;select token from accounts;&#8221;</p>
+<p>On windows you can use an Sqlite editor </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-5" id="dsq-comment-68">
+<div id="dsq-comment-header-68" class="dsq-comment-header">
+<cite id="dsq-cite-68">
+<span id="dsq-author-user-68">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-68" class="dsq-comment-body">
+<div id="dsq-comment-message-68" class="dsq-comment-message"><p>Im not familiar with a Sqlite editor but i used your command to backup the app and then used an android backup extractor, took the abe.jar file, moved it to the adb folder and typed </p>
+<p>java.exe -jar abe.jar unpack backup.ab backup.tar &#8220;&#8221; it gave me the iot.1 db file</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-69">
+<div id="dsq-comment-header-69" class="dsq-comment-header">
+<cite id="dsq-cite-69">
+<a id="dsq-author-user-69" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-69" class="dsq-comment-body">
+<div id="dsq-comment-message-69" class="dsq-comment-message"><p>The db file is a database. Check <a href="https://sqlitestudio.pl/" rel="nofollow">https://sqlitestudio.pl/</a>, open the db file with it and loot at the accounts table in it. You should find the token there hopefully. </p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-72">
+<div id="dsq-comment-header-72" class="dsq-comment-header">
+<cite id="dsq-cite-72">
+<span id="dsq-author-user-72">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-72" class="dsq-comment-body">
+<div id="dsq-comment-message-72" class="dsq-comment-message"><p>Okay i found the token name under accounts with the data type being VARCHAR and the default value is NULL</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-73">
+<div id="dsq-comment-header-73" class="dsq-comment-header">
+<cite id="dsq-cite-73">
+<a id="dsq-author-user-73" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-73" class="dsq-comment-body">
+<div id="dsq-comment-message-73" class="dsq-comment-message"><p>I assume you&#8217;re looking at the Structure tab of the accounts table, just switch to the Data tab, and hopefully you should see the info we&#8217;re looking for, the token. ✌️</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-74">
+<div id="dsq-comment-header-74" class="dsq-comment-header">
+<cite id="dsq-cite-74">
+<span id="dsq-author-user-74">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-74" class="dsq-comment-body">
+<div id="dsq-comment-message-74" class="dsq-comment-message"><p>Found it! I tried using both the token and deviceid on the maker channel with your other article and it didn&#8217;t work for some reason</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-75">
+<div id="dsq-comment-header-75" class="dsq-comment-header">
+<cite id="dsq-cite-75">
+<a id="dsq-author-user-75" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-75" class="dsq-comment-body">
+<div id="dsq-comment-message-75" class="dsq-comment-message"><p>Maybe try a different URL from the one we&#8217;ve discovered so far. Check the Common Issues from the post above and see if any works for you 🙂</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-76">
+<div id="dsq-comment-header-76" class="dsq-comment-header">
+<cite id="dsq-cite-76">
+<span id="dsq-author-user-76">David Cooke</span>
+</cite>
+</div>
+<div id="dsq-comment-body-76" class="dsq-comment-body">
+<div id="dsq-comment-message-76" class="dsq-comment-message"><p>Hey Alex, </p>
+<p>Its been a while since I&#8217;ve checked in. I typically use your method with Amazon Echo, in conjunction with a Harmony Smart Control, IFTTT, Philips Hue lighting system, &amp; Nest.</p>
+<p>In the existing smart home environment, Alexa does have control of Kasa, but cannot be used in conjunction with Philips Hue lighting scenes. Harmony allows one to exhibit scene control in conjunction with Channels, say, on TV, or even movie channels. The Harmony hub, can also turn the heat up with Alex commands in conjunction with Philips Hue. So, a skill in Amazon Echo might be, &#8220;Alexa, turn on a movie&#8221;, which would cue Logitech Harmony to set the movie channel, cue to Philips Hue to dim the lights in a very low setting, while, changing them red, and turning the heat up, The customization becomes endless.</p>
+<p>The Kasa code you came up with is useful for a variety of reasons, namely, it can controls dumb lights, with smart switches (like the TS100 or TS 200). While these lights can&#8217;t change color, they can be told to turn off with the &#8220;Alex, turn on a movie&#8221; command, which works well with the ambiance or those lights that dim and change color. Conversely, as it relates to the HS100 plug, I use a holiday light that creates animated light patterns on the ceiling during the movie. Pretty cool.</p>
+<p>Thanks again for this. Cheers, </p>
+<p>David.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-77">
+<div id="dsq-comment-header-77" class="dsq-comment-header">
+<cite id="dsq-cite-77">
+<a id="dsq-author-user-77" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-77" class="dsq-comment-body">
+<div id="dsq-comment-message-77" class="dsq-comment-message"><p>Thanks a lot David for your feedback and for sharing this overview of your smart home setup. Sounds cool !</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-78">
+<div id="dsq-comment-header-78" class="dsq-comment-header">
+<cite id="dsq-cite-78">
+<span id="dsq-author-user-78">Yuan liao</span>
+</cite>
+</div>
+<div id="dsq-comment-body-78" class="dsq-comment-body">
+<div id="dsq-comment-message-78" class="dsq-comment-message"><p>Hello, could you please make a more detailed step by step instruction on how to get my token and device ID? </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-79">
+<div id="dsq-comment-header-79" class="dsq-comment-header">
+<cite id="dsq-cite-79">
+<a id="dsq-author-user-79" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-79" class="dsq-comment-body">
+<div id="dsq-comment-message-79" class="dsq-comment-message"><p>What is your context? What phone operating system and computer operating system do you have?</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-80">
+<div id="dsq-comment-header-80" class="dsq-comment-header">
+<cite id="dsq-cite-80">
+<span id="dsq-author-user-80">Yuan liao</span>
+</cite>
+</div>
+<div id="dsq-comment-body-80" class="dsq-comment-body">
+<div id="dsq-comment-message-80" class="dsq-comment-message"><p>Hi Alex. I am using iPhone 7 with the most updated IOS 10. I was trying to connect my tp link smart switchs and tp link bulbs to IFTTT. I assume your instruction should also work to achieve my goals as long as I use the right token and device Id. Some says the token and deviceid can be found inside the KASA app in IOS. But i couldn&#8217;t.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-83">
+<div id="dsq-comment-header-83" class="dsq-comment-header">
+<cite id="dsq-cite-83">
+<span id="dsq-author-user-83">Jon Carroll</span>
+</cite>
+</div>
+<div id="dsq-comment-body-83" class="dsq-comment-body">
+<div id="dsq-comment-message-83" class="dsq-comment-message"><p><a href="https://uploads.disquscdn.com/images/7e4b075073a7a0d52235139e9379bd41424a3a3c31cff414193d40d8180ce447.png" rel="nofollow">https://uploads.disquscdn.com/images/7e4b075073a7a0d52235139e9379bd41424a3a3c31cff414193d40d8180ce447.png</a> </p>
+<p>am getting blocked (probably user error &#8211; am new to Disqus) but thought I&#8217;d post a screen grab of my post whilst it&#8217;s being moderated &#8230;</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-97">
+<div id="dsq-comment-header-97" class="dsq-comment-header">
+<cite id="dsq-cite-97">
+<span id="dsq-author-user-97">James Scholes</span>
+</cite>
+</div>
+<div id="dsq-comment-body-97" class="dsq-comment-body">
+<div id="dsq-comment-message-97" class="dsq-comment-message"><p>Just a quick comment here:<br/>
+1. If you&#8217;re got an encrypted Android device there are a couple of extra hoop to jump through to decrypt the backup. I used <a href="https://github.com/nelenkov/android-backup-extractor" rel="nofollow">https://github.com/nelenkov/android-backup-extractor</a><br/>
+2. I may have an issue as I was seeing: {&#8220;error_code&#8221;:0,&#8221;result&#8221;:{&#8220;responseData&#8221;:&#8221;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;err_code&#8221;:0}}}&#8221;}} (will disqus parse that??) but my switch is toggling fine, despite an error_code: 0 response</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-100">
+<div id="dsq-comment-header-100" class="dsq-comment-header">
+<cite id="dsq-cite-100">
+<a id="dsq-author-user-100" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-100" class="dsq-comment-body">
+<div id="dsq-comment-message-100" class="dsq-comment-message"><p>Thanks for the encryption tip.<br/>
+Re. the error code 0, it means &#8220;no error&#8221; AFAIK ☺️👌</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-103">
+<div id="dsq-comment-header-103" class="dsq-comment-header">
+<cite id="dsq-cite-103">
+<span id="dsq-author-user-103">Andrew Baldinger</span>
+</cite>
+</div>
+<div id="dsq-comment-body-103" class="dsq-comment-body">
+<div id="dsq-comment-message-103" class="dsq-comment-message"><p>Quick q: Can you just use a package capture app on android to get the deviceID and Token? It seems much easier than unpacking the backup&#8230;</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-105">
+<div id="dsq-comment-header-105" class="dsq-comment-header">
+<cite id="dsq-cite-105">
+<a id="dsq-author-user-105" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-105" class="dsq-comment-body">
+<div id="dsq-comment-message-105" class="dsq-comment-message"><p>True, If you have a rooted phone you can use sqlite3 command line client to run the query, but I found it worth posting this method that work for non root users as well. </p>
+<p>On the packet sniffing app on the phone, I would personally not do that unless I have personally reviewed the source code and compiled myself the app. I otherwise I would definitely not trust it, with all the cookies and stuff that it might sniff as well. </p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-104">
+<div id="dsq-comment-header-104" class="dsq-comment-header">
+<cite id="dsq-cite-104">
+<span id="dsq-author-user-104">HowardRoark</span>
+</cite>
+</div>
+<div id="dsq-comment-body-104" class="dsq-comment-body">
+<div id="dsq-comment-message-104" class="dsq-comment-message"><p>I&#8217;ve unfortunately resigned to the fact that this tutorial just wasn&#8217;t written for those not already tech geniuses. I&#8217;m usually pretty good following tutorials and figuring stuff out, but this just seems to be missing too much information for even a moderately tech savvy person to work through.</p>
+<p>I performed the adb command and successfully backed up my android files. I don&#8217;t know where the backup is located, but I assume who cares since you didn&#8217;t mention anything about it. </p>
+<p>I tried the next command in the command prompt and got &#8216;dd&#8217; invalid syntax. I then realized this is supposed to be a python command&#8230;I know nothing about python. So I downloaded and installed python. Opened it up and ran the one-liner you posted. I received the following error:</p>
+<p>&#8221; File &#8220;&#8221;, line 1<br/>
+dd if=backup.ab bs=1 skip=24 | python -c &#8220;import zlib,sys;sys.stdout.write(z<br/>
+lib.decompress(sys.stdin.read()))&#8221; | tar -xvf &#8211;<br/>
+^<br/>
+SyntaxError: invalid syntax&#8221;</p>
+<p>So I give up on Python, and download and install the Android Backup Extractor you mentioned. Then I realized I need to install java to make this work. I know nothing about Java. So I download and install the &#8216;Java Development Kit with Mission Control&#8217;. I open it up and immediately don&#8217;t understand where to go.</p>
+<p>So then I go back to command prompt where my adb is located and try the code you gave &#8220;java -jar abe.jar unpack backup.ab backup.tar&#8221; and it could not find jarfile abe.jar. Then I realize I have to navigate to the Android Backup Extractor folder and run the command again. I then receive the following error:</p>
+<p>Exception in thread &#8220;main&#8221; java.lang.reflect.InvocationTargetException<br/>
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br/>
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br/>
+at java.lang.reflect.Method.invoke(Unknown Source)<br/>
+at org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader.main(JarRsrcLoa<br/>
+der.java:58)<br/>
+Caused by: java.lang.RuntimeException: java.io.FileNotFoundException: backup.ab<br/>
+(The system cannot find the file specified)<br/>
+at org.nick.abe.AndroidBackup.extractAsTar(AndroidBackup.java:420)<br/>
+at org.nick.abe.Main.main(Main.java:128)<br/>
+&#8230; 5 more<br/>
+Caused by: java.io.FileNotFoundException: backup.ab (The system cannot find the<br/>
+file specified)<br/>
+at java.io.FileInputStream.open0(Native Method)<br/>
+at java.io.FileInputStream.open(Unknown Source)<br/>
+at java.io.FileInputStream.(Unknown Source)<br/>
+at java.io.FileInputStream.(Unknown Source)<br/>
+at org.nick.abe.AndroidBackup.getInputStream(AndroidBackup.java:501)<br/>
+at org.nick.abe.AndroidBackup.extractAsTar(AndroidBackup.java:269)<br/>
+&#8230; 6 more</p>
+<p>And this is the point where I realize, it just ain&#8217;t happening for me. Ironically, this tutorial just isn&#8217;t thorough enough for those who aren&#8217;t already able to figure this stuff out without needing the tutorial in the first place.</p>
+<p>Guess I will just have to wait for IFTTT or Stringify to add support for TP-LINK!</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-112">
+<div id="dsq-comment-header-112" class="dsq-comment-header">
+<cite id="dsq-cite-112">
+<span id="dsq-author-user-112">Gavin Lin</span>
+</cite>
+</div>
+<div id="dsq-comment-body-112" class="dsq-comment-body">
+<div id="dsq-comment-message-112" class="dsq-comment-message"><p>Thanks for the post! This is exactly what I needed and it&#8217;s super light-weighted version to control my plug over the internet. I think I am going to hook it up to a cron job to control it at my wish.</p>
+<p>I do run into an issue that others might run into as well:<br/>
+My phone is encrypted so when I am creating backups, it has to be encrypted as well. So your oneline python script wouldn&#8217;t work. I end-up using the ABE with upgrade JAVA security policy to decrypt the file. The rest just works like a charm.</p>
+<p>Thank you so much!</p>
+<p>-Gavin</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-113">
+<div id="dsq-comment-header-113" class="dsq-comment-header">
+<cite id="dsq-cite-113">
+<span id="dsq-author-user-113">Gavin Lin</span>
+</cite>
+</div>
+<div id="dsq-comment-body-113" class="dsq-comment-body">
+<div id="dsq-comment-message-113" class="dsq-comment-message"><p>Oops. Didn&#8217;t see someone make the same comments much earlier :p</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-114">
+<div id="dsq-comment-header-114" class="dsq-comment-header">
+<cite id="dsq-cite-114">
+<span id="dsq-author-user-114">Pete Keleher</span>
+</cite>
+</div>
+<div id="dsq-comment-body-114" class="dsq-comment-body">
+<div id="dsq-comment-message-114" class="dsq-comment-message"><p>Not able to get token:</p>
+<p>hub:~/Desktop/platform-tools&gt; ./adb backup -f backup.ab com.tplink.kasa_android</p>
+<p>Now unlock your device and confirm the backup operation&#8230;</p>
+<p>hub:~/Desktop/platform-tools&gt; lth</p>
+<p>total 10936</p>
+<p>-rw-r&#8212;&#8211; 1 blah staff 20229 Apr 26 17:21 backup.ab</p>
+<p>hub:~/Desktop/platform-tools&gt; dd if=backup.ab bs=1 skip=24 | python -c &#8220;import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))&#8221; | tar -xvf &#8211;</p>
+<p>20205+0 records in</p>
+<p>20205+0 records out</p>
+<p>20205 bytes transferred in 0.019192 secs (1052783 bytes/sec)</p>
+<p>Traceback (most recent call last):</p>
+<p> File &#8220;&#8221;, line 1, in </p>
+<p>zlib.error: Error -3 while decompressing data: incorrect header check</p>
+<p>hub:~/Desktop/platform-tools&gt;</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-115">
+<div id="dsq-comment-header-115" class="dsq-comment-header">
+<cite id="dsq-cite-115">
+<a id="dsq-author-user-115" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-115" class="dsq-comment-body">
+<div id="dsq-comment-message-115" class="dsq-comment-message"><p>Is your phone encrypted? In that case, as per the comments of others here, it seems the only way to extract the backup is to use ABE, Android Backup extractor tool. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-116">
+<div id="dsq-comment-header-116" class="dsq-comment-header">
+<cite id="dsq-cite-116">
+<span id="dsq-author-user-116">Pete Keleher</span>
+</cite>
+</div>
+<div id="dsq-comment-body-116" class="dsq-comment-body">
+<div id="dsq-comment-message-116" class="dsq-comment-message"><p>Sorry, I don&#8217;t see any such comments&#8230;</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-117">
+<div id="dsq-comment-header-117" class="dsq-comment-header">
+<cite id="dsq-cite-117">
+<span id="dsq-author-user-117">Jeff Axelrod</span>
+</cite>
+</div>
+<div id="dsq-comment-body-117" class="dsq-comment-body">
+<div id="dsq-comment-message-117" class="dsq-comment-message"><p>Worked great after much effort getting the device/drivers connected to adb and installing the right tools to extract the backup. Thanks so much for this guide! And yes, the encryption was a huge pain in the ass. Also couldn&#8217;t authorize the backup because I use a screen overlay (Twilight.) That was a confusing stumbling block!</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-118">
+<div id="dsq-comment-header-118" class="dsq-comment-header">
+<cite id="dsq-cite-118">
+<span id="dsq-author-user-118">Jeff Axelrod</span>
+</cite>
+</div>
+<div id="dsq-comment-body-118" class="dsq-comment-body">
+<div id="dsq-comment-message-118" class="dsq-comment-message"><p>I&#8217;m having a weird problem; I can control my device just fine when using curl, but when using Google Apps Script&#8217;s UrlFetchApp, I&#8217;m getting a request timeout response from the tplink server. Google&#8217;s servers seem to be communicating with tplink&#8217;s just fine&#8211;if I change the device ID, I receive a correct error message that &#8220;the account isn&#8217;t binded [SIC] to the device.&#8221;</p>
+<p>The timeout message is this:</p>
+<p>[17-04-28 10:38:49:074 CDT] {&#8220;error_code&#8221;:-20002,&#8221;msg&#8221;:&#8221;Request timeout&#8221;}<br/>
+[17-04-28 10:38:49:074 CDT] 200.0</p>
+<p>My code looks like this:</p>
+<p>var TPLINK_ON_PAYLOAD = {<br/>
+&#8220;method&#8221;:&#8221;passthrough&#8221;,<br/>
+&#8220;params&#8221;: {<br/>
+&#8220;deviceId&#8221;: &#8220;XXXX&#8221;,<br/>
+&#8220;requestData&#8221;: {<br/>
+&#8220;system&#8221;:{<br/>
+&#8220;set_relay_state&#8221;:{<br/>
+&#8220;state&#8221;:1}}}}}</p>
+<p>function setTplinkState() {<br/>
+try {<br/>
+var options = {<br/>
+&#8216;method&#8217;: &#8216;post&#8217;,<br/>
+&#8216;payload&#8217; : JSON.stringify(TPLINK_ON_PAYLOAD),<br/>
+&#8216;contentType&#8217;: &#8216;application/json&#8217;,<br/>
+&#8216;muteHttpExceptions&#8217; : true<br/>
+};<br/>
+var URL = &#8216;https://use1-wap.tplinkcloud.com/?token=XXXXXX&#8217;;<br/>
+var response = UrlFetchApp.fetch(URL,options);<br/>
+var responseCode = response.getResponseCode();<br/>
+return responseCode;<br/>
+&#8230;</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-119">
+<div id="dsq-comment-header-119" class="dsq-comment-header">
+<cite id="dsq-cite-119">
+<span id="dsq-author-user-119">Jeff Axelrod</span>
+</cite>
+</div>
+<div id="dsq-comment-body-119" class="dsq-comment-body">
+<div id="dsq-comment-message-119" class="dsq-comment-message"><p>No idea why stringify screwed things up, but when I passed requestData as a string directly (shown below), it worked!</p>
+<p>var TPLINK_ON_PAYLOAD = {<br/>
+&#8220;method&#8221;:&#8221;passthrough&#8221;,<br/>
+&#8220;params&#8221;: {<br/>
+&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:0}}}&#8221;,<br/>
+&#8220;deviceId&#8221;: &#8220;8006D23FB15701EE74723EFD1C789102176BF836&#8221;<br/>
+}<br/>
+}</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-125">
+<div id="dsq-comment-header-125" class="dsq-comment-header">
+<cite id="dsq-cite-125">
+<a id="dsq-author-user-125" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-125" class="dsq-comment-body">
+<div id="dsq-comment-message-125" class="dsq-comment-message"><p>I&#8217;ve found out a way for anyone to find out the correct URL to control their plugs, no more hit and miss needed any more! See <a href="/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/" rel="nofollow">/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/</a>.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-126">
+<div id="dsq-comment-header-126" class="dsq-comment-header">
+<cite id="dsq-cite-126">
+<span id="dsq-author-user-126">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-126" class="dsq-comment-body">
+<div id="dsq-comment-message-126" class="dsq-comment-message"><p>When i try entering &#8220;dd if=backup.ab bs=1 skip=24 | python -c &#8220;import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))&#8221; | tar -xvf -&#8221; it says that dd is no recognized as a command? sorry kinda a first timer on coding</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-127">
+<div id="dsq-comment-header-127" class="dsq-comment-header">
+<cite id="dsq-cite-127">
+<a id="dsq-author-user-127" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-127" class="dsq-comment-body">
+<div id="dsq-comment-message-127" class="dsq-comment-message"><p>Hi Matt, no shame in being a first timer, we&#8217;ve all been there once. I for one still consider I am TBH. </p>
+<p>Are you on Windows? If that&#8217;s the case, have a look at Android Backup Extractor (ABE). I&#8217;ve put three links in the post about it. Hope that helps. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-128">
+<div id="dsq-comment-header-128" class="dsq-comment-header">
+<cite id="dsq-cite-128">
+<span id="dsq-author-user-128">Matthew Aguilera</span>
+</cite>
+</div>
+<div id="dsq-comment-body-128" class="dsq-comment-body">
+<div id="dsq-comment-message-128" class="dsq-comment-message"><p>I actually tried this before and it didn&#8217;t work but i forgot that part thanks for reminding me! I have the token and device id but i can&#8217;t find the url because of the command not for windows</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-133">
+<div id="dsq-comment-header-133" class="dsq-comment-header">
+<cite id="dsq-cite-133">
+<span id="dsq-author-user-133">thewebexpert</span>
+</cite>
+</div>
+<div id="dsq-comment-body-133" class="dsq-comment-body">
+<div id="dsq-comment-message-133" class="dsq-comment-message"><p>You can install the app aSQLLiteManager on your android if you are rooted, and open the database directly in /data/data/com.tplink&#8230;./database and follow the sql commands to run, to get all of your ids. no need to run adb or backups. Thanks so much , worked great!</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-141">
+<div id="dsq-comment-header-141" class="dsq-comment-header">
+<cite id="dsq-cite-141">
+<a id="dsq-author-user-141" href="http://www.koss.mn" target="_blank" rel="nofollow">Jacob Kossman</a>
+</cite>
+</div>
+<div id="dsq-comment-body-141" class="dsq-comment-body">
+<div id="dsq-comment-message-141" class="dsq-comment-message"><p>Any idea how to set a timer using a POST method?</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-142">
+<div id="dsq-comment-header-142" class="dsq-comment-header">
+<cite id="dsq-cite-142">
+<a id="dsq-author-user-142" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-142" class="dsq-comment-body">
+<div id="dsq-comment-message-142" class="dsq-comment-message"><p>Hi Jacob, love your idea! I hope that (<a href="/2017/06/05/remotely-control-your-hs100-timer-api/" rel="nofollow">/2017/06/05/remotely-control-your-hs100-timer-api/</a>) answers your question 😉</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-143">
+<div id="dsq-comment-header-143" class="dsq-comment-header">
+<cite id="dsq-cite-143">
+<a id="dsq-author-user-143" href="http://www.koss.mn" target="_blank" rel="nofollow">Jacob Kossman</a>
+</cite>
+</div>
+<div id="dsq-comment-body-143" class="dsq-comment-body">
+<div id="dsq-comment-message-143" class="dsq-comment-message"><p>So I&#8217;d need to make two calls? one to turn the plug on, then another to turn the timer on to then turn the plug off after a certain amount of time? thanks for the prompt article and response!</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-144">
+<div id="dsq-comment-header-144" class="dsq-comment-header">
+<cite id="dsq-cite-144">
+<a id="dsq-author-user-144" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-144" class="dsq-comment-body">
+<div id="dsq-comment-message-144" class="dsq-comment-message"><p>well that&#8217;s how the timer also would work within the Kasa App. You define a timer by telling the action (on/off) to happen after a delay. same here.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-5" id="dsq-comment-145">
+<div id="dsq-comment-header-145" class="dsq-comment-header">
+<cite id="dsq-cite-145">
+<a id="dsq-author-user-145" href="http://www.koss.mn" target="_blank" rel="nofollow">Jacob Kossman</a>
+</cite>
+</div>
+<div id="dsq-comment-body-145" class="dsq-comment-body">
+<div id="dsq-comment-message-145" class="dsq-comment-message"><p>yeah i just wish there was a way to have the timer be always on. but this should help. thanks.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-146">
+<div id="dsq-comment-header-146" class="dsq-comment-header">
+<cite id="dsq-cite-146">
+<a id="dsq-author-user-146" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-146" class="dsq-comment-body">
+<div id="dsq-comment-message-146" class="dsq-comment-message"><p>Maybe you are talking about schedules instead? I&#8217;ll try to write another post about how to activate schedules and Away mode as well.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-147">
+<div id="dsq-comment-header-147" class="dsq-comment-header">
+<cite id="dsq-cite-147">
+<a id="dsq-author-user-147" href="http://www.koss.mn" target="_blank" rel="nofollow">Jacob Kossman</a>
+</cite>
+</div>
+<div id="dsq-comment-body-147" class="dsq-comment-body">
+<div id="dsq-comment-message-147" class="dsq-comment-message"><p>no your post definitely helped me and i will implement it. any idea if you can control the timer from google assistant?</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-169">
+<div id="dsq-comment-header-169" class="dsq-comment-header">
+<cite id="dsq-cite-169">
+<span id="dsq-author-user-169">TonyF</span>
+</cite>
+</div>
+<div id="dsq-comment-body-169" class="dsq-comment-body">
+<div id="dsq-comment-message-169" class="dsq-comment-message"><p>It would be great if one could trigger a Kasa Scene once you have set one up in Kasa.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-172">
+<div id="dsq-comment-header-172" class="dsq-comment-header">
+<cite id="dsq-cite-172">
+<span id="dsq-author-user-172">JeremyH</span>
+</cite>
+</div>
+<div id="dsq-comment-body-172" class="dsq-comment-body">
+<div id="dsq-comment-message-172" class="dsq-comment-message"><p>Yes if you find out please advise,that would help me with my task of turning off multiple devices at nighttime, but at the moment I am assuming the scenes are all self-contained within Kasa and multiple requests are sent from there</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-148">
+<div id="dsq-comment-header-148" class="dsq-comment-header">
+<cite id="dsq-cite-148">
+<span id="dsq-author-user-148">JeremyH</span>
+</cite>
+</div>
+<div id="dsq-comment-body-148" class="dsq-comment-body">
+<div id="dsq-comment-message-148" class="dsq-comment-message"><p>Alex, this has been very useful, thank you for he time you have invested in this and sharing with the community. All progressed well, managed to work around the fact that I&#8217;m a Windows guy not Linux etc for commands, but JSON is not my thing and I&#8217;ve come to an impasse, the script does not work when I run it. I have tried it in Hurl.it, the getDevicelist works so I know the URL and my Token are correct. But when I try to change the switch state I get an error<br/>
+{&#8220;error_code&#8221;:-10100,&#8221;msg&#8221;:&#8221;JSON format error&#8221;}</p>
+<p>script is:<br/>
+{<br/>
+&#8220;method&#8221;: &#8220;passthrough&#8221;,<br/>
+&#8220;params&#8221;: {<br/>
+&#8220;deviceId&#8221;: &#8220;800676FD5F0A287A6137E090F5DD916D183CXXXX&#8221;,<br/>
+&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1}<br/>
+}<br/>
+}<br/>
+&#8221; }<br/>
+}</p>
+<p>When I put the JSON script through a validator: <a href="https://jsonlint.com/" rel="nofollow">https://jsonlint.com/</a><br/>
+I get the error like this&#8230;</p>
+<p>Error: Parse error on line 5:<br/>
+&#8230;&#8221;, &#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_<br/>
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-^<br/>
+Expecting &#8216;STRING&#8217;, &#8216;NUMBER&#8217;, &#8216;NULL&#8217;, &#8216;TRUE&#8217;, &#8216;FALSE&#8217;, &#8216;{&#8216;, &#8216;[&#8216;, got &#8216;undefined&#8217;</p>
+<p>ANy ideas what I am doing wrong ? &#8211; I copied and pasted the script from the instructions so don&#8217;t believe I have a formatting error etc.</p>
+<p>Many thanks</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-150">
+<div id="dsq-comment-header-150" class="dsq-comment-header">
+<cite id="dsq-cite-150">
+<span id="dsq-author-user-150">JeremyH</span>
+</cite>
+</div>
+<div id="dsq-comment-body-150" class="dsq-comment-body">
+<div id="dsq-comment-message-150" class="dsq-comment-message"><p>Hi, I am not familiar with JSON is there a way to issue the commands to multiple devices from one script ?- eg a routine that will trigger when I go to bed to turn off various devices etc. when I try the JSON code I get an error due to multiple deviceIDs </p>
+<p>Thanks</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-155">
+<div id="dsq-comment-header-155" class="dsq-comment-header">
+<cite id="dsq-cite-155">
+<a id="dsq-author-user-155" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-155" class="dsq-comment-body">
+<div id="dsq-comment-message-155" class="dsq-comment-message"><p>Check the update in the post!!! The &#8220;Data extraction&#8221; part is now obsolete. I leave it here for historical purpose. Instead you can now follow the following steps:</p>
+<p>Authenticate to TP-Link cloud API and get a token<br/>
+Get the end point URL and Device ID</p>
+<p>(links in the post above)</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-158">
+<div id="dsq-comment-header-158" class="dsq-comment-header">
+<cite id="dsq-cite-158">
+<a id="dsq-author-user-158" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-158" class="dsq-comment-body">
+<div id="dsq-comment-message-158" class="dsq-comment-message"><p>You can&#8217;t specify multiple device ID in one command. Use multiple commands (one after the other) with one device ID each. That will do the trick.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-173">
+<div id="dsq-comment-header-173" class="dsq-comment-header">
+<cite id="dsq-cite-173">
+<span id="dsq-author-user-173">JeremyH</span>
+</cite>
+</div>
+<div id="dsq-comment-body-173" class="dsq-comment-body">
+<div id="dsq-comment-message-173" class="dsq-comment-message"><p>thanks but I am not good enough at JSON to figure out how to do this, I have</p>
+<p>{<br/>
+&#8220;method&#8221;: &#8220;passthrough&#8221;,<br/>
+&#8220;params&#8221;: {<br/>
+&#8220;deviceId&#8221;: &#8220;XXX68AF8841FB8C0D29943C00AB1AAC21836XXXX&#8221;,<br/>
+&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1} }}&#8221;<br/>
+}<br/>
+}</p>
+<p>{<br/>
+&#8220;method&#8221;: &#8220;passthrough&#8221;,<br/>
+&#8220;params&#8221;: {<br/>
+&#8220;deviceId&#8221;: &#8220;YYYY8AF8841FB8C0D29943C00AB1AAC21836YYYY&#8221;,<br/>
+&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1} }}&#8221;<br/>
+}<br/>
+}</p>
+<p>I know this is wrong and won&#8217;t work but how do I recode this to make it work ? &#8211; do I just use one &#8216;method&#8217; statement with multiple params ? &#8211; can someone give me an example I can learn from please ?</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-156">
+<div id="dsq-comment-header-156" class="dsq-comment-header">
+<cite id="dsq-cite-156">
+<span id="dsq-author-user-156">JeremyH</span>
+</cite>
+</div>
+<div id="dsq-comment-body-156" class="dsq-comment-body">
+<div id="dsq-comment-message-156" class="dsq-comment-message"><p>How can I make the script turn off more than one socket ? thanks</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-157">
+<div id="dsq-comment-header-157" class="dsq-comment-header">
+<cite id="dsq-cite-157">
+<a id="dsq-author-user-157" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-157" class="dsq-comment-body">
+<div id="dsq-comment-message-157" class="dsq-comment-message"><p>You can only control one plug per call (one call is one command). So you need to make one call (in other words run one command) for each plug. Does it make sense?</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-159">
+<div id="dsq-comment-header-159" class="dsq-comment-header">
+<cite id="dsq-cite-159">
+<span id="dsq-author-user-159">JeremyH</span>
+</cite>
+</div>
+<div id="dsq-comment-body-159" class="dsq-comment-body">
+<div id="dsq-comment-message-159" class="dsq-comment-message"><p>Yes thanks I&#8217;ve found that but when I use IFTTT platform for a multiple actions on an applet, the webhooks option only seems to work for the first one (the webhooks applet doesn&#8217;t load properly after that), so I was hoping to do it from one script. Basically if I issue a &#8216;goodnight&#8217; command I want it to turn off everything. any ideas ? thanks</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-171">
+<div id="dsq-comment-header-171" class="dsq-comment-header">
+<cite id="dsq-cite-171">
+<span id="dsq-author-user-171">Neil Abadie</span>
+</cite>
+</div>
+<div id="dsq-comment-body-171" class="dsq-comment-body">
+<div id="dsq-comment-message-171" class="dsq-comment-message"><p>Having the same issue here. any advise is greatly appreciated!</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-4" id="dsq-comment-175">
+<div id="dsq-comment-header-175" class="dsq-comment-header">
+<cite id="dsq-cite-175">
+<a id="dsq-author-user-175" href="/" target="_blank" rel="nofollow">Alexandre Dumont</a>
+</cite>
+</div>
+<div id="dsq-comment-body-175" class="dsq-comment-body">
+<div id="dsq-comment-message-175" class="dsq-comment-message"><p>I don&#8217;t think that is possible using only IFTTT and Maker. I can see other options, involving creating a small webservice (that you would invoke from Maker as a webhook), and in which you would &#8220;code&#8221; all the calls you want (I mean calling as many poweron/off as you like to multiple devices)</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-5" id="dsq-comment-176">
+<div id="dsq-comment-header-176" class="dsq-comment-header">
+<cite id="dsq-cite-176">
+<span id="dsq-author-user-176">JeremyH</span>
+</cite>
+</div>
+<div id="dsq-comment-body-176" class="dsq-comment-body">
+<div id="dsq-comment-message-176" class="dsq-comment-message"><p>thanks yes I was reaching the same conclusion.<br/>
+Thanks for the site really useful and enthusing me to try new things.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-165">
+<div id="dsq-comment-header-165" class="dsq-comment-header">
+<cite id="dsq-cite-165">
+<span id="dsq-author-user-165">Rohan Patel</span>
+</cite>
+</div>
+<div id="dsq-comment-body-165" class="dsq-comment-body">
+<div id="dsq-comment-message-165" class="dsq-comment-message"><p>Alex, I have also found a method of using an Android app that intercepts packets between Kasa app and the devices, which contain information such as deviceID and account token. If you&#8217;d like to check it out, it&#8217;s at <a href="http://arcturusenterprises.weebly.com/find-token--deviceid.html" rel="nofollow">http://arcturusenterprises.weebly.com/find-token&#8211;deviceid.html</a>.</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-170">
+<div id="dsq-comment-header-170" class="dsq-comment-header">
+<cite id="dsq-cite-170">
+<span id="dsq-author-user-170">Neil Abadie</span>
+</cite>
+</div>
+<div id="dsq-comment-body-170" class="dsq-comment-body">
+<div id="dsq-comment-message-170" class="dsq-comment-message"><p>This is wonderful @adumont:disqus ! Thank you</p>
+<p>I have it working but am new to JSON specifically.</p>
+<p>any quick guidance to switching the state of multiple devices at once?</p>
+<p>{&#8220;method&#8221;:&#8221;passthrough&#8221;, &#8220;params&#8221;: {&#8220;deviceId&#8221;: &#8220;MY_DEVICE_ID&#8221;, &#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:0}}}&#8221;}}</p>
+</div>
+</div>
+</li> 
+</ul>
+</div>
+</div>
+</article>
+</section>
+ 
+</div> </div>
+ 
+<div id="secondary">
+<aside id="top-posts-3" class="widget widget_top-posts"><h2 class="widget-title">Top Posts &amp; Pages</h2><ul> <li>
+<a href="/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/" class="bump-view" data-bump-view="tp">
+Control your TP-Link HS100 smart plug with IFTTT </a>
+</li>
+<li>
+<a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/" class="bump-view" data-bump-view="tp">
+How to control your TP-Link HS100 smartplug from Internet </a>
+</li>
+<li>
+<a href="/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/" class="bump-view" data-bump-view="tp">
+How to authenticate to TP-Link cloud API </a>
+</li>
+<li>
+<a href="/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/" class="bump-view" data-bump-view="tp">
+How to get the TP-Link HS100 cloud end-point URL? </a>
+</li>
+<li>
+<a href="/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/" class="bump-view" data-bump-view="tp">
+Control your TP-Link HS100 smartplug with Tasker </a>
+</li>
+<li>
+<a href="/2017/06/05/remotely-control-your-hs100-timer-api/" class="bump-view" data-bump-view="tp">
+Remotely control your HS100 timer (API) </a>
+</li>
+<li>
+<a href="/2017/01/29/get-the-state-of-your-hs100-smart-plug/" class="bump-view" data-bump-view="tp">
+How to remotely get the state of your HS100 smart plug </a>
+</li>
+<li>
+<a href="/2017/06/19/how-to-authenticate-to-tp-link-cloud-api-with-tasker/" class="bump-view" data-bump-view="tp">
+How to authenticate to TP Link cloud API with Tasker </a>
+</li>
+<li>
+<a href="/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/" class="bump-view" data-bump-view="tp">
+Azure App Service Architecture (3): App Service on Linux </a>
+</li>
+<li>
+<a href="/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/" class="bump-view" data-bump-view="tp">
+Control your TP-Link HS100 smart plug from your Android Watch! </a>
+</li>
+</ul></aside><aside id="categories-4" class="widget widget_categories"><h2 class="widget-title">Categories</h2> <ul>
+<li class="cat-item cat-item-16"><a href="/category/android/">Android</a>
+</li>
+<li class="cat-item cat-item-19"><a href="/category/automation/">Automation</a>
+</li>
+<li class="cat-item cat-item-3"><a href="/category/cloud/">Cloud</a>
+</li>
+<li class="cat-item cat-item-25"><a href="/category/how-to/">How-to</a>
+</li>
+<li class="cat-item cat-item-2"><a href="/category/linux/">Linux</a>
+</li>
+</ul>
+</aside><aside id="twitter_timeline-5" class="widget widget_twitter_timeline"><h2 class="widget-title">Follow me on Twitter!</h2><a class="twitter-timeline" data-height="400" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-lang="EN" data-partner="jetpack" data-chrome="noheader nofooter noborders" href="https://twitter.com/adumont">My Tweets</a></aside><aside id="blog_subscription-3" class="widget jetpack_subscription_widget"><h2 class="widget-title">Subscribe to IT Nerd Space via Email</h2>
+<form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-3">
+<div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div> <p id="subscribe-email">
+<label id="jetpack-subscribe-label" for="subscribe-field-blog_subscription-3">
+Email Address </label>
+<input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-3" placeholder="Email Address"/>
+</p>
+<p id="subscribe-submit">
+<input type="hidden" name="action" value="subscribe"/>
+<input type="hidden" name="source" value="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/"/>
+<input type="hidden" name="sub-type" value="widget"/>
+<input type="hidden" name="redirect_fragment" value="blog_subscription-3"/>
+<input type="submit" value="Subscribe" name="jetpack_subscriptions_widget"/>
+</p>
+</form>
+<script>
+			/*
+			Custom functionality for safari and IE
+			 */
+			(function( d ) {
+				// In case the placeholder functionality is available we remove labels
+				if ( ( 'placeholder' in d.createElement( 'input' ) ) ) {
+					var label = d.querySelector( 'label[for=subscribe-field-blog_subscription-3]' );
+						label.style.clip 	 = 'rect(1px, 1px, 1px, 1px)';
+						label.style.position = 'absolute';
+						label.style.height   = '1px';
+						label.style.width    = '1px';
+						label.style.overflow = 'hidden';
+				}
+
+				// Make sure the email value is filled in before allowing submit
+				var form = d.getElementById('subscribe-blog-blog_subscription-3'),
+					input = d.getElementById('subscribe-field-blog_subscription-3'),
+					handler = function( event ) {
+						if ( '' === input.value ) {
+							input.focus();
+
+							if ( event.preventDefault ){
+								event.preventDefault();
+							}
+
+							return false;
+						}
+					};
+
+				if ( window.addEventListener ) {
+					form.addEventListener( 'submit', handler, false );
+				} else {
+					form.attachEvent( 'onsubmit', handler );
+				}
+			})( document );
+			</script>
+</aside></div>
+ </div>
+ 
+</div>
+ 
+<footer id="colophon" class="clearfix">
+<div class="widget-wrap">
+<div class="container">
+<div class="widget-area clearfix">
+<div class="one-third">
+<aside id="categories-6" class="widget widget_categories"><h2 class="widget-title">Categories</h2> <ul>
+<li class="cat-item cat-item-16"><a href="/category/android/">Android</a>
+</li>
+<li class="cat-item cat-item-19"><a href="/category/automation/">Automation</a>
+</li>
+<li class="cat-item cat-item-3"><a href="/category/cloud/">Cloud</a>
+</li>
+<li class="cat-item cat-item-25"><a href="/category/how-to/">How-to</a>
+</li>
+<li class="cat-item cat-item-2"><a href="/category/linux/">Linux</a>
+</li>
+</ul>
+</aside> </div>
+ 
+<div class="one-third">
+<aside id="top-posts-5" class="widget widget_top-posts"><h2 class="widget-title">Top Posts</h2><ul> <li>
+<a href="/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/" class="bump-view" data-bump-view="tp">
+Control your TP-Link HS100 smart plug with IFTTT </a>
+</li>
+<li>
+<a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/" class="bump-view" data-bump-view="tp">
+How to control your TP-Link HS100 smartplug from Internet </a>
+</li>
+<li>
+<a href="/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/" class="bump-view" data-bump-view="tp">
+How to authenticate to TP-Link cloud API </a>
+</li>
+<li>
+<a href="/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/" class="bump-view" data-bump-view="tp">
+How to get the TP-Link HS100 cloud end-point URL? </a>
+</li>
+<li>
+<a href="/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/" class="bump-view" data-bump-view="tp">
+Control your TP-Link HS100 smartplug with Tasker </a>
+</li>
+</ul></aside> </div>
+ 
+<div class="one-third">
+<aside id="rss_links-3" class="widget widget_rss_links"><h2 class="widget-title">Subscribe</h2><ul><li><a target="_self" href="/feed/" title="Subscribe to Posts">RSS - Posts</a></li><li><a target="_self" href="/comments/feed/" title="Subscribe to Comments">RSS - Comments</a></li></ul>
+</aside> </div>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+<div id="site-generator">
+<div class="container clearfix"><div class="social-profiles clearfix">
+<ul><li class="twitter"><a href="https://twitter.com/adumont" title="IT Nerd Space on Twitter" target="_blank"></a></li><li class="linkedin"><a href="https://es.linkedin.com/in/alexandredumont" title="IT Nerd Space on LinkedIn" target="_blank"></a></li>
+</ul>
+</div> <div class="copyright">Copyright &copy; 2017 <a href="/" title="IT Nerd Space"><span>IT Nerd Space</span></a> | Theme by: <a href="http://themehorse.com" target="_blank" title="Theme Horse"><span>Theme Horse</span></a> | Powered by: <a href="http://wordpress.org" target="_blank" title="WordPress"><span>WordPress</span></a></div> </div> 
+</div> <div class="back-to-top"><a href="#branding"> </a></div></footer>
+</div>
+ 
+<div style="display:none">
+</div>
+<div id="su-footer-links" style="text-align: center;"></div>
+<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/\/2017\/01\/22\/how-to-control-your-tp-link-hs100-smartplug-from-internet\/":190};
+	</script>
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel-ie8fix.css?ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='wpappbox-css' href='/wp-content/plugins/wp-appbox/css/styles.min.css?ver=4.0.15' type='text/css' media='screen'/>
+<link rel='stylesheet' id='open-sans-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.8' type='text/css' media='all'/>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/photon/photon.js?ver=20130122'></script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201728'></script>
+<script type='text/javascript' src="https://s.gravatar.com/js/gprofiles.js?ver=2017Julaa"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.8'></script>
+<script type='text/javascript' src='/wp-includes/js/comment-reply.min.js?ver=4.8'></script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/_inc/twitter-timeline.js?ver=4.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/bj-lazy-load/js/bj-lazy-load.min.js?ver=2'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=4.8'></script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/_inc/spin.js?ver=1.3'></script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/_inc/jquery.spin.js?ver=1.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/\/wp-admin\/admin-ajax.php","nonce":"609440baff","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"http:\/\/\/wp-login.php?redirect_to=http%3A%2F%2F%2F2017%2F01%2F22%2Fhow-to-control-your-tp-link-hs100-smartplug-from-internet%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel.js?ver=20170209'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.8","language":""},"disqusIdentifier":"190 http:\/\/\/?p=190","disqusShortname":"http-itnerd-space","disqusTitle":"How to control your TP-Link HS100 smartplug from Internet","disqusUrl":"http:\/\/\/2017\/01\/22\/how-to-control-your-tp-link-hs100-smartplug-from-internet\/","options":{"manualSync":false},"postId":"190"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/disqus-comment-system/media/js/disqus.js?ver=4.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"http-itnerd-space"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/disqus-comment-system/media/js/count.js?ver=4.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=5.1'></script>
+<script type='text/javascript'>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-google-plus-1', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-pocket', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcompocket', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+</script>
+<span id="al_popup" onmouseover="al_div_in()" onmouseout="al_div_out()"></span><script type='text/javascript'>
+/* <![CDATA[ */
+var AmazonLinkMulti = {"link_templates":{"A":"http:\/\/www.amazon.%TLD%\/gp\/product\/%ARG%?ie=UTF8&amp;linkCode=as2&amp;camp=1634&amp;creative=6738&amp;tag=%TAG%%CC%#&amp;creativeASIN=%ARG%","S":"http:\/\/www.amazon.%TLD%\/mn\/search\/?_encoding=UTF8&amp;linkCode=ur2&amp;camp=1634&amp;creative=19450&amp;tag=%TAG%%CC%#&amp;field-keywords=%ARG%","R":"http:\/\/www.amazon.%TLD%\/review\/%ARG%?ie=UTF8&amp;linkCode=ur2&amp;camp=1634&amp;creative=6738&amp;tag=%TAG%%CC%#","B":"http:\/\/www.amazon.%TLD%\/e\/e\/%ARG%?tag=%TAG%%CC%#","U":"%ARG%","X":"%ARG%"},"country_data":{"uk":{"cc":"uk","mplace":"GB","mplace_id":"2","lang":"en","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_uk.gif","tld":"co.uk","language":"English","region":"eu","imp":"ir-uk","rcm":"rcm-eu.amazon-adsystem.com","site":"https:\/\/affiliate-program.amazon.co.uk","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/02\/buttons\/buy-from-tan.gif","country_name":"United Kingdom","link_close":"<\/a>"},"us":{"cc":"us","mplace":"US","mplace_id":"1","lang":"en","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_us.gif","tld":"com","language":"English","region":"na","imp":"ir-na","rcm":"rcm.amazon.com","site":"https:\/\/affiliate-program.amazon.com","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/01\/buttons\/buy-from-tan.gif","country_name":"United States","link_close":"<\/a>"},"de":{"cc":"de","mplace":"DE","mplace_id":"3","lang":"de","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_de.gif","tld":"de","language":"Deutsch","region":"eu","imp":"ir-de","rcm":"rcm-de.amazon.de","site":"https:\/\/partnernet.amazon.de","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/03\/buttons\/buy-from-tan.gif","country_name":"Germany","link_close":"<\/a>"},"es":{"cc":"es","mplace":"ES","mplace_id":"30","lang":"es","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_es.gif","tld":"es","language":"Espa\u00f1ol","region":"eu","imp":"ir-es","rcm":"rcm-es.amazon.es","site":"https:\/\/afiliados.amazon.es","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/30\/buttons\/buy-from-tan.gif","country_name":"Spain","link_close":"<\/a>"},"fr":{"cc":"fr","mplace":"FR","mplace_id":"8","lang":"fr","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_fr.gif","tld":"fr","language":"Fran\u00e7ais","region":"eu","imp":"ir-fr","rcm":"rcm-fr.amazon.fr","site":"https:\/\/partenaires.amazon.fr","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/08\/buttons\/buy-from-tan.gif","country_name":"France","link_close":"<\/a>"},"jp":{"cc":"jp","mplace":"JP","mplace_id":"9","lang":"ja","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_jp.gif","tld":"co.jp","language":"\u65e5\u672c\u8a9e","region":"fe","imp":"ir-jp","rcm":"rcm-jp.amazon.co.jp","site":"https:\/\/affiliate.amazon.co.jp","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/09\/buttons\/buy-from-tan.gif","country_name":"Japan","link_close":"<\/a>"},"it":{"cc":"it","mplace":"IT","mplace_id":"29","lang":"it","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_it.gif","tld":"it","language":"Italiano","region":"eu","imp":"ir-it","rcm":"rcm-it.amazon.it","site":"https:\/\/programma-affiliazione.amazon.it","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/29\/buttons\/buy-from-tan.gif","country_name":"Italy","link_close":"<\/a>"},"cn":{"cc":"cn","mplace":"CN","mplace_id":"28","lang":"zh-CHS","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_cn.gif","tld":"cn","language":"\u7b80\u4f53\u4e2d\u6587","region":"cn","imp":"ir-cn","rcm":"rcm-cn.amazon.cn","site":"https:\/\/associates.amazon.cn","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/28\/buttons\/buy-from-tan.gif","country_name":"China","link_close":"<\/a>"},"in":{"cc":"in","mplace":"IN","mplace_id":"31","lang":"hi","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_in.gif","tld":"in","language":"Hindi","region":"in","imp":"ir-in","rcm":"ws-in.amazon-adsystem.com","site":"https:\/\/associates.amazon.in","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/31\/buttons\/buy-from-tan.gif","country_name":"India","link_close":"<\/a>"},"ca":{"cc":"ca","mplace":"CA","mplace_id":"15","lang":"en","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_ca.gif","tld":"ca","language":"English","region":"na","imp":"ir-ca","rcm":"rcm-ca.amazon.ca","site":"https:\/\/associates.amazon.ca","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/15\/buttons\/buy-from-tan.gif","country_name":"Canada","link_close":"<\/a>"},"br":{"cc":"br","mplace":"BR","mplace_id":"33","lang":"pt-br","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_br.gif","tld":"com.br","language":"Portuguese","region":"na","imp":"ir-br","rcm":"rcm-br.amazon-adsystem.br","site":"https:\/\/associados.amazon.com.br\/","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/33\/buttons\/buy-from-tan.gif","country_name":"Brazil","link_close":"<\/a>"},"mx":{"cc":"mx","mplace":"MX","mplace_id":"34","lang":"es","flag":"http:\/\/\/wp-content\/plugins\/amazon-link\/images\/flag_mx.jpg","tld":"com.mx","language":"Espa\u00f1ol","region":"na","imp":"ir-mx","rcm":"rcm-mx.amazon-adsystem.mx","site":"https:\/\/afiliados.amazon.com.mx\/","buy_button":"https:\/\/images-na.ssl-images-amazon.com\/images\/G\/34\/buttons\/buy-from-tan.gif","country_name":"Mexico","link_close":"<\/a>"}},"channels":{"default":{"Name":"Default","Description":"Default Affiliate Tags","tag_uk":"itnesp0d-21","tag_de":"itnesp05-21","tag_es":"itnesp-21","tag_fr":"itnesp01-21","tag_it":"itnesp03-21","tag_us":"itnerdspace-20","tag_jp":"al-jp-22","tag_cn":"al-cn-23","tag_in":"al-in-21","tag_ca":"al-ca-20","tag_br":"al-br-20","tag_mx":"al-mx-20","ID":"default"}},"target":"target=\"_blank\""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/amazon-link/amazon.js?ver=3.2.7'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201728.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.1',blog:'119014820',post:'190',tz:'0',srv:''} ]);
+	_stq.push([ 'clickTrackerInit', '119014820', '190' ]);
+</script>
+</body></html>
+ 

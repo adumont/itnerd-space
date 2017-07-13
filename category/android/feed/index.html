@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Android &#8211; IT Nerd Space</title>
+	<atom:link href="http://itnerd.space/category/android/feed/" rel="self" type="application/rss+xml" />
+	<link>http://itnerd.space</link>
+	<description>Blog about Cloud, Automation, Android, Smart things...</description>
+	<lastBuildDate>Tue, 11 Jul 2017 19:44:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+
+<image>
+	<url>https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=32%2C32</url>
+	<title>Android &#8211; IT Nerd Space</title>
+	<link>http://itnerd.space</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">119014820</site>	<item>
+		<title>Remotely control your HS100 timer (API)</title>
+		<link>http://itnerd.space/2017/06/05/remotely-control-your-hs100-timer-api/</link>
+		<comments>http://itnerd.space/2017/06/05/remotely-control-your-hs100-timer-api/#respond</comments>
+		<pubDate>Mon, 05 Jun 2017 18:43:38 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+				<category><![CDATA[Android]]></category>
+		<category><![CDATA[Automation]]></category>
+		<category><![CDATA[How-to]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=334</guid>
+		<description><![CDATA[Thanks to a comment by Jacob K. on a previous post, I looked into how to set/unset the HS100 plug timer via the TP-Link API call. To replay the steps below, be sure to already have: your TP-Link token your HS100 deviceId your TP-Link app server URL In the next&#8230; ]]></description>
+				<content:encoded><![CDATA[<p>Thanks to a <a href="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-3341335326">comment by Jacob K</a>. on a previous post, I looked into how to set/unset the HS100 plug timer via the TP-Link API call.</p>
+<p>To replay the steps below, be sure to already have:</p>
+<ul>
+<li><a href="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/">your TP-Link token</a></li>
+<li><a href="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/">your HS100 deviceId</a></li>
+<li><a href="http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/">your TP-Link app server URL</a></li>
+</ul>
+<p>In the next step, I recommend you use <a href="https://www.hurl.it/">Hurl.it</a> service to test the API calls, it&#8217;s the easiest way.</p>
+<h2>First let&#8217;s retrieve the timer Rule ID</h2>
+<p>Destination:</p>
+<blockquote>
+<div><span style="font-family: monospace, monospace;">POST <a href="https://eu-wap.tplinkcloud.com/?token=YOUR_TOKEN_HERE" target="_blank" rel="noopener noreferrer">https://eu-wap.tplinkcloud.<wbr />com/?token=YOUR_TOKEN_HERE</a></span></div>
+</blockquote>
+<div>Body:</div>
+<blockquote>
+<div><span style="font-family: monospace, monospace;">{&#8220;method&#8221;:&#8221;passthrough&#8221;, &#8220;params&#8221;: {&#8220;deviceId&#8221;: &#8220;YOUR_DEVICE_ID_HERE&#8221;, &#8220;requestData&#8221;: &#8220;{\&#8221;count_down\&#8221;:{\&#8221;get_rules\<wbr />&#8220;:null}}&#8221; }}</span></div>
+</blockquote>
+<div> Then hit the Launch Request button. The result body should look like this:</div>
+<blockquote>
+<div><span style="font-family: monospace, monospace;">{<span style="color: #339966;">&#8220;error_code&#8221;:0</span>,&#8221;result&#8221;:{&#8220;<wbr />responseData&#8221;:&#8221;{\&#8221;count_down\&#8221;<wbr />:{\&#8221;get_rules\&#8221;:{\&#8221;rule_list\&#8221;<wbr />:[{\&#8221;enable\&#8221;:0,\&#8221;id\&#8221;:\&#8221;<span style="color: #ff0000;">YOUR_<wbr />RULE_ID_HERE</span>\&#8221;,\&#8221;name\&#8221;:\&#8221;\&#8221;,\<wbr />&#8220;delay\&#8221;:1800,\&#8221;act\&#8221;:0}],\&#8221;<wbr />err_code\&#8221;:0}}}&#8221;}}</span></div>
+</blockquote>
+<div>Have a look at the id field! I call it the Rule Id (YOUR_RULE_ID_HERE). we&#8217;ll need it in the next step. I would say it never changes but I am not sure.</div>
+<h2><b>Now you can enable/disable the timer like this:</b></h2>
+<div>
+<div>Destination:</div>
+<blockquote>
+<div><span style="font-family: monospace, monospace;">POST <a href="https://eu-wap.tplinkcloud.com/?token=YOUR_TOKEN_HERE" target="_blank" rel="noopener noreferrer">https://eu-wap.tplinkcloud.<wbr />com/?token=YOUR_TOKEN_HERE</a></span></div>
+</blockquote>
+<div>Body:</div>
+<blockquote>
+<div><span style="font-family: monospace, monospace;">{&#8220;method&#8221;:&#8221;passthrough&#8221;, &#8220;params&#8221;: {&#8220;deviceId&#8221;: &#8220;YOUR_DEVICE_ID_HERE&#8221;, &#8220;requestData&#8221;: &#8220;{\&#8221;count_down\&#8221;:{\&#8221;edit_rule\<wbr />&#8220;:{\&#8221;name\&#8221;:\&#8221;\&#8221;,\&#8221;act\&#8221;:<span style="color: #ff0000;">0</span>,\&#8221;<wbr />enable\&#8221;:<span style="color: #ff0000;">1</span>,\&#8221;id\&#8221;:\&#8221;<span style="color: #ff0000;">YOUR_RULE_<wbr />ID_HERE</span>\&#8221;,\&#8221;delay\&#8221;:<span style="color: #ff0000;">1800</span>}}}&#8221; }}</span></div>
+</blockquote>
+<div>Use the following values in your body:</div>
+<ul>
+<li><strong>act</strong>: (<em>action)</em>
+<ul>
+<li>Use <strong>0</strong> to power <strong>off</strong> the plug after the timer</li>
+<li>Use <strong>1</strong> to power <strong>on</strong> the plug after the timer</li>
+</ul>
+</li>
+<li><strong>enable</strong>:
+<ul>
+<li>Use <strong>0</strong> to <strong>disable</strong> the timer</li>
+<li>Use <strong>1</strong> to <strong>enable</strong> the timer</li>
+</ul>
+</li>
+<li><strong>delay</strong>:
+<ul>
+<li>timer delay in <strong>seconds</strong></li>
+</ul>
+</li>
+</ul>
+<p>Have fun!!</p>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2017/06/05/remotely-control-your-hs100-timer-api/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">334</post-id>	</item>
+		<item>
+		<title>Control your TP-Link HS100 smart plug from your Android Watch!</title>
+		<link>http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/</link>
+		<comments>http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/#respond</comments>
+		<pubDate>Mon, 03 Apr 2017 22:11:01 +0000</pubDate>
+		<dc:creator><![CDATA[Alex D.]]></dc:creator>
+				<category><![CDATA[Android]]></category>
+		<category><![CDATA[Automation]]></category>
+		<category><![CDATA[How-to]]></category>
+		<category><![CDATA[HS100]]></category>
+		<category><![CDATA[IoT]]></category>
+		<category><![CDATA[Smart Things]]></category>
+		<category><![CDATA[Tasker]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=254</guid>
+		<description><![CDATA[In this post I&#8217;ll show how I control my TP-Link HS100 smart plug right from my LG G Watch R Android smart watch, from anywhere, which is very handy. The first thing we need is the ability to control the HS100 smart plug from Tasker on our Android phone. If&#8230; ]]></description>
+				<content:encoded><![CDATA[<p>In this post I&#8217;ll show how I control my TP-Link HS100 smart plug right from my LG G Watch R Android smart watch, from anywhere, which is very handy.<a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg"><img data-attachment-id="193" data-permalink="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/hs100_un_v1_1116_large_2-00_20151006093353/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=960%2C720" data-orig-size="960,720" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="HS100_un_V1_1116_large_2.00_20151006093353" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=300%2C225" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=700%2C525" class="alignright wp-image-193 size-thumbnail" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150" alt="" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150 150w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=100%2C100 100w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=2&amp;resize=150%2C150 300w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=3&amp;resize=150%2C150 450w" sizes="(max-width: 150px) 100vw, 150px" data-recalc-dims="1" /></a></p>
+<p>The first thing we need is the ability to control the HS100 smart plug from Tasker on our Android phone. If you haven&#8217;t already, be sure to check my <a href="http://itnerd.space/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/">preview post</a> where I explain how to create two Tasker Tasks, that will turn our plug On and Off.</p>
+<p>For the next step I&#8217;ll use the WearTasker: with this app you can choose some of your Tasker tasks and publish them on your watch. They will show as buttons when you open WearTasker on your wrist, and the corresponding task will run when pressed. Quite simple. TBH WearTasker  feels like a natural extension of Tasker to Android Wear.</p>
+<!-- WP-Appbox (Version: 4.0.15 // Store: googleplay // ID: com.cuberob.weartasker) --><p><a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=com.cuberob.weartasker&hl=en" title="WearTasker - Tasker for Wear">WearTasker - Tasker for Wear (Free<sup>+</sup>, Google Play) →</a></p><!-- /WP-Appbox -->
+<p><em>You can buy a Pro in-app purchase if you&#8217;d like, which unlocks some cool features, but what I use here works with the free version.</em></p>
+<p>So let&#8217;s <em>publish</em> both our smart plug tasks. Open Wear Tasker on your phone, and create a new shortcut. Choose your &#8220;Power On Plug&#8221; task, and name it however you like. You can also select an icon and a color. Then repeat the same operations with the other task:</p>
+<p><a href="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png"><img data-attachment-id="291" data-permalink="http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/screenshot_20170403-203029/" data-orig-file="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?fit=1080%2C1920" data-orig-size="1080,1920" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screenshot_20170403-203029" data-image-description="" data-medium-file="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?fit=169%2C300" data-large-file="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?fit=576%2C1024" class="wp-image-291 size-medium alignnone" src="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?resize=169%2C300" alt="" srcset="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?resize=169%2C300 169w, https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?resize=768%2C1365 768w, https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?resize=576%2C1024 576w, https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?resize=17%2C30 17w, https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203029.png?w=1080 1080w" sizes="(max-width: 169px) 100vw, 169px" data-recalc-dims="1" /></a> <a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png"><img data-attachment-id="290" data-permalink="http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/screenshot_20170403-203035/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?fit=1080%2C1920" data-orig-size="1080,1920" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screenshot_20170403-203035" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?fit=169%2C300" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?fit=576%2C1024" class="alignnone size-medium wp-image-290" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?resize=169%2C300" alt="" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?resize=169%2C300 169w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?resize=768%2C1365 768w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?resize=576%2C1024 576w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?resize=17%2C30 17w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203035.png?w=1080 1080w" sizes="(max-width: 169px) 100vw, 169px" data-recalc-dims="1" /></a></p>
+<p>Back to the app, it should now look like this:</p>
+<p><a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png"><img data-attachment-id="292" data-permalink="http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/screenshot_20170403-203021/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?fit=1080%2C700" data-orig-size="1080,700" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screenshot_20170403-203021" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?fit=300%2C194" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?fit=700%2C454" class="wp-image-292 size-medium aligncenter" src="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770-300x194.png?resize=300%2C194" alt="" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?resize=300%2C194 300w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?resize=768%2C498 768w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?resize=1024%2C664 1024w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?resize=30%2C19 30w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/04/Screenshot_20170403-203021-e1491256563770.png?w=1080 1080w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" /></a></p>
+<p>And that&#8217;s how it will look on your watch:</p>
+<p><a href="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg"><img data-attachment-id="293" data-permalink="http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/aimg_20170402_165806-01/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?fit=780%2C520" data-orig-size="780,520" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1039348800&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;3.79&quot;,&quot;iso&quot;:&quot;515&quot;,&quot;shutter_speed&quot;:&quot;0.03030303030303&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="aimg_20170402_165806-01" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?fit=300%2C200" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?fit=700%2C467" class="aligncenter wp-image-293 size-full" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?resize=700%2C467" alt="" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?w=780 780w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?resize=300%2C200 300w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?resize=768%2C512 768w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/04/aimg_20170402_165806-01.jpg?resize=30%2C20 30w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>Now try to press one of the Task and see how your HS100 smart plug responds!</p>
+<p>I love WearTasker. I find it extremely usefull to be able to call Tasker tasks from my watch. Some other tasks I have there are one to power off my home server, one to refresh my Plex library, and one to send a Whatsapp to my wife with my current location and current route ETA.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">254</post-id>	</item>
+		<item>
+		<title>Control your TP-Link HS100 smartplug with Tasker</title>
+		<link>http://itnerd.space/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/</link>
+		<comments>http://itnerd.space/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/#comments</comments>
+		<pubDate>Sun, 26 Feb 2017 13:56:25 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+				<category><![CDATA[Android]]></category>
+		<category><![CDATA[Automation]]></category>
+		<category><![CDATA[How-to]]></category>
+		<category><![CDATA[HS100]]></category>
+		<category><![CDATA[Smart Things]]></category>
+		<category><![CDATA[Tasker]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=252</guid>
+		<description><![CDATA[We&#8217;ve seen in a previous post how to switch our TP-Link HS100 smartplug from command line, from anywhere (not only the local network). In this post we&#8217;ll see how to create some Tasker tasks to control our smartplug. From that, we can imagine any useful/crazy profiles triggered from any events, time,&#8230; ]]></description>
+				<content:encoded><![CDATA[<p>We&#8217;ve seen in a previous post <a href="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/">how to switch our TP-Link HS100 smartplug from command line</a>, from anywhere (not only the local network). In this post we&#8217;ll see how to create some Tasker tasks to control our smartplug. From that, we can imagine any useful/crazy profiles triggered from any events, time, location and switch the plug On/Off, for example &#8220;when I arrive home, switch on the Christmas Tree&#8230;&#8221; <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>To quickly recap, this is the command that can change the plug state (depending on the %state variable, 0: switch off, 1: switch on):</p>
+<pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">%token</span> HTTP/1.1" \
+  --data '{"method":"passthrough", "params": {"deviceId": "<span style="color: #800080;">%deviceId</span>", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":<span style="color: #339966;"><strong>%state</strong></span>}}}" }}' \
+  --header "Content-Type: application/json"</pre>
+<h1>Task 1: Switch Plug On <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" /></h1>
+<h2>Using an HTTP Post action</h2>
+<p>In Tasker let&#8217;s create a new Task called &#8220;Switch Plug On <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" />&#8221;, then add  3 &#8220;Variable Set&#8221; actions, to set the value of %deviceId, %token and %state to the right values for you.</p>
+<p>Then we&#8217;ll use an HTTP Post action, that we&#8217;ll configure like this:</p>
+<ul>
+<li><span style="text-decoration: underline;">Server:Port</span>: https://eu-wap.tplinkcloud.com</li>
+<li><span style="text-decoration: underline;">Path</span>: ?token=%token</li>
+<li><span style="text-decoration: underline;">Data / File</span>: {&#8220;method&#8221;:&#8221;passthrough&#8221;, &#8220;params&#8221;: {&#8220;deviceId&#8221;: &#8220;%deviceId&#8221;, &#8220;requestData&#8221;: &#8220;{\&#8221;system\&#8221;:{\&#8221;set_relay_state\&#8221;:{\&#8221;state\&#8221;:%state}}}&#8221; }}</li>
+<li><span style="text-decoration: underline;">Timeout</span>: 30</li>
+<li><span style="text-decoration: underline;">Content Type</span>: application/json</li>
+</ul>
+<p><strong>Note</strong>: Remember to change the URL above to the one that works for you (check the <a href="/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#CommonIssues">Common Issues</a> section at the end of first post and its comments).</p>
+<p>The resulting Tasker Task will look like this:</p>
+<p><a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png.png"><img data-attachment-id="276" data-permalink="http://itnerd.space/?attachment_id=276" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?fit=1080%2C902" data-orig-size="1080,902" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="26-de-febrero-de-2017-165802-cet.png.png" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?fit=300%2C251" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?fit=700%2C584" class="wp-image-276 size-medium aligncenter" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207-300x251.png?resize=300%2C251" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?resize=300%2C251 300w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?resize=768%2C641 768w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?resize=1024%2C855 1024w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?resize=30%2C25 30w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-165802-cet.png-e1488126189207.png?w=1080 1080w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" /></a></p>
+<p>In text form, it looks like this:</p>
+<pre>Switch Plug On &#x1f4a1; (143)
+ A1: Variable Set [ Name:%deviceId To:<span style="color: #800080;">YOUR_DEVICE_ID_HERE </span>Recurse Variables:Off Do Maths:Off Append:Off ] 
+ A2: Variable Set [ Name:%token To:<span style="color: #800080;">YOUR_TOKEN_ID_HERE </span>Recurse Variables:Off Do Maths:Off Append:Off ] 
+ A3: Variable Set [ Name:%state To:<strong><span style="color: #339966;">1</span></strong> Recurse Variables:Off Do Maths:Off Append:Off ] 
+ A4: HTTP Post [ Server:Port:https://eu-wap.tplinkcloud.com Path:?token=%token Data / File:{"method":"passthrough", "params": {"deviceId": "%deviceId", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":%state}}}" }} Cookies: User Agent: Timeout:30 Content Type:application/json Output File: Trust Any Certificate:Off ]</pre>
+<h2>Using a Run Shell action (2nd way)</h2>
+<p>If you have curl available from the command line on your Android phone, you can alternatively use a Run Shell action, instead of the HTTP Post action.</p>
+<p>In this case, the Tasker Task would look like this:</p>
+<p><a href="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png.png" target="_blank" rel="noopener"><img data-attachment-id="263" data-permalink="http://itnerd.space/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/26-de-febrero-de-2017-142547-cet-png-png/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?fit=1080%2C916" data-orig-size="1080,916" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="26-de-febrero-de-2017-142547-cet.png.png" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?fit=300%2C254" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?fit=700%2C594" class="aligncenter wp-image-263 size-medium" src="https://i0.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816-300x254.png?resize=300%2C254" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?resize=300%2C254 300w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?resize=768%2C651 768w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?resize=1024%2C869 1024w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?resize=30%2C25 30w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/02/26-de-febrero-de-2017-142547-cet.png-e1488126282816.png?w=1080 1080w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" /></a></p>
+<p>And in text form it would read like this:</p>
+<pre>Switch Plug On &#x1f4a1; (143)
+ A1: Variable Set [ Name:%deviceId <span style="color: #800080;"><span style="color: #333333;">To:</span>YOUR_DEVICE_ID_HERE</span> Recurse Variables:Off Do Maths:Off Append:Off ] 
+ A2: Variable Set [ Name:%token <span style="color: #800080;"><span style="color: #333333;">To:</span>YOUR_TOKEN_ID_HERE</span> Recurse Variables:Off Do Maths:Off Append:Off ] 
+ A3: Variable Set [ Name:%state To:<strong><span style="color: #339966;">1</span></strong> Recurse Variables:Off Do Maths:Off Append:Off ] 
+ A4: Run Shell [ Command:curl --request POST "https://eu-wap.tplinkcloud.com/?token=%token HTTP/1.1" --data '{"method":"passthrough", "params": {"deviceId": "%deviceId", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":%state}}}" }}' --header "Content-Type: application/json" Timeout (Seconds):0 Use Root:Off Store Output In: Store Errors In: Store Result In: ]</pre>
+<h1>Task 2: Switch Off Plug</h1>
+<p>Once you have the Switch On task working, you can simply clone it in Tasker and change the %state variable to 0, and that will give you the &#8220;Switch Off Plug&#8221; task!</p>
+<h1>Profiles ideas</h1>
+<p>Do not hesitate to contribute in the comments with any Profile idea you have to play with your TP-Link HS100 smartplug.</p>
+<hr />
+<p>You can acquire Tasker from the Play Store, personally I believe it&#8217;s really worth the money. You can also download a 7 days free trial from <a href="http://tasker.dinglisch.net/">Tasker official website</a>.</p>
+<!-- WP-Appbox (Version: 4.0.15 // Store: googleplay // ID: net.dinglisch.android.taskerm) --><p><a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en" title="Tasker">Tasker ($2.99, Google Play) →</a></p><!-- /WP-Appbox -->
+<p>In a next post I&#8217;ll show <a href="http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/">how you can control your smart plug from your Android smartwatch</a>, which is super cool!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">252</post-id>	</item>
+		<item>
+		<title>How to control your TP-Link HS100 smartplug from Internet</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/</link>
+		<comments>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comments</comments>
+		<pubDate>Sun, 22 Jan 2017 14:04:59 +0000</pubDate>
+		<dc:creator><![CDATA[Alex D.]]></dc:creator>
+				<category><![CDATA[Android]]></category>
+		<category><![CDATA[Automation]]></category>
+		<category><![CDATA[How-to]]></category>
+		<category><![CDATA[IoT]]></category>
+		<category><![CDATA[Smart Things]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=190</guid>
+		<description><![CDATA[In this post I'll show how to control a TP-Link HS100 smart plug from the command line from any device connected to Internet (not only from the local Wifi). This can then be used to expand the possibilities of your smart plug and automate it with apps like Tasker for Android and IFTTT.]]></description>
+				<content:encoded><![CDATA[<p>I recently acquired a TP-Link HS100 smart plug. <a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg"><img data-attachment-id="193" data-permalink="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/hs100_un_v1_1116_large_2-00_20151006093353/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=960%2C720" data-orig-size="960,720" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="HS100_un_V1_1116_large_2.00_20151006093353" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=300%2C225" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?fit=700%2C525" class="size-thumbnail wp-image-193 alignright" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150" alt="" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=150%2C150 150w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?resize=100%2C100 100w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=2&amp;resize=150%2C150 300w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/HS100_un_V1_1116_large_2.00_20151006093353.jpg?zoom=3&amp;resize=150%2C150 450w" sizes="(max-width: 150px) 100vw, 150px" data-recalc-dims="1" /></a>Once you install and register the plug and the companion app (Kasa), you&#8217;ll be able to do some cool things like turn on/off the plug from your smartphone, schedule on/off at some time. You can also put the plug in Away Mode, so that the plug will randomly turn on/off in the specified time/date interval.</p>
+<!-- WP-Appbox (Version: 4.0.15 // Store: googleplay // ID: com.tplink.kasa_android) --><p><a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=com.tplink.kasa_android&hl=en" title="Kasa for Mobile">Kasa for Mobile (Free, Google Play) →</a></p><!-- /WP-Appbox -->
+<p>These are already really cool features, but I wanted to be able to do more with it: for example, turn on the plug when I arrive home, and turn it off 5min after I leave home. This is of course out of the scope of the Kasa app features, but I was more thinking about being able to control the plug from a smartphone automation App like Tasker, or a cloud service like IFTTT.</p>
+<p>While there are some <a href="https://www.softscheck.com/en/reverse-engineering-tp-link-hs110/">resources</a> available explaining how to control the TP-Link HS100 plug from another device connected to the same Wifi network, I haven&#8217;t been able to find any that would explain how to do it via the TP-Link web service, so this is what I&#8217;ll show here.</p>
+<p>In this post I&#8217;ll show how to change the relay state of the plug via command line from any device connected to Internet, <strong>not only from the local Wifi</strong>, which can then be called from a script, or from Tasker on Android.</p>
+<h1>Arquitecture</h1>
+<p>There are basically 3 components involved here:</p>
+<ul>
+<li>A web service from TP-Link</li>
+<li>The Kasa app that runs on your Smartphone, connected to Internet (via your Wifi network, or any network for that matter). It does (at least) two things:
+<ul>
+<li>Periodically get the status of the plug (is it turned on/off), and show the status in teh app (green icon if the plug is switched on). This happens every two seconds, when the app is in foreground and visible.</li>
+<li>When the user toggles the switch from the app, it will send the new relay state change request to the TP-Link web service.</li>
+</ul>
+</li>
+<li>The plug, connected to Internet via your wifi network: It will periodically contact the TP-Link web service for any status change, like a request to turn on/off.</li>
+</ul>
+<h1>Communication overview</h1>
+<p>This is how the Kasa app communicates itself with the TP-Link web service. In this case when the user switches the plug On, the app will send an HTTP POST request (over SSL) like this one:</p>
+<pre>POST https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">74adcc7e-64f7-47c1-a751-dece6d2f4704</span>&amp;appName=Kasa_Android&amp;termID=<span style="color: #800080;">c69d10e5-5307-4602-b2c8-eee8f3761238</span>&amp;appVer=1.4.4.607&amp;ospf=Android+6.0.1&amp;netType=wifi&amp;locale=en_US HTTP/1.1
+Content-Type: application/json
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; <em>XXPhoneModelXX</em>)
+Connection: Keep-Alive
+Content-Length: 160
+Host: eu-wap.tplinkcloud.com
+
+{
+ "method":"passthrough",
+ "params":{
+ "deviceId":"<span style="color: #800080;">80067AC4FDBD41C54C55896BFA28EAD38A87A5A4</span>",
+ "requestData":"{\"system\":{\"set_relay_state\":{\"state\":<strong><span style="color: #008000;">1</span></strong>}}}"
+ }
+}</pre>
+<p>To which the TP-Link server will respond (when successful):</p>
+<pre>{
+ "error_code":0,
+ "result":{
+ "responseData":"{\"system\":{\"set_relay_state\":{\"err_code\":0}}}"
+ }
+}</pre>
+<p>As expected, almost instantly, the plug will switch On.</p>
+<p>I have highlighted 4 fields/values in the request above. This values are specific to you and your plug. This is how the TP-Link web service identifies you and which of your plugs you want to switch.</p>
+<ul>
+<li><strong>Token</strong> (token=74adcc7e-64f7-47c1-a751-dece6d2f4704): passed in the URL, this is acting as a authentication. The Kasa app obtains it from the TP-Link server when you log in to the service via the App. The user and passwords are not used anymore after that. All communications use the token.</li>
+<li><strong>DeviceID</strong> (&#8220;deviceId&#8221;:&#8221;80067AC4FDBD41C54C55896BFA28EAD38A87A5A4&#8243;): passed in the Json payload, it references the device we wan&#8217;t to control.</li>
+<li><strong>TermID</strong> (termID=c69d10e5-5307-4602-b2c8-eee8f3761238): ID of the Client (the Kasa app installed in that particular phone). This doesn&#8217;t seem to be a compulsory field.</li>
+<li><strong>state</strong>: this is the desired state we want to put the relay into. 1 for On, 0 for Off.</li>
+</ul>
+<p><span style="text-decoration: underline;">Note</span>: I have changed all the values shown above, to avoid having anyone control my plug by error. I have also formated the Json payloads.</p>
+<p>Knowing that, we can now reproduce the same requests, for example using curl, from the command line (even in a Tasker task!). The TP-Link server will have aboslutely no way of telling of the request was originating from the Kasa app or a script.</p>
+<p>Now, let see how we can call again the same request from a linux command line using curl. I have removed some parameters, like the User-Agent, and some others in the URL query string, and it still works, so I assume they eventually use them for statistical reasons only:</p>
+<pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=74adcc7e-64f7-47c1-a751-dece6d2f4704 HTTP/1.1" \
+ --data '{"method":"passthrough", "params": {"deviceId": "80067AC4FDBD41C54C55896BFA28EAD38A87A5A4", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":1}}}" }}' \
+--header "Content-Type: application/json"</pre>
+<p>Of course, we need a way to identify the value of this fields. That&#8217;s what I&#8217;ll cover below.</p>
+<h1>Data extraction</h1>
+<p><span style="color: #ff0000;"><strong>UPDATE</strong> (06/20/2017): this &#8220;Data extraction&#8221; part is now obsolete. I leave it here for historical purpose. <span style="color: #339966;">Instead you can now follow the following steps:</span></span></p>
+<ol>
+<li><span style="color: #ff0000;"><a href="http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/">Authenticate to TP-Link cloud API and get a token</a></span></li>
+<li><span style="color: #ff0000;"><a href="http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/">Get the end point URL and Device ID</a></span></li>
+</ol>
+<p><span style="color: #ff0000;"><em><strong>OBSOLETE CONTENT STARTS HERE</strong></em></span></p>
+<p>This is what we&#8217;ll need:</p>
+<ol>
+<li>Android phone with Kasa app installed and already registred, with the plug added to the app</li>
+<li>Computer with some tools to unpack the Android Backup file (adb, python, sqlite3,&#8230;)</li>
+<li>Phone with adb enabled</li>
+</ol>
+<p>First let&#8217;s take an Android Backup of the Kasa app:</p>
+<pre>adb backup -f backup.ab com.tplink.kasa_android</pre>
+<p>Now let&#8217;s unpack the backup with this one-liner:</p>
+<pre>dd if=backup.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" | tar -xvf -</pre>
+<p>Now we just need to find the relevant information. I show you how to retrieve the values for each field:</p>
+<ul>
+<li><strong>Token</strong></li>
+</ul>
+<pre>$ sqlite3 db/iot.1.db "select token from accounts;"
+<span style="color: #800080;">74adcc7e-64f7-47c1-a751-dece6d2f4704</span></pre>
+<ul>
+<li><strong>deviceID</strong></li>
+</ul>
+<pre>$ sqlite3 db/iot.1.db "select deviceAlias,deviceID from devices;"My Smart Plug|<span style="color: #800080;">80067AC4FDBD41C54C55896BFA28EAD38A87A5A4</span></pre>
+<ul>
+<li><strong>termId</strong></li>
+</ul>
+<pre>$ cat f/INSTALLATION
+<span style="color: #800080;">c69d10e5-5307-4602-b2c8-eee8f3761238</span></pre>
+<p>For people on Windows, some users reported in the comments below that you can use Android Backup Extractor (ABE) to extract the backup, instead of dd. See these links:</p>
+<ul>
+<li><a href="https://sourceforge.net/projects/adbextractor/">https://sourceforge.net/projects/adbextractor/</a></li>
+<li><a href="https://github.com/nelenkov/android-backup-extractor">https://github.com/nelenkov/android-backup-extractor</a></li>
+<li><a href="https://forum.xda-developers.com/showthread.php?t=2011811">https://forum.xda-developers.com/showthread.php?t=2011811</a></li>
+</ul>
+<p><span style="color: #ff0000;"><em><strong>OBSOLETE CONTENT ENDS HERE</strong></em></span></p>
+<h1>Now, control the plug without the Kasa App</h1>
+<p>If you follow these steps above you can extract the token and device ID corresponding to your Kasa app and smartplug. You can now control the smart plug from anywhere, without the need to use the Kasa app. For example, you can use the curl expression below, after you replace the values with yours:</p>
+<ul>
+<li><strong>Turn On the plug:</strong></li>
+</ul>
+<pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">YOUR_TOKEN_HERE HTTP</span>/1.1" \
+  --data '{"method":"passthrough", "params": {"deviceId": "<span style="color: #800080;">YOUR_DEVICEID_HERE</span>", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":<span style="color: #339966;"><strong>1</strong></span>}}}" }}' \
+  --header "Content-Type: application/json"</pre>
+<ul>
+<li><strong>Turn Off the plug:</strong></li>
+</ul>
+<pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">YOUR_TOKEN_HERE HTTP</span>/1.1" \
+ --data '{"method":"passthrough", "params": {"deviceId": "<span style="color: #800080;">YOUR_DEVICEID_HERE</span>", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":<span style="color: #339966;"><strong>0</strong></span>}}}" }}' \
+ --header "Content-Type: application/json"</pre>
+<h1 id="CommonIssues">Common issues</h1>
+<ul>
+<li><strong><em>AppServerURL</em></strong>: You&#8217;ll need to change the URL used to control the plug with the correct one specific for your plug: <a href="http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/" target="_blank" rel="noopener noreferrer">See how to find it here</a>.</li>
+<li><span style="color: #999999;"><strong><span style="color: #ff6600;">[obsolete]</span></strong>{&#8220;error_code&#8221;:-20580,&#8221;msg&#8221;:&#8221;<strong>Account is not binded to the device</strong>&#8220;}: Some have reported issues with the URL eu-wap.tplinkcloud.com used in this tutorial. Here are all the known (to me) URLs of different TP-Link backend instances. If you have some problem like the previous error, try a different URL:</span>
+<ul>
+<li><span style="color: #999999;"><strong>use1-wap.tplinkcloud.com</strong> if you are near the <strong>US</strong> region</span></li>
+<li><span style="color: #999999;"><b>aps</b><strong>1-wap.tplinkcloud.com</strong> if you are near the <strong>Asia Pacific</strong> region</span></li>
+<li><span style="color: #999999;"><strong>eu-wap.tplinkcloud.com</strong> if you are near the <strong>Europe</strong> region</span></li>
+<li><span style="color: #999999;"><b>wap.tplinkcloud.com, </b>without any region prefix<strong><span style="color: #ff6600;">[/obsolete]</span></strong></span></li>
+</ul>
+</li>
+<li>If you get an <b>expired or invalid token</b> error, logout from Kasa app, then login again with your account and extract again the token from the app. Some have needed to uninstall the app completely, reinstall it and start over.</li>
+<li><strong>Be sure to enable Remote Control of the plug</strong>. You will find the option in the Kasa App, enter the Plug, then there&#8217;s a Plug settings button. There enable Remote control.</li>
+</ul>
+<p>If you have any questions or comment, please, do not hesitate to let me know, using the comments below :).</p>
+<p>In future posts I&#8217;ll show how to integrate your HS100 smart plug with the cloud Automation service IFTTT (<a href="http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/">see here</a>), and how to <a href="http://itnerd.space/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/">control it from the Android Automation app Tasker</a> or <a href="http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/">your Smartwatch</a>, as well as <a href="http://itnerd.space/2017/01/29/get-the-state-of-your-hs100-smart-plug/">how to get the state (On/Off) of the plug</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/feed/</wfw:commentRss>
+		<slash:comments>121</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">190</post-id>	</item>
+		<item>
+		<title>How to run Android Java code from Tasker</title>
+		<link>http://itnerd.space/2017/01/01/how-to-run-android-java-code-from-tasker/</link>
+		<comments>http://itnerd.space/2017/01/01/how-to-run-android-java-code-from-tasker/#respond</comments>
+		<pubDate>Sun, 01 Jan 2017 23:13:26 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+				<category><![CDATA[Android]]></category>
+		<category><![CDATA[Automation]]></category>
+		<category><![CDATA[How-to]]></category>
+		<category><![CDATA[Tasker]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=156</guid>
+		<description><![CDATA[When it comes to Automation in Android, there is no doubt that Tasker is the absolute king. Although I admit the UI is not fancy &#8212; at all,  and the learning curve is quite harsh, Tasker has demonstrated being the most powerful app in the Automation space. One of the little know features&#8230; ]]></description>
+				<content:encoded><![CDATA[<p>When it comes to Automation in Android, there is no doubt that <a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm">Tasker</a> is the absolute king. Although I admit the UI is not fancy &#8212; at all,  and the learning curve is quite harsh, Tasker has demonstrated being the most powerful app in the Automation space.</p>
+<!-- WP-Appbox (Version: 4.0.15 // Store: googleplay // ID: net.dinglisch.android.taskerm) --><p><a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en" title="Tasker">Tasker ($2.99, Google Play) →</a></p><!-- /WP-Appbox -->
+<p>One of the little know features of Tasker is the ability to run <em>Android Java</em> code, sort of.</p>
+<p>That requires some learning, as everything in Tasker, but can prove very useful to further extend Tasker possibilities.</p>
+<p>Let see a simple example, to illustrate the concept. Let say we want to enable Bluetooth. The corresponding Android Java code would be something like :</p>
+<p><img data-attachment-id="148" data-permalink="http://itnerd.space/screenshot_20170101-174128-png/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?fit=1920%2C1080" data-orig-size="1920,1080" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="screenshot_20170101-174128.png" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?fit=300%2C169" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?fit=700%2C394" class="alignnone wp-image-148 size-large" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?resize=700%2C394" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?resize=1024%2C576 1024w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?resize=300%2C169 300w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?resize=768%2C432 768w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?resize=30%2C17 30w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-174128.png?w=1400 1400w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></p>
+<p>In Tasker we would use a couple of <em>Java Function</em> actions that we put in a <em>Tasker task</em> :</p>
+<p>First:</p>
+<pre style="padding-left: 30px;">BluetoothAdapter bta = BluetoothAdapter.getDefaultAdapter();</pre>
+<p><a href="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png"><img data-attachment-id="149" data-permalink="http://itnerd.space/screenshot_20170101-175233-png/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?fit=1080%2C1920" data-orig-size="1080,1920" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="screenshot_20170101-175233.png" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?fit=169%2C300" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?fit=576%2C1024" class="aligncenter wp-image-149" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?resize=320%2C569" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?resize=576%2C1024 576w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?resize=169%2C300 169w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?resize=768%2C1365 768w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?resize=17%2C30 17w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175233.png?w=1080 1080w" sizes="(max-width: 320px) 100vw, 320px" data-recalc-dims="1" /></a></p>
+<p>Then:</p>
+<pre style="padding-left: 30px;">bta.enable();</pre>
+<p><a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png"><img data-attachment-id="154" data-permalink="http://itnerd.space/2017/01/01/how-to-run-android-java-code-from-tasker/screenshot_20170101-175241-png-3/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?fit=1080%2C1920" data-orig-size="1080,1920" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="screenshot_20170101-175241.png" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?fit=169%2C300" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?fit=576%2C1024" class="aligncenter wp-image-154 " src="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?resize=320%2C569" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?resize=576%2C1024 576w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?resize=169%2C300 169w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?resize=768%2C1365 768w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?resize=17%2C30 17w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/screenshot_20170101-175241-2.png?w=1080 1080w" sizes="(max-width: 320px) 100vw, 320px" data-recalc-dims="1" /></a></p>
+<p>This is the resulting Tasker task:</p>
+<pre>Bluetooth Enable (71)
+ A1: Java Function [ Return:bta Class Or Object:BluetoothAdapter Function:getDefaultAdapter
+{BluetoothAdapter} () Param: Param: Param: Param: Param: Param: Param: ] 
+ A2: Java Function [ Return: Class Or Object:bta Function:enable
+{boolean} () Param: Param: Param: Param: Param: Param: Param: ]</pre>
+<p>This is very powerful and can unleash some new possibilities.</p>
+<p>Say you want to enable LinkedIn synchronization on WiFi only. Tasker has no native actions to handle Android accounts synchronization. You need to access the ContentResolver Java objects and methods. This is something  you can do with Tasker! I&#8217;ll detail this example in a future post.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2017/01/01/how-to-run-android-java-code-from-tasker/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">156</post-id>	</item>
+	</channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 3757/3774 objects using disk
+Page Caching using disk: enhanced
+Database Caching 11/17 queries in 0.025 seconds using disk
+
+ Served from: itnerd.space @ 2017-07-13 21:35:11 by W3 Total Cache -->

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Powershell &#8211; IT Nerd Space</title>
+	<atom:link href="http://itnerd.space/tag/powershell/feed/" rel="self" type="application/rss+xml" />
+	<link>http://itnerd.space</link>
+	<description>Blog about Cloud, Automation, Android, Smart things...</description>
+	<lastBuildDate>Tue, 11 Jul 2017 19:44:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+
+<image>
+	<url>https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=32%2C32</url>
+	<title>Powershell &#8211; IT Nerd Space</title>
+	<link>http://itnerd.space</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">119014820</site>	<item>
+		<title>Script to open URLs and take screenshots</title>
+		<link>http://itnerd.space/2017/01/03/batch-to-open-urls-and-take-screenshots/</link>
+		<comments>http://itnerd.space/2017/01/03/batch-to-open-urls-and-take-screenshots/#comments</comments>
+		<pubDate>Tue, 03 Jan 2017 17:46:05 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+				<category><![CDATA[Automation]]></category>
+		<category><![CDATA[How-to]]></category>
+		<category><![CDATA[Azure]]></category>
+		<category><![CDATA[Powershell]]></category>
+		<category><![CDATA[WebApp]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=167</guid>
+		<description><![CDATA[Say you need to open a lot of URLs to see what they look like. Not in the mood for any more manual work, you prefer to automate the task? Let see how we can read a bunch of URL from an Excel file, load them in MSIE and take a screenshot of each of them. You'll have more time to analyse the results.]]></description>
+				<content:encoded><![CDATA[<p>Today I wanted to <em>visually</em> check a lot of URLs, to see if the page was loading fine, or if it was giving any kind of error. So I had an Excel file with the name of some applications (Azure WebApps), and for each the list URLs of that site, and I needed to load each URL and see, in a browser, what the pages look like.</p>
+<p>The good thing is that depending the result, I could easily identify it if I had a high level view of all the pages. That&#8217;s were the thumbnail view comes in!</p>
+<p>To do that I needed to automate several individual steps that I would later combine.</p>
+<ul>
+<li>Get the list of Application names and URLs from an Excel spreadsheet. That part was easy, as I&#8217;m already a fond user of <a href="https://github.com/dfinke/ImportExcel">ImportExcel PowerShell module</a></li>
+<li>Open a URL into a Browser. This <a href="http://stackoverflow.com/a/23347472/728281">StackOverflow answer</a> helped me.</li>
+<li>Take a screenshot, ideally of a specific portion of the screen. For that last part I found <a href="http://stackoverflow.com/a/2970339/728281" target="_blank">this other scriplet</a> on SO.</li>
+</ul>
+<p>So I created a <em>Frankenstein</em> Powershell script combining all the pieces together, which you can see <a href="https://gist.github.com/adumont/bbdfbd0f63be8719b1af87d862a45c56">here</a>.</p>
+<p>The input I&#8217;m using is an Excel file, of which I&#8217;ll use two columns: Name and Hostnames, which contains a list of comma-separated URLs, of which I&#8217;ll only take the first one. I&#8217;ll use the Name column to name the output screenshot file.</p>
+<p>This is how the Excel file would look like:</p>
+<p><a href="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png"><img data-attachment-id="179" data-permalink="http://itnerd.space/2017/01/03/batch-to-open-urls-and-take-screenshots/2017-01-04-11_14_08-book4-excel/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png?fit=332%2C152" data-orig-size="332,152" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2017-01-04 11_14_08-Book4 &#8211; Excel" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png?fit=300%2C137" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png?fit=332%2C152" class="size-full wp-image-179 aligncenter" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png?resize=332%2C152" alt="" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png?w=332 332w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png?resize=300%2C137 300w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_14_08-Book4-Excel.png?resize=30%2C14 30w" sizes="(max-width: 332px) 100vw, 332px" data-recalc-dims="1" /></a></p>
+<p>We load it using Import-Excel CmdLet. In the example case above, we would get:</p>
+<pre>PS C:\&gt; Import-Excel D:\temp\file.xlsx
+
+Name HostNames
+---- ---------
+google google.com, www.google.com
+microsoft www.microsoft.com
+yahoo yahoo.com</pre>
+<p>I didn&#8217;t find a way to take a screenshot of a non visible window, so I am showing the browser, and taking the screenshot of the region. For my purpose it works and it&#8217;s quite simple, but that presents some disadvantages (you cannot use the region of the screen while running the script, or you risk altering the result in the screenshot).</p>
+<p>Another disadvantage is that it involves some precaution and some manual preparation, to position the windows, and modify the script accordingly, the first time at least.</p>
+<ul>
+<li>Open a Powershell command line window</li>
+<li>Run the following command. This will open an Internet Explorer window. Place it on your desktop, so that it will not overlap with the Powershell window. They can be side by side. It will be easier if you have two monitors, as you can place the browser window alone on a monitor.</li>
+</ul>
+<pre> $IE=new-object -com internetexplorer.application
+ $IE.visible=$true</pre>
+<ul>
+<li>Run the following commands and take note of the results:</li>
+</ul>
+<pre> $IE.Top
+ $IE.Left
+ $IE.Width
+ $IE.Height</pre>
+<ul>
+<li>Replace the results in the script. That way, each time we open a new browser the script will reposition it in the same location on your screen!</li>
+</ul>
+<p>That&#8217;s it. Now you just have to run the script and it will do the job.</p>
+<p>In the case of our example input file above, the output we&#8217;d get would look like in the output folder places in Thumbnail View:</p>
+<p><a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png"><img data-attachment-id="181" data-permalink="http://itnerd.space/2017/01/03/batch-to-open-urls-and-take-screenshots/2017-01-04-11_53_35-new-folder/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png?fit=572%2C435" data-orig-size="572,435" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2017-01-04 11_53_35-New folder" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png?fit=300%2C228" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png?fit=572%2C435" class="size-full wp-image-181 aligncenter" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png?resize=572%2C435" alt="" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png?w=572 572w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png?resize=300%2C228 300w, https://i1.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-04-11_53_35-New-folder.png?resize=30%2C23 30w" sizes="(max-width: 572px) 100vw, 572px" data-recalc-dims="1" /></a></p>
+<p>In my particular use case, this below is what I was looking for:</p>
+<p><a href="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png"><img data-attachment-id="174" data-permalink="http://itnerd.space/2017/01/03/batch-to-open-urls-and-take-screenshots/2017-01-03-18_25_38-clipboard/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?fit=1334%2C671" data-orig-size="1334,671" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2017-01-03 18_25_38-Clipboard" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?fit=300%2C151" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?fit=700%2C352" class="size-full wp-image-174 aligncenter" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?resize=700%2C352" alt="" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?w=1334 1334w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?resize=300%2C151 300w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?resize=768%2C386 768w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?resize=1024%2C515 1024w, https://i2.wp.com/itnerd.space/wp-content/uploads/2017/01/2017-01-03-18_25_38-Clipboard.png?resize=30%2C15 30w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>As you can see, by placing the images in Thumbnail View, we can rapidly identify and classify the corresponding Web sites into 4 groups:</p>
+<ol>
+<li>Page seems to load fine</li>
+<li>Default initial Azure page (possibly no content deployed)</li>
+<li>Page doesn&#8217;t load, or takes too long</li>
+<li>Some HTTP error</li>
+</ol>
+<p>Furthermore, within the first category, a quick inspection of the image will show if the page loads apparently fine, or if it shows some content problem.</p>
+<p>If you have hundreds of sites, it can save you some precious time!</p>
+<p>Some considerations:</p>
+<ul>
+<li>I&#8217;m not sure what happens if the screen switch to screensaver mode. It may not work as expected. So, either deactivate the screensaver, or keep moving the mouse (out of the browser&#8217;s way) while the script runs.</li>
+<li>I use a new IE instance for each new URL, that is, I don&#8217;t recycle the IE instance for several URLs, for a simple reason: if the URL doesn&#8217;t load, I would possibly take a screenshot of the previously loaded URL, which is not what I want.</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2017/01/03/batch-to-open-urls-and-take-screenshots/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">167</post-id>	</item>
+	</channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 1217/1221 objects using disk
+Page Caching using disk: enhanced
+Database Caching 2/7 queries in 0.263 seconds using disk
+
+ Served from: itnerd.space @ 2017-07-13 21:35:52 by W3 Total Cache -->

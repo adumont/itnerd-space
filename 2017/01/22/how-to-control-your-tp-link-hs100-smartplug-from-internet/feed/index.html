@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: How to control your TP-Link HS100 smartplug from Internet</title>
+	<atom:link href="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/feed/" rel="self" type="application/rss+xml" />
+	<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/</link>
+	<description>Blog about Cloud, Automation, Android, Smart things...</description>
+	<lastBuildDate>Thu, 06 Jul 2017 10:44:00 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+	<item>
+		<title>By: Robson Schmidt</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-180</link>
+		<dc:creator><![CDATA[Robson Schmidt]]></dc:creator>
+		<pubDate>Thu, 06 Jul 2017 03:25:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-180</guid>
+		<description><![CDATA[I am in Brazil and having the same error.]]></description>
+		<content:encoded><![CDATA[<p>I am in Brazil and having the same error.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: JeremyH</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-176</link>
+		<dc:creator><![CDATA[JeremyH]]></dc:creator>
+		<pubDate>Tue, 04 Jul 2017 20:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-176</guid>
+		<description><![CDATA[thanks yes I was reaching the same conclusion.
+Thanks for the site really useful and enthusing me to try new things.]]></description>
+		<content:encoded><![CDATA[<p>thanks yes I was reaching the same conclusion.<br />
+Thanks for the site really useful and enthusing me to try new things.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-175</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Tue, 04 Jul 2017 13:45:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-175</guid>
+		<description><![CDATA[I don&#039;t think that is possible using only IFTTT and Maker. I can see other options, involving creating a small webservice (that you would invoke from Maker as a webhook), and in which you would &quot;code&quot; all the calls you want (I mean calling as many poweron/off as you like to multiple devices)]]></description>
+		<content:encoded><![CDATA[<p>I don&#8217;t think that is possible using only IFTTT and Maker. I can see other options, involving creating a small webservice (that you would invoke from Maker as a webhook), and in which you would &#8220;code&#8221; all the calls you want (I mean calling as many poweron/off as you like to multiple devices)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: JeremyH</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-173</link>
+		<dc:creator><![CDATA[JeremyH]]></dc:creator>
+		<pubDate>Sun, 02 Jul 2017 12:10:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-173</guid>
+		<description><![CDATA[thanks but I am not good enough at JSON to figure out how to do this, I have
+
+{
+	&quot;method&quot;: &quot;passthrough&quot;,
+	&quot;params&quot;: {
+		&quot;deviceId&quot;: &quot;XXX68AF8841FB8C0D29943C00AB1AAC21836XXXX&quot;,
+		&quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_relay_state&quot;:{&quot;state&quot;:1} }}&quot;
+	}
+}
+
+{
+	&quot;method&quot;: &quot;passthrough&quot;,
+	&quot;params&quot;: {
+		&quot;deviceId&quot;: &quot;YYYY8AF8841FB8C0D29943C00AB1AAC21836YYYY&quot;,
+		&quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_relay_state&quot;:{&quot;state&quot;:1} }}&quot;
+	}
+}
+
+I know this is wrong and won&#039;t work but how do I recode this to make it work ? - do I just use one &#039;method&#039; statement with multiple params ?  - can someone give me an example I can learn from please ?]]></description>
+		<content:encoded><![CDATA[<p>thanks but I am not good enough at JSON to figure out how to do this, I have</p>
+<p>{<br />
+	&#8220;method&#8221;: &#8220;passthrough&#8221;,<br />
+	&#8220;params&#8221;: {<br />
+		&#8220;deviceId&#8221;: &#8220;XXX68AF8841FB8C0D29943C00AB1AAC21836XXXX&#8221;,<br />
+		&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1} }}&#8221;<br />
+	}<br />
+}</p>
+<p>{<br />
+	&#8220;method&#8221;: &#8220;passthrough&#8221;,<br />
+	&#8220;params&#8221;: {<br />
+		&#8220;deviceId&#8221;: &#8220;YYYY8AF8841FB8C0D29943C00AB1AAC21836YYYY&#8221;,<br />
+		&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1} }}&#8221;<br />
+	}<br />
+}</p>
+<p>I know this is wrong and won&#8217;t work but how do I recode this to make it work ? &#8211; do I just use one &#8216;method&#8217; statement with multiple params ?  &#8211; can someone give me an example I can learn from please ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: JeremyH</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-172</link>
+		<dc:creator><![CDATA[JeremyH]]></dc:creator>
+		<pubDate>Sat, 01 Jul 2017 16:06:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-172</guid>
+		<description><![CDATA[Yes if you find out please advise,that would help me with my task of turning off multiple devices at nighttime, but at the moment I am assuming the scenes are all self-contained within Kasa and multiple requests are sent from there]]></description>
+		<content:encoded><![CDATA[<p>Yes if you find out please advise,that would help me with my task of turning off multiple devices at nighttime, but at the moment I am assuming the scenes are all self-contained within Kasa and multiple requests are sent from there</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Neil Abadie</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-171</link>
+		<dc:creator><![CDATA[Neil Abadie]]></dc:creator>
+		<pubDate>Sat, 01 Jul 2017 07:50:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-171</guid>
+		<description><![CDATA[Having the same issue here. any advise is greatly appreciated!]]></description>
+		<content:encoded><![CDATA[<p>Having the same issue here. any advise is greatly appreciated!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Neil Abadie</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-170</link>
+		<dc:creator><![CDATA[Neil Abadie]]></dc:creator>
+		<pubDate>Sat, 01 Jul 2017 07:43:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-170</guid>
+		<description><![CDATA[This is wonderful @adumont:disqus  ! Thank you
+
+I have it working but am new to JSON specifically.
+
+any quick guidance to switching the state of multiple devices at once?
+
+{&quot;method&quot;:&quot;passthrough&quot;, &quot;params&quot;: {&quot;deviceId&quot;: &quot;MY_DEVICE_ID&quot;, &quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_relay_state&quot;:{&quot;state&quot;:0}}}&quot;}}]]></description>
+		<content:encoded><![CDATA[<p>This is wonderful @adumont:disqus  ! Thank you</p>
+<p>I have it working but am new to JSON specifically.</p>
+<p>any quick guidance to switching the state of multiple devices at once?</p>
+<p>{&#8220;method&#8221;:&#8221;passthrough&#8221;, &#8220;params&#8221;: {&#8220;deviceId&#8221;: &#8220;MY_DEVICE_ID&#8221;, &#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:0}}}&#8221;}}</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: TonyF</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-169</link>
+		<dc:creator><![CDATA[TonyF]]></dc:creator>
+		<pubDate>Thu, 29 Jun 2017 14:16:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-169</guid>
+		<description><![CDATA[It would be great if one could trigger a Kasa Scene once you have set one up in Kasa.]]></description>
+		<content:encoded><![CDATA[<p>It would be great if one could trigger a Kasa Scene once you have set one up in Kasa.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: charly</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-168</link>
+		<dc:creator><![CDATA[charly]]></dc:creator>
+		<pubDate>Wed, 28 Jun 2017 23:54:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-168</guid>
+		<description><![CDATA[Great! I was able to implement the iftttt stuff with the button, I tried to make it react to an Android event (wifi disconnect) but so far no luck. Will review everything. Hope the token sticks around for a while? Or should I renew it?]]></description>
+		<content:encoded><![CDATA[<p>Great! I was able to implement the iftttt stuff with the button, I tried to make it react to an Android event (wifi disconnect) but so far no luck. Will review everything. Hope the token sticks around for a while? Or should I renew it?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Rohan Patel</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-167</link>
+		<dc:creator><![CDATA[Rohan Patel]]></dc:creator>
+		<pubDate>Wed, 28 Jun 2017 23:52:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-167</guid>
+		<description><![CDATA[Thanks! I&#039;ll post here when the tutorial is done, which will be on my website arcturusenterprises.weebly.com.]]></description>
+		<content:encoded><![CDATA[<p>Thanks! I&#8217;ll post here when the tutorial is done, which will be on my website arcturusenterprises.weebly.com.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 930/952 objects using disk
+Page Caching using disk: enhanced
+Database Caching 7/15 queries in 0.132 seconds using disk
+
+ Served from: itnerd.space @ 2017-07-13 21:35:35 by W3 Total Cache -->

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: Control your TP-Link HS100 smart plug with IFTTT</title>
+	<atom:link href="http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/feed/" rel="self" type="application/rss+xml" />
+	<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/</link>
+	<description>Blog about Cloud, Automation, Android, Smart things...</description>
+	<lastBuildDate>Thu, 06 Jul 2017 10:44:00 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+	<item>
+		<title>By: MJKienzle</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-182</link>
+		<dc:creator><![CDATA[MJKienzle]]></dc:creator>
+		<pubDate>Thu, 06 Jul 2017 10:44:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-182</guid>
+		<description><![CDATA[An even easier way to do this is by running HomeAssistant on a small Linux server such as a Pi. Just google it and all your dreams will come true. HomeAssistant can control the switches natively without any tokens of logins.]]></description>
+		<content:encoded><![CDATA[<p>An even easier way to do this is by running HomeAssistant on a small Linux server such as a Pi. Just google it and all your dreams will come true. HomeAssistant can control the switches natively without any tokens of logins.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: JeremyH</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-149</link>
+		<dc:creator><![CDATA[JeremyH]]></dc:creator>
+		<pubDate>Mon, 12 Jun 2017 09:12:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-149</guid>
+		<description><![CDATA[Alex, this has been very useful, thank you for he time you have invested in this and sharing with the community. All progressed well, managed to work around the fact that I&#039;m a Windows guy not Linux etc for commands, but JSON is not my thing and I&#039;ve come to an impasse, the script does not work when I run it. I have tried it in Hurl.it, the getDevicelist works so I know the URL and my Token are correct. But when I try to change the switch state I get an error
+{&quot;error_code&quot;:-10100,&quot;msg&quot;:&quot;JSON format error&quot;}
+
+script is:
+{
+&quot;method&quot;: &quot;passthrough&quot;,
+&quot;params&quot;: {
+&quot;deviceId&quot;: &quot;800676FD5F0A287A6137E090F5DD916D183CXXXX&quot;,
+&quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_relay_state&quot;:{&quot;state&quot;:1}
+}
+}
+&quot; }
+}
+
+When I put the JSON script through a validator: https://jsonlint.com/
+I get the error like this...
+
+Error: Parse error on line 5:
+...&quot;,	&quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_
+----------------------^
+Expecting &#039;STRING&#039;, &#039;NUMBER&#039;, &#039;NULL&#039;, &#039;TRUE&#039;, &#039;FALSE&#039;, &#039;{&#039;, &#039;[&#039;, got &#039;undefined&#039;
+
+ANy ideas what I am doing wrong ? - I copied and pasted the script from the instructions so don&#039;t believe I have a formatting error etc.
+
+Many thanks
+(originally posted on wrong thread in error)]]></description>
+		<content:encoded><![CDATA[<p>Alex, this has been very useful, thank you for he time you have invested in this and sharing with the community. All progressed well, managed to work around the fact that I&#8217;m a Windows guy not Linux etc for commands, but JSON is not my thing and I&#8217;ve come to an impasse, the script does not work when I run it. I have tried it in Hurl.it, the getDevicelist works so I know the URL and my Token are correct. But when I try to change the switch state I get an error<br />
+{&#8220;error_code&#8221;:-10100,&#8221;msg&#8221;:&#8221;JSON format error&#8221;}</p>
+<p>script is:<br />
+{<br />
+&#8220;method&#8221;: &#8220;passthrough&#8221;,<br />
+&#8220;params&#8221;: {<br />
+&#8220;deviceId&#8221;: &#8220;800676FD5F0A287A6137E090F5DD916D183CXXXX&#8221;,<br />
+&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1}<br />
+}<br />
+}<br />
+&#8221; }<br />
+}</p>
+<p>When I put the JSON script through a validator: <a href="https://jsonlint.com/" rel="nofollow">https://jsonlint.com/</a><br />
+I get the error like this&#8230;</p>
+<p>Error: Parse error on line 5:<br />
+&#8230;&#8221;,	&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-^<br />
+Expecting &#8216;STRING&#8217;, &#8216;NUMBER&#8217;, &#8216;NULL&#8217;, &#8216;TRUE&#8217;, &#8216;FALSE&#8217;, &#8216;{&#8216;, &#8216;[&#8216;, got &#8216;undefined&#8217;</p>
+<p>ANy ideas what I am doing wrong ? &#8211; I copied and pasted the script from the instructions so don&#8217;t believe I have a formatting error etc.</p>
+<p>Many thanks<br />
+(originally posted on wrong thread in error)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: I thought you liked me</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-138</link>
+		<dc:creator><![CDATA[I thought you liked me]]></dc:creator>
+		<pubDate>Thu, 25 May 2017 17:46:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-138</guid>
+		<description><![CDATA[Thanks for your response. I&#039;ll see if it&#039;s changed. 
+
+Ooo look forward to it.]]></description>
+		<content:encoded><![CDATA[<p>Thanks for your response. I&#8217;ll see if it&#8217;s changed. </p>
+<p>Ooo look forward to it.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: nima</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-137</link>
+		<dc:creator><![CDATA[nima]]></dc:creator>
+		<pubDate>Thu, 25 May 2017 06:56:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-137</guid>
+		<description><![CDATA[WHATEVER YOU DO, DONT FORGET TO REMOVE THE SPACES OTHERWISE IT WONT WORK. TOOK ME 4 HOURS TO FIGURE IT OUT.
+
+Does anyone know how to control the smart bulbs?]]></description>
+		<content:encoded><![CDATA[<p>WHATEVER YOU DO, DONT FORGET TO REMOVE THE SPACES OTHERWISE IT WONT WORK. TOOK ME 4 HOURS TO FIGURE IT OUT.</p>
+<p>Does anyone know how to control the smart bulbs?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: David</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-136</link>
+		<dc:creator><![CDATA[David]]></dc:creator>
+		<pubDate>Wed, 24 May 2017 18:52:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-136</guid>
+		<description><![CDATA[It seems that TP Link server is rejecting the white spaces between the closing }, even carriage return to bypass IFTTT doesnt work anymore. 
+Anyone else facing this issue ? 
+I tested it out using https://www.hurl.it/]]></description>
+		<content:encoded><![CDATA[<p>It seems that TP Link server is rejecting the white spaces between the closing }, even carriage return to bypass IFTTT doesnt work anymore.<br />
+Anyone else facing this issue ?<br />
+I tested it out using <a href="https://www.hurl.it/" rel="nofollow">https://www.hurl.it/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-135</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Wed, 24 May 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-135</guid>
+		<description><![CDATA[I would say it does. Maybe your token has expired? 
+Anyway I&#039;m working on a new way which would render this pretty much obsolete, a new way I believe much more powerful, although maybe trickier. ]]></description>
+		<content:encoded><![CDATA[<p>I would say it does. Maybe your token has expired?<br />
+Anyway I&#8217;m working on a new way which would render this pretty much obsolete, a new way I believe much more powerful, although maybe trickier. </p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: I thought you liked me</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-134</link>
+		<dc:creator><![CDATA[I thought you liked me]]></dc:creator>
+		<pubDate>Wed, 24 May 2017 14:21:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-134</guid>
+		<description><![CDATA[Hi, is this still working? Or has the tplinkcloud settings changed - no longer working for me. Was working great.]]></description>
+		<content:encoded><![CDATA[<p>Hi, is this still working? Or has the tplinkcloud settings changed &#8211; no longer working for me. Was working great.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: NelsonGTi</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-123</link>
+		<dc:creator><![CDATA[NelsonGTi]]></dc:creator>
+		<pubDate>Thu, 11 May 2017 05:30:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-123</guid>
+		<description><![CDATA[Alexandre this is great but I&#039;m not sure where to start with the dd command on windows. ]]></description>
+		<content:encoded><![CDATA[<p>Alexandre this is great but I&#8217;m not sure where to start with the dd command on windows. </p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: David Cooke</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-111</link>
+		<dc:creator><![CDATA[David Cooke]]></dc:creator>
+		<pubDate>Sun, 23 Apr 2017 22:46:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-111</guid>
+		<description><![CDATA[Yes, I am using it with alexa.  You are using the EU addresses - https://eu-wap.tplinkcloud...  Sub it for https://wap.tplinkcloud.com/(and whatever comes after it).  You just need to sub the server, the rest of the link stays the same.  Good luck!]]></description>
+		<content:encoded><![CDATA[<p>Yes, I am using it with alexa.  You are using the EU addresses &#8211; <a href="https://eu-wap.tplinkcloud" rel="nofollow">https://eu-wap.tplinkcloud</a>&#8230;  Sub it for <a href="https://wap.tplinkcloud.com/(and" rel="nofollow">https://wap.tplinkcloud.com/(and</a> whatever comes after it).  You just need to sub the server, the rest of the link stays the same.  Good luck!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: D3r</title>
+		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-110</link>
+		<dc:creator><![CDATA[D3r]]></dc:creator>
+		<pubDate>Sun, 23 Apr 2017 22:35:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-110</guid>
+		<description><![CDATA[I used fiddler to get my token and device id but I cannot get my IFFT recipe to work. I have the same error as you when I paste https://use1-wap.tplinkcloud.com/?Redacted# in my browser. The recipe runs but nothing happens. Did you ever get it work? I&#039;m also in Canada btw. 
+
+When I paste curl --request POST &quot;https://eu-wap.tplinkcloud.com/?token=YOUR_TOKEN_HERE HTTP/1.1&quot; 
+  --data &#039;{&quot;method&quot;:&quot;passthrough&quot;, &quot;params&quot;: {&quot;deviceId&quot;: &quot;YOUR_DEVICEID_HERE&quot;, &quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_relay_state&quot;:{&quot;state&quot;:1}}}&quot; }}&#039; 
+  --header &quot;Content-Type: application/json&quot;
+in raspbian terminal I get this error: {&quot;error_code&quot;:-20104,&quot;msg&quot;:&quot;Parameter doesn&#039;t exist&quot;}
+I&#039;m completely lost.]]></description>
+		<content:encoded><![CDATA[<p>I used fiddler to get my token and device id but I cannot get my IFFT recipe to work. I have the same error as you when I paste <a href="https://use1-wap.tplinkcloud.com/?Redacted#" rel="nofollow">https://use1-wap.tplinkcloud.com/?Redacted#</a> in my browser. The recipe runs but nothing happens. Did you ever get it work? I&#8217;m also in Canada btw. </p>
+<p>When I paste curl &#8211;request POST &#8220;https://eu-wap.tplinkcloud.com/?token=YOUR_TOKEN_HERE HTTP/1.1&#8221;<br />
+  &#8211;data &#8216;{&#8220;method&#8221;:&#8221;passthrough&#8221;, &#8220;params&#8221;: {&#8220;deviceId&#8221;: &#8220;YOUR_DEVICEID_HERE&#8221;, &#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1}}}&#8221; }}&#8217;<br />
+  &#8211;header &#8220;Content-Type: application/json&#8221;<br />
+in raspbian terminal I get this error: {&#8220;error_code&#8221;:-20104,&#8221;msg&#8221;:&#8221;Parameter doesn&#8217;t exist&#8221;}<br />
+I&#8217;m completely lost.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 932/954 objects using disk
+Page Caching using disk: enhanced
+Database Caching 3/15 queries in 0.061 seconds using disk
+
+ Served from: itnerd.space @ 2017-07-13 21:35:32 by W3 Total Cache -->

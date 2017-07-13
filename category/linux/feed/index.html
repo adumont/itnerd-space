@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Linux &#8211; IT Nerd Space</title>
+	<atom:link href="http://itnerd.space/category/linux/feed/" rel="self" type="application/rss+xml" />
+	<link>http://itnerd.space</link>
+	<description>Blog about Cloud, Automation, Android, Smart things...</description>
+	<lastBuildDate>Tue, 11 Jul 2017 19:44:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+
+<image>
+	<url>https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=32%2C32</url>
+	<title>Linux &#8211; IT Nerd Space</title>
+	<link>http://itnerd.space</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">119014820</site>	<item>
+		<title>Azure App Service Architecture (3): App Service on Linux</title>
+		<link>http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/</link>
+		<comments>http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/#comments</comments>
+		<pubDate>Wed, 02 Nov 2016 20:24:53 +0000</pubDate>
+		<dc:creator><![CDATA[Alex D.]]></dc:creator>
+				<category><![CDATA[Cloud]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[Architecture]]></category>
+		<category><![CDATA[Azure]]></category>
+		<category><![CDATA[docker]]></category>
+		<category><![CDATA[PaaS]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=82</guid>
+		<description><![CDATA[Discover how Microsoft is leveraging Ubuntu and Docker to implement their new Azure PaaS offering: "App Service on Linux".]]></description>
+				<content:encoded><![CDATA[<p>Until now, Azure customers could deploy their Web Applications running PHP, Node.js,&#8230; on Windows server running IIS, but now they will have a choice to run them on Linux: Microsoft recently announced the availability, in <em>Public Preview</em> mode, of <strong><a href="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/">App Service on Linux</a></strong>:</p>
+<blockquote><p><a href="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/">App Service on Linux</a> is currently in Public Preview and enables customers to run their web apps natively on a Linux platform. This allows for better application compatibility for certain kinds of applications and makes it easier to migrate existing web apps hosted on a Linux platform elsewhere onto Azure App Services.</p></blockquote>
+<p><span id="more-82"></span></p>
+<p>In this third post in my series on Azure <a href="http://itnerd.space/?s=Azure+App+Service+Architecture">App Service Architecture</a>, I&#8217;ll focus on how Microsoft implemented this new Platform as a Service product. What will actually run your app if you deploy it on Linux, what Linux distribution they have chose, and how are all the apps deployed on those underlying Linux servers. If you haven&#8217;t read my preview two articles, I strongly recommend you read them first: <a href="http://itnerd.space/2016/10/28/azure-app-service-architecture-1/">Azure App Service Architecture (1)</a> and <a href="http://itnerd.space/2016/10/29/azure-app-service-architecture-2/">Azure App Service Architecture (2)</a> as they will explain some basic concepts that are used in this one.</p>
+<h1><strong>Provisioning a Web App on Linux</strong></h1>
+<p>This part is really trivial. I&#8217;ll show some screenshots, but they are self explaining. Let&#8217;s click on the [+] button, and head to [Web + Mobile]. From there, we&#8217;ll select <strong>Web App on Linux (Preview)</strong>:</p>
+<p><a href="https://i0.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_43-Choose-your-pricing-tier-Microsoft-Azure.png"><img data-attachment-id="78" data-permalink="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/2016-11-02-13_51_43-choose-your-pricing-tier-microsoft-azure/" data-orig-file="https://i0.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_43-Choose-your-pricing-tier-Microsoft-Azure.png?fit=696%2C765" data-orig-size="696,765" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2016-11-02-13_51_43-choose-your-pricing-tier-microsoft-azure" data-image-description="" data-medium-file="https://i0.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_43-Choose-your-pricing-tier-Microsoft-Azure.png?fit=273%2C300" data-large-file="https://i0.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_43-Choose-your-pricing-tier-Microsoft-Azure.png?fit=696%2C765" class="alignnone size-full wp-image-78" src="https://i0.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_43-Choose-your-pricing-tier-Microsoft-Azure.png?resize=696%2C765" alt="2016-11-02-13_51_43-choose-your-pricing-tier-microsoft-azure" srcset="https://i0.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_43-Choose-your-pricing-tier-Microsoft-Azure.png?w=696 696w, https://i0.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_43-Choose-your-pricing-tier-Microsoft-Azure.png?resize=273%2C300 273w" sizes="(max-width: 696px) 100vw, 696px" data-recalc-dims="1" /></a></p>
+<p>I&#8217;ll set a new unique name for my new Web App:</p>
+<p><img data-attachment-id="73" data-permalink="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/2016-11-02-13_51_51-choose-your-pricing-tier-microsoft-azure/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_51-Choose-your-pricing-tier-Microsoft-Azure.png?fit=317%2C653" data-orig-size="317,653" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2016-11-02-13_51_51-choose-your-pricing-tier-microsoft-azure" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_51-Choose-your-pricing-tier-Microsoft-Azure.png?fit=146%2C300" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_51-Choose-your-pricing-tier-Microsoft-Azure.png?fit=317%2C653" class="alignnone size-full wp-image-73" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_51-Choose-your-pricing-tier-Microsoft-Azure.png?resize=317%2C653" alt="2016-11-02-13_51_51-choose-your-pricing-tier-microsoft-azure" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_51-Choose-your-pricing-tier-Microsoft-Azure.png?w=317 317w, https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_51_51-Choose-your-pricing-tier-Microsoft-Azure.png?resize=146%2C300 146w" sizes="(max-width: 317px) 100vw, 317px" data-recalc-dims="1" /></p>
+<p>To be able to explore a little further the options available to us, I&#8217;ll choose to create a new App Service Plan, instead of using the default recommended to me. Notice that while the product is in Preview, it is not available in all Azure regions yet. In Europe it&#8217;s only available in West Europe for example. That&#8217;s enough for me to test it anyway.</p>
+<p><a href="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png"><img data-attachment-id="77" data-permalink="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/2016-11-02-13_52_13-choose-your-pricing-tier-microsoft-azure/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png?fit=899%2C718" data-orig-size="899,718" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2016-11-02-13_52_13-choose-your-pricing-tier-microsoft-azure" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png?fit=300%2C240" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png?fit=700%2C559" class="alignnone size-full wp-image-77" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png?resize=700%2C559" alt="2016-11-02-13_52_13-choose-your-pricing-tier-microsoft-azure" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png?w=899 899w, https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png?resize=300%2C240 300w, https://i2.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_13-Choose-your-pricing-tier-Microsoft-Azure.png?resize=768%2C613 768w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>Particularly, I don&#8217;t need to pay for a Standard plan, so I&#8217;ll choose a Basic B1 here.</p>
+<p><img data-attachment-id="76" data-permalink="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/2016-11-02-13_52_31-web-app-on-linux-preview-microsoft-azure/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_31-Web-App-On-Linux-preview-Microsoft-Azure.png?fit=317%2C718" data-orig-size="317,718" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2016-11-02-13_52_31-web-app-on-linux-preview-microsoft-azure" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_31-Web-App-On-Linux-preview-Microsoft-Azure.png?fit=132%2C300" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_31-Web-App-On-Linux-preview-Microsoft-Azure.png?fit=317%2C718" class="alignnone size-full wp-image-76" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_31-Web-App-On-Linux-preview-Microsoft-Azure.png?resize=317%2C718" alt="2016-11-02-13_52_31-web-app-on-linux-preview-microsoft-azure" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_31-Web-App-On-Linux-preview-Microsoft-Azure.png?w=317 317w, https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-13_52_31-Web-App-On-Linux-preview-Microsoft-Azure.png?resize=132%2C300 132w" sizes="(max-width: 317px) 100vw, 317px" data-recalc-dims="1" /></p>
+<p>So here we go, just click the Create button, and in less than a minute, you&#8217;ll have a Web App up and running, ready for you to use to deploy your app, using your favorite Deployment method, Git, FTP&#8230;</p>
+<h1><strong>App Service on Linux Architecture</strong></h1>
+<p>To better understand what has been deployed by Azure, let&#8217;s head to the Development tools section of the Web App setting menu, and select Advanced Tools:</p>
+<p><a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png"><img data-attachment-id="84" data-permalink="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/2016-11-02-14_20_37-advanced-tools-microsoft-azure/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png?fit=647%2C447" data-orig-size="647,447" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2016-11-02-14_20_37-advanced-tools-microsoft-azure" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png?fit=300%2C207" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png?fit=647%2C447" class="alignnone size-full wp-image-84" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png?resize=647%2C447" alt="2016-11-02-14_20_37-advanced-tools-microsoft-azure" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png?w=647 647w, https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png?resize=300%2C207 300w, https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-02-14_20_37-Advanced-Tools-Microsoft-Azure.png?resize=230%2C160 230w" sizes="(max-width: 647px) 100vw, 647px" data-recalc-dims="1" /></a></p>
+<p>Then click on the Go link. It will open the traditional Kudu tools console, where we will have access to some internal information regarding our Web App.</p>
+<h2>Application layer</h2>
+<p>First let&#8217;s figure out what we have at the Application layer. That is, what kind of software is going to serve our application. In this case, from the Environment tab, we can see some interesting Server Environment Variables:</p>
+<pre>SERVER_SOFTWARE=Apache/2.4.10 (Debian)</pre>
+<p>So apparently the Web App is deployed on <strong>Apache 2.4 </strong>on<strong> Debian</strong>.</p>
+<p>Let&#8217;s dig a little deeper with the Bash console, and have a look at the processes we can see:</p>
+<pre>Kudu Remote Execution Console
+Type 'exit' to reset this console.
+/home&gt; ps -ef
+UID PID PPID C STIME TTY TIME CMD
+1001 1 0 0 12:54 ? 00:00:00 /bin/sh -c /usr/sbin/apache2ctl -D FOREGROUND
+1001 5 1 0 12:54 ? 00:00:00 /bin/sh /usr/sbin/apache2ctl -D FOREGROUND
+1001 7 5 0 12:54 ? 00:00:00 /usr/sbin/apache2 -D FOREGROUND
+1001 9 1 0 12:54 ? 00:00:00 /usr/bin/mono /usr/lib/mono/4.5/mod-mono-server4.exe --filename /tmp/.mod_mono_server4 --nonstop --appconfigdir /etc/mono-server4
+1001 12 7 0 12:54 ? 00:00:00 /usr/sbin/apache2 -D FOREGROUND
+1001 13 7 0 12:54 ? 00:00:00 /usr/sbin/apache2 -D FOREGROUND
+1001 71 1 6 12:54 ? 00:00:08 /usr/bin/mono /usr/lib/mono/4.5/mod-mono-server4.exe --filename /tmp/mod_mono_server_default --applications /:/opt/Kudu --nonstop
+1001 126 71 0 12:56 ? 00:00:00 /bin/bash -c ps -ef &amp;&amp; echo &amp;&amp; pwd
+1001 127 126 0 12:56 ? 00:00:00 ps -ef</pre>
+<p>We can see very few processes running, and especially interesting, the PID 1 is apache2ctl, so we are most likely running is a container (if we were in a full server, it would be &#8220;init&#8221;). All the processes run as a non-root user (uid 1001).</p>
+<p>We can indeed confirm that our Web App is running inside a Docker container by looking at /proc/1/cgroup:</p>
+<pre>/home&gt; cat /proc/1/cgroup
+11:memory:<strong>/docker/</strong>fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+10:cpuset:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+9:hugetlb:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+8:blkio:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+7:perf_event:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+6:net_cls,net_prio:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+5:pids:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+4:cpu,cpuacct:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+3:freezer:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+2:devices:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b
+1:name=systemd:/docker/fb05a97d54930566111197c8959a5a33ac9af29b6491bf1ca8158b18df50264b</pre>
+<p>So, Web App on Linux are deployed in <strong>Docker containers</strong> (and we know the ID of the container in the host).</p>
+<p>Unfortunately, there&#8217;s not much we can do from inside the Docker container itself to guess anything about the host running the Docker engine, so we don&#8217;t really know what is the OS flavor, version or anything else.</p>
+<p>We can have a look at the kernel, which is shared between the VM (host) and all the containers run in the same VM:</p>
+<pre class="jquery-console-prompt-box"><span class="jquery-console-prompt-label">/home&gt;</span><span class="jquery-console-prompt"> uname -a</span>
+Linux e30a13645e09 4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016 x86_64 GNU/Linux</pre>
+<div class="jquery-console-message jquery-console-message-value">So it looks like it it might be some version of Ubuntu, likely 16.04 (Xenial), where 4.4.0-45-generic #66 is available (<del>although it could also be 14.04</del>). Confirmed by Nalim, Software Engineer at Microsoft, they are using Ubuntu 16.04 for the hosts (VM instances), see comments below.</div>
+<p>Regarding the Docker image that was used, we can see it&#8217;s based on <strong>Debian 8 (Jessie)</strong>:</p>
+<pre>/home&gt; cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 8 (jessie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="8"
+VERSION="8 (jessie)"
+ID=debian
+HOME_URL="http://www.debian.org/"
+SUPPORT_URL="http://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"</pre>
+<h2><strong>Data layer: Persistent Storage?</strong></h2>
+<p>Storage inside a Docker container is, usually, volatile, but if we deploy our App there, we don&#8217;t want to loose it when the container stops or the host reboots. Also, we want to be able to scale out our Web App when load increase. So we require some kind of persistency!</p>
+<p>Similarly to Web App on Windows, where the persisted files are found in D:\home, here we&#8217;ll store the Persisted files in /home. As this Web App is recently created, it&#8217;s actually quite empty right now:</p>
+<pre class="jquery-console-prompt-box"><span class="jquery-console-prompt-label">/home&gt;</span><span class="jquery-console-prompt">pwd
+</span>/home
+<span class="jquery-console-prompt-label">/home&gt;</span><span class="jquery-console-prompt">ls</span>
+LogFiles site</pre>
+<p>So how is the storage actually persisted?</p>
+<pre>/home&gt; mount | grep /home
+//10.0.176.8/volume-46-default/20a35f31f26928286ecf/580efcc549c040228b254d82ab4ed6e1 on /home type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=dummyadmin,domain=RD0003FF1A594C,uid=1001,forceuid,gid=1002,forcegid,addr=10.0.176.8,file_mode=0700,dir_mode=0700,nounix,serverino,mapposix,mfsymlinks,rsize=1048576,wsize=1048576,actimeo=1)</pre>
+<p>We can see that the /home directory is actually a network shared volume mounted via CIFS protocol (I can only assume here it&#8217;s backed by Azure Storage). That way Azure will be able to scale out our Web App, deploying more containers based on the very same <em>stateless image</em>, mounting the same volume which is where our Web App files are deployed.</p>
+<p><del>I think Microsoft might be using here a custom implementation of their <a title="" href="https://github.com/Azure/azurefile-dockervolumedriver">Docker Volume Plugin for Azure File Storage</a>. (I haven&#8217;t had time yet to play with it and see how similar (or not) things look with this Docker storage plugin).</del> For the persistent storage, Microsoft is using Fileservers that export SMB shares mounted in the host. Those are then mapped as /home into the corresponding docker containers.</p>
+<p><strong>Putting everything together</strong></p>
+<p>Let step back now. This is how I see Microsoft implemented <a href="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/">App Service on Linux</a>. First when we only deploy 1 web app on a single instance:</p>
+<p><a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_20_12-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png"><img data-attachment-id="101" data-permalink="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/2016-11-04-12_20_12-azure_app_services-architecture-vsd-microsoft-visio/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_20_12-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?fit=380%2C676" data-orig-size="380,676" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Azure App Service Architecture on Linux (single App &#038; Instance)" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_20_12-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?fit=169%2C300" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_20_12-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?fit=380%2C676" class="size-full wp-image-101 aligncenter" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_20_12-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?resize=380%2C676" alt="Azure App Service Architecture on Linux (single App &amp; Instance)" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_20_12-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?w=380 380w, https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_20_12-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?resize=169%2C300 169w" sizes="(max-width: 380px) 100vw, 380px" data-recalc-dims="1" /></a></p>
+<p>Now, how does it look likes if we deploy multiple Web Apps in the same plan, and we scale out the Plan to two instances?</p>
+<p><a href="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png"><img data-attachment-id="105" data-permalink="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/2016-11-04-12_30_15-azure_app_services-architecture-vsd-microsoft-visio/" data-orig-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?fit=1045%2C649" data-orig-size="1045,649" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Azure App Service Architecture on Linux (multiple Apps &#038; Instances)" data-image-description="" data-medium-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?fit=300%2C186" data-large-file="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?fit=700%2C435" class="alignnone size-full wp-image-105" src="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?resize=700%2C435" alt="Azure App Service Architecture on Linux (multiple Apps &amp; Instances)" srcset="https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?w=1045 1045w, https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?resize=300%2C186 300w, https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?resize=768%2C477 768w, https://i1.wp.com/itnerd.space/wp-content/uploads/2016/11/2016-11-04-12_30_15-Azure_App_Services-Architecture.vsd-Microsoft-Visio.png?resize=1024%2C636 1024w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>I hope this gave you a good understanding of how Microsoft implemented internally this new <a href="http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/">App Service on Linux</a> product.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2016/11/02/azure-app-service-architecture-3-app-service-on-linux/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">82</post-id>	</item>
+		<item>
+		<title>Offsite Linux backup to Mega with duplicity</title>
+		<link>http://itnerd.space/2016/10/26/offsite-backup-with-duplicity-and-mega/</link>
+		<comments>http://itnerd.space/2016/10/26/offsite-backup-with-duplicity-and-mega/#respond</comments>
+		<pubDate>Wed, 26 Oct 2016 23:22:10 +0000</pubDate>
+		<dc:creator><![CDATA[Alex D.]]></dc:creator>
+				<category><![CDATA[Cloud]]></category>
+		<category><![CDATA[How-to]]></category>
+		<category><![CDATA[Linux]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[cloud]]></category>
+		<category><![CDATA[docker]]></category>
+		<category><![CDATA[duplicity]]></category>
+		<category><![CDATA[mega]]></category>
+
+		<guid isPermaLink="false">http://itnerd.space/?p=7</guid>
+		<description><![CDATA[This is about a small personal initiative: I was looking for a solution to backup some Linux servers that I have, at home and in the cloud. Ideally, my requirements were: Backup should be offsite, preferably in the cloud Solution should support some kind of backup policies (full, incremental, and&#8230; ]]></description>
+				<content:encoded><![CDATA[<p>This is about a small personal initiative: I was looking for a solution to backup some Linux servers that I have, at home and in the cloud.</p>
+<p>Ideally, my requirements were:</p>
+<ul>
+<li>Backup should be offsite, preferably in the cloud</li>
+<li>Solution should support some kind of backup policies (full, incremental, and retention time)</li>
+<li>Solution should be secure, so support encryption</li>
+<li>Solution should be portable, so same solution would play nicely with the servers, not mess with their OS (dependencies,&#8230;)</li>
+<li>Solution should be as cheap as possible (or ideally free!)</li>
+</ul>
+<p><span id="more-7"></span></p>
+<p>For the offsite storage I first though of using AWS Glacier, a cloud storage meant for cold data that you archive, and don&#8217;t need to retrieve often, but the cost was not so cheap. While storage in itself was not too expensive, the cost of retrieving the data (in case you want to restore, which is the point of having a backup, right?), was kind of prohibitive (for the budget I had in mind). So I started to look for alternatives.</p>
+<p>For the backup solution, I wanted to use <a href="http://duplicity.nongnu.org/" target="_blank">duplicity</a>. Duplicity supports full and incremental backups, using the rsync protocol, and have support for a lot of storage backend: file, FTP, SSH, AWS S3, Azure, Dropbox, OneDrive, Mega,&#8230; Most of those backends are either illimited but paid services, or free but rather limited (in capacity) storage. All but Mega, which offer for free 50GB of storage, which is quite nice for backup purpose. Perfect fit in my case.</p>
+<p>Regarding the portability requirement, I love Docker containers, and all I deploy now for my personal projects is Dockerized. This wasn&#8217;t going to be an exception. Especially I&#8217;d hate to install all kind of dependencies for duplicity and the storage backend plugins in all my servers!</p>
+<p>So Docker it would be.</p>
+<p>Now back to the storage layer in our solution: although duplicity supposedly have support for a Mega backend, it seems Mega changed their API/SDK, and the current plugin is not working anymore, and would need to be reworked totally. So as an alternative, I turned to using MegaFuse, a Fuse module to mount Mega storage in Linux: so the idea is we first mount the Mega account as a filesystem in Linux, and then we use it as destination of our backup with duplicity (using the file backend). Not as cool as having duplicity talk directly to Mega, but that seems to work equally.</p>
+<p>So to recap, we have a container with duplicity and MegaFuse. As the container is stateless, we&#8217;ll map some volumes from the host to the container so the container gets the needed information:</p>
+<ul>
+<li>/vol/dupmega/megafuse.conf, containing some config for MegaFuse, like the credentials to the Mega account (see below),</li>
+<li>As duplicity and MegaFuse both keep a local cache with some metadata, having those stored in the container would do no good, so I also put that in host mapped folder (/vol/dupmega/cache/duplicity/ and /vol/dupmega/cache/megafuse/)</li>
+<li>Of course, we want to backup the host, not the container, so we need to map that as well into the container to /source</li>
+</ul>
+<p>The megafuse.conf contains:</p>
+<p><code>USERNAME = username@domain.com<br />
+PASSWORD = aV3ryComplexMegaP4ssw0rd<br />
+MOUNTPOINT = /mega<br />
+CACHEPATH = /dupmega/cache/megafuse<br />
+</code><br />
+So the Mega account is mounted in /mega in the container, and the MegaFuse cache will be in /dupmega/cache/megafuse (host mounted volume).</p>
+<p>Here is the Dockerfile I have used to create my duplicity container with MegaFuse support. Right now it&#8217;s not yet published to Docker Hub. Right now it&#8217;s very rudimentary, there&#8217;s not even a CMD.</p>
+<p><code>FROM ubuntu:14.04<br />
+MAINTAINER Alexandre Dumont &lt;adumont@gmail.com&gt;</code></p>
+<p>ENV DEBIAN_FRONTEND=noninteractive</p>
+<p>RUN sed -i -e &#8216;/^deb-src/ s/^/#/&#8217; /etc/apt/sources.list &amp;&amp; \<br />
+echo &#8220;force-unsafe-io&#8221; &gt; /etc/dpkg/dpkg.cfg.d/02apt-speedup &amp;&amp; \<br />
+echo &#8220;Acquire::http {No-Cache=True;};&#8221; &gt; /etc/apt/apt.conf.d/no-cache &amp;&amp; \<br />
+apt-get update &amp;&amp; \<br />
+apt-get -qy dist-upgrade &amp;&amp; \<br />
+apt-get install -y libcrypto++-dev libcurl4-openssl-dev libfreeimage-dev libreadline-dev libfuse-dev libdb++-dev duplicity git g++ make &amp;&amp; \<br />
+apt-get clean &amp;&amp; \<br />
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* &amp;&amp; \<br />
+git clone https://github.com/matteoserva/MegaFuse &amp;&amp; \<br />
+cd MegaFuse &amp;&amp; \<br />
+make</p>
+<p>I use the following command to build the image:</p>
+<p><code>docker build -t adumont/dupmega --no-cache=true .</code></p>
+<p>And here&#8217;s the image:</p>
+<p><code>REPOSITORY TAG IMAGE ID CREATED SIZE<br />
+adumont/dupmega latest 3bf1d313aa56 7 days ago 581.8 MB<br />
+</code></p>
+<p>I still have to work on simplifying the whole process of running a backup. For now, I do it rather manually, but it will become a script and be scheduled in cron most likely.</p>
+<p>Right now that&#8217;s how I run it, notice the volume mapping from host to containers. Also notice the container has to run as privileged, so it can use Fuse from inside the container. The source to be backed up is mounted read-only (least privilege).</p>
+<p><code>host# docker run --rm -h $( hostname ) -ti --privileged \<br />
+-v /vol/dupmega:/dupmega \<br />
+-v /root/.gnupg:/root/.gnupg \<br />
+-v /vol/dupmega/cache/duplicity:/root/.cache/duplicity \<br />
+-v /:/source:ro adumont/dupmega<br />
+</code></p>
+<p>Then from inside the container, I run:</p>
+<p><code>mkdir /mega; MegaFuse/MegaFuse -c /dupmega/megafuse.conf &amp;&gt;/dev/null &amp;<br />
+sleep 10<br />
+[ -d /mega/backups/$(hostname) ] || exit 1</p>
+<p>export PASSPHRASE=AnotherVeryComplexPassphaseForGPGEncrypti0n</code></p>
+<p>and finally the duplicity command which will backup /source to /mega. The command is different for each server, as I tweak which files/folders I want to include/exclude in the backup:</p>
+<p><code>duplicity --asynchronous-upload \<br />
+--include=/source/var/lib/docker/containers \<br />
+--include=/source/var/lib/plexmediaserver/Library/Application\ Support/Plex\ Media\ Server/Preferences.xml \<br />
+--exclude=/source/dev \<br />
+--exclude=/source/proc \<br />
+--exclude=/source/run \<br />
+--exclude=/source/sys \<br />
+--exclude=/source/zfs \<br />
+--exclude=/source/mnt \<br />
+--exclude=/source/media \<br />
+--exclude=/source/vol/dupmega/cache \<br />
+--exclude=/source/tank \<br />
+--exclude=/source/vbox \<br />
+--exclude=/source/var/lib/docker \<br />
+--exclude=/source/var/lib/plexmediaserver/ \<br />
+--exclude=/source/tmp \<br />
+--exclude=/source/var/tmp \<br />
+--exclude=/source/var/cache \<br />
+--exclude=/source/var/log \<br />
+/source/ file:///mega/backups/$(hostname)/ -v info<br />
+</code></p>
+<p>And this would be a sample output:</p>
+<p><code>Local and Remote metadata are synchronized, no sync needed.<br />
+Last full backup date: Thu Oct 20 22:51:23 2016<br />
+Deleting /tmp/duplicity-Cwz5Ju-tempdir/mktemp-0lEM40-2<br />
+Using temporary directory /root/.cache/duplicity/185b874acbbae73c5807a4cc767e4967/duplicity-kYzeVT-tempdir<br />
+Using temporary directory /root/.cache/duplicity/185b874acbbae73c5807a4cc767e4967/duplicity-jWJXmd-tempdir<br />
+AsyncScheduler: instantiating at concurrency 1<br />
+M boot/grub/grubenv<br />
+A etc<br />
+A etc/apparmor.d/cache<br />
+M etc/apparmor.d/cache/docker<br />
+[...]<br />
+---------------[ Backup Statistics ]--------------<br />
+StartTime 1477499247.82 (Wed Oct 26 16:27:27 2016)<br />
+EndTime 1477499514.97 (Wed Oct 26 16:31:54 2016)<br />
+ElapsedTime 267.15 (4 minutes 27.15 seconds)<br />
+SourceFiles 449013<br />
+SourceFileSize 3239446764 (3.02 GB)<br />
+NewFiles 75<br />
+NewFileSize 189457 (185 KB)<br />
+DeletedFiles 135<br />
+ChangedFiles 68<br />
+ChangedFileSize 176144101 (168 MB)<br />
+ChangedDeltaSize 0 (0 bytes)<br />
+DeltaEntries 278<br />
+RawDeltaSize 9317325 (8.89 MB)<br />
+TotalDestinationSizeChange 1913375 (1.82 MB)<br />
+Errors 0<br />
+-------------------------------------------------<br />
+</code></p>
+<p>And backup are really stored on Mega <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /> :</p>
+<p><a href="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png"><img data-attachment-id="13" data-permalink="http://itnerd.space/2016/10/26/offsite-backup-with-duplicity-and-mega/screenshot-from-2016-10-27-01-10-42/" data-orig-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?fit=1304%2C747" data-orig-size="1304,747" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="screenshot-from-2016-10-27-01-10-42" data-image-description="" data-medium-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?fit=300%2C172" data-large-file="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?fit=700%2C401" class="aligncenter wp-image-13 size-large" src="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?resize=700%2C401" alt="backup files on Mega" srcset="https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?resize=1024%2C587 1024w, https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?resize=300%2C172 300w, https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?resize=768%2C440 768w, https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/Screenshot-from-2016-10-27-01-10-42.png?w=1304 1304w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://itnerd.space/2016/10/26/offsite-backup-with-duplicity-and-mega/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	<post-id xmlns="com-wordpress:feed-additions:1">7</post-id>	</item>
+	</channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 1927/1943 objects using disk
+Page Caching using disk: enhanced
+Database Caching 2/14 queries in 0.008 seconds using disk
+
+ Served from: itnerd.space @ 2017-07-13 21:35:57 by W3 Total Cache -->

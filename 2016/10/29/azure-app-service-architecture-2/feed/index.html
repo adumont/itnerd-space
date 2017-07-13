@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: Azure App Service Architecture (2)</title>
+	<atom:link href="http://itnerd.space/2016/10/29/azure-app-service-architecture-2/feed/" rel="self" type="application/rss+xml" />
+	<link>http://itnerd.space/2016/10/29/azure-app-service-architecture-2/</link>
+	<description>Blog about Cloud, Automation, Android, Smart things...</description>
+	<lastBuildDate>Thu, 06 Jul 2017 10:44:00 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+	<item>
+		<title>By: Alexandre Dumont</title>
+		<link>http://itnerd.space/2016/10/29/azure-app-service-architecture-2/#comment-8</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Fri, 04 Nov 2016 13:49:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=47#comment-8</guid>
+		<description><![CDATA[Hi Mathieu,
+This is a situation I am not very familiar with, so don&#039;t quote me on this. Indeed, VNet peering may be the way to establish connectivity between your App and your Cassandra cluster.
+Another option maybe would be to publish the Casandra cluster with a public IP, so the web app can connect to it directly. You should be able to filter incoming traffic to the cluster using NSG to only allow the web app. (I am assuming the cluster is also hosted on Azure in IaaS VM).]]></description>
+		<content:encoded><![CDATA[<p>Hi Mathieu,<br />
+This is a situation I am not very familiar with, so don&#8217;t quote me on this. Indeed, VNet peering may be the way to establish connectivity between your App and your Cassandra cluster.<br />
+Another option maybe would be to publish the Casandra cluster with a public IP, so the web app can connect to it directly. You should be able to filter incoming traffic to the cluster using NSG to only allow the web app. (I am assuming the cluster is also hosted on Azure in IaaS VM).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Mathieu E.</title>
+		<link>http://itnerd.space/2016/10/29/azure-app-service-architecture-2/#comment-7</link>
+		<dc:creator><![CDATA[Mathieu E.]]></dc:creator>
+		<pubDate>Fri, 04 Nov 2016 13:07:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=47#comment-7</guid>
+		<description><![CDATA[hi, i have a question. I &#039;m facing a problem actually using appService. 
+I&#039;ve build a Linux SQL cluster (DSE Cassandra) and my website (hosted in an appservice) need to talk with my cluster. The problem is, my Vnet gateway is already used by my ExpressRoute circuit. So ... i can&#039;t connect my website to my cluster.
+Do you have any idea ? 
+I&#039;m going to give a try to vnet peering (using an ASE).
+
+Anyway, nice article.]]></description>
+		<content:encoded><![CDATA[<p>hi, i have a question. I &#8216;m facing a problem actually using appService.<br />
+I&#8217;ve build a Linux SQL cluster (DSE Cassandra) and my website (hosted in an appservice) need to talk with my cluster. The problem is, my Vnet gateway is already used by my ExpressRoute circuit. So &#8230; i can&#8217;t connect my website to my cluster.<br />
+Do you have any idea ?<br />
+I&#8217;m going to give a try to vnet peering (using an ASE).</p>
+<p>Anyway, nice article.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alexandre Dumont</title>
+		<link>http://itnerd.space/2016/10/29/azure-app-service-architecture-2/#comment-2</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Sat, 29 Oct 2016 19:41:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=47#comment-2</guid>
+		<description><![CDATA[Don&#039;t hesitate to post any comments here, I&#039;ll be happy to read any feedback, comments, opinions, views you may have! Also tell me if there&#039;s any related topic you may be interested in that I could cover in a future post. ]]></description>
+		<content:encoded><![CDATA[<p>Don&#8217;t hesitate to post any comments here, I&#8217;ll be happy to read any feedback, comments, opinions, views you may have! Also tell me if there&#8217;s any related topic you may be interested in that I could cover in a future post. </p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 809/817 objects using disk
+Page Caching using disk: enhanced
+Database Caching 2/8 queries in 0.077 seconds using disk
+
+ Served from: itnerd.space @ 2017-07-13 21:36:32 by W3 Total Cache -->
