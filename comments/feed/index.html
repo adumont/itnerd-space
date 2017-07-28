@@ -10,168 +10,198 @@
 	<atom:link href="http://itnerd.space/comments/feed/" rel="self" type="application/rss+xml" />
 	<link>http://itnerd.space</link>
 	<description>Blog about Cloud, Automation, Android, Smart things...</description>
-	<lastBuildDate>Thu, 06 Jul 2017 10:44:00 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 27 Jul 2017 22:01:00 +0000</lastBuildDate>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=4.8</generator>
+	<generator>https://wordpress.org/?v=4.7.5</generator>
 	<item>
-		<title>Comment on Control your TP-Link HS100 smart plug with IFTTT by MJKienzle</title>
-		<link>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/#comment-182</link>
-		<dc:creator><![CDATA[MJKienzle]]></dc:creator>
-		<pubDate>Thu, 06 Jul 2017 10:44:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=208#comment-182</guid>
-		<description><![CDATA[An even easier way to do this is by running HomeAssistant on a small Linux server such as a Pi. Just google it and all your dreams will come true. HomeAssistant can control the switches natively without any tokens of logins.]]></description>
-		<content:encoded><![CDATA[<p>An even easier way to do this is by running HomeAssistant on a small Linux server such as a Pi. Just google it and all your dreams will come true. HomeAssistant can control the switches natively without any tokens of logins.</p>
+		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-223</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Thu, 27 Jul 2017 22:01:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-223</guid>
+		<description><![CDATA[I&#039;ve been working on that and a new cool stuff. Not yet ready enough to be published, but here&#039;s a tease: it works, and no more TOKEN hassle! 
+More on what&#039;s coming here: http://itnerd.space/2017/07/27/looking-back-and-forward-coming-soon-to-this-blog/ ]]></description>
+		<content:encoded><![CDATA[<p>I&#8217;ve been working on that and a new cool stuff. Not yet ready enough to be published, but here&#8217;s a tease: it works, and no more TOKEN hassle!<br />
+More on what&#8217;s coming here: <a href="http://itnerd.space/2017/07/27/looking-back-and-forward-coming-soon-to-this-blog/" rel="nofollow">http://itnerd.space/2017/07/27/looking-back-and-forward-coming-soon-to-this-blog/</a> </p>
 ]]></content:encoded>
 	</item>
 	<item>
-		<title>Comment on How to authenticate to TP-Link cloud API by Ben Nikula</title>
-		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-181</link>
-		<dc:creator><![CDATA[Ben Nikula]]></dc:creator>
-		<pubDate>Thu, 06 Jul 2017 03:45:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-181</guid>
-		<description><![CDATA[Thanks for putting this together. When attempting to find my tp-link token, I get the error message &quot;error_code&quot;:-10100,&quot;msg&quot;:&quot;JSON format error&quot;. I built a request by pasting the template into curlbuilder.com:
+		<title>Comment on How to authenticate to TP-Link cloud API by Richard Nardone</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-222</link>
+		<dc:creator><![CDATA[Richard Nardone]]></dc:creator>
+		<pubDate>Tue, 25 Jul 2017 11:50:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-222</guid>
+		<description><![CDATA[The issue was using ajax shorthand ($.post). With shorthand you can&#039;t specify the content-type. The &quot;json&quot; at the end of the code just specifies how you want the data result formatted (Accept Header). Once I updated the code to the following I was able to specify the content-type and retrieve the token without error:
 
-curl -XPOST -H &quot;Content-type: application/json&quot; -d &#039;{
- &quot;method&quot;: &quot;login&quot;,
- &quot;params&quot;: {
- &quot;appType&quot;: &quot;Kasa_Android&quot;,
- &quot;cloudUserName&quot;: &quot;emailwitha+sign@gmail.com&quot;,
- &quot;cloudPassword&quot;: &quot;complicatedPasswordWith$pecialCharacters&quot;,
- &quot;terminalUUID&quot;: &quot;d09fa2bb-26fc-4736-a7fb-525aa87a2c27&quot;
- }
-}&#039; &#039;https://wap.tplinkcloud.com&#039;
+$.ajax({
+      type: &#039;POST&#039;,
+      contentType: &quot;application/json&quot;,
+      url: myURL,
+      data: myData,
+      dataType: &quot;json&quot;,
+      success: function(data, status) {
+      	$(&#039;#result-data&#039;).append(JSON.stringify(data));
+      	$(&#039;#result-status&#039;).append(status);
+      	$(&#039;#result-token&#039;).append(data.result.token);
+      }
+});
 
-If I enter in an incorrect password I get &quot;error_code&quot;:-20601,&quot;msg&quot;:&quot;Password incorrect&quot;, which leads me to believe I am almost getting this correct.
+My new result is:
+{&quot;error_code&quot;:0,&quot;result&quot;:{&quot;regTime&quot;:&quot;2016-10-23 23:45:58&quot;,&quot;email&quot;:&quot;email.address@gmail.com&quot;,&quot;token&quot;:&quot;00xxx111-x1234b45cd6e7fghij89k0l&quot;}}
 
-Any Ideas?]]></description>
-		<content:encoded><![CDATA[<p>Thanks for putting this together. When attempting to find my tp-link token, I get the error message &#8220;error_code&#8221;:-10100,&#8221;msg&#8221;:&#8221;JSON format error&#8221;. I built a request by pasting the template into curlbuilder.com:</p>
-<p>curl -XPOST -H &#8220;Content-type: application/json&#8221; -d &#8216;{<br />
- &#8220;method&#8221;: &#8220;login&#8221;,<br />
- &#8220;params&#8221;: {<br />
- &#8220;appType&#8221;: &#8220;Kasa_Android&#8221;,<br />
- &#8220;cloudUserName&#8221;: &#8220;emailwitha+sign@gmail.com&#8221;,<br />
- &#8220;cloudPassword&#8221;: &#8220;complicatedPasswordWith$pecialCharacters&#8221;,<br />
- &#8220;terminalUUID&#8221;: &#8220;d09fa2bb-26fc-4736-a7fb-525aa87a2c27&#8221;<br />
- }<br />
-}&#8217; &#8216;https://wap.tplinkcloud.com&#8217;</p>
-<p>If I enter in an incorrect password I get &#8220;error_code&#8221;:-20601,&#8221;msg&#8221;:&#8221;Password incorrect&#8221;, which leads me to believe I am almost getting this correct.</p>
-<p>Any Ideas?</p>
+My &quot;Success&quot; data is being appended to DIV layers for testing purposes:
+
+
+
+]]></description>
+		<content:encoded><![CDATA[<p>The issue was using ajax shorthand ($.post). With shorthand you can&#8217;t specify the content-type. The &#8220;json&#8221; at the end of the code just specifies how you want the data result formatted (Accept Header). Once I updated the code to the following I was able to specify the content-type and retrieve the token without error:</p>
+<p>$.ajax({<br />
+      type: &#8216;POST&#8217;,<br />
+      contentType: &#8220;application/json&#8221;,<br />
+      url: myURL,<br />
+      data: myData,<br />
+      dataType: &#8220;json&#8221;,<br />
+      success: function(data, status) {<br />
+      	$(&#8216;#result-data&#8217;).append(JSON.stringify(data));<br />
+      	$(&#8216;#result-status&#8217;).append(status);<br />
+      	$(&#8216;#result-token&#8217;).append(data.result.token);<br />
+      }<br />
+});</p>
+<p>My new result is:<br />
+{&#8220;error_code&#8221;:0,&#8221;result&#8221;:{&#8220;regTime&#8221;:&#8221;2016-10-23 23:45:58&#8243;,&#8221;email&#8221;:&#8221;email.address@gmail.com&#8221;,&#8221;token&#8221;:&#8221;00xxx111-x1234b45cd6e7fghij89k0l&#8221;}}</p>
+<p>My &#8220;Success&#8221; data is being appended to DIV layers for testing purposes:</p>
 ]]></content:encoded>
 	</item>
 	<item>
-		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by Robson Schmidt</title>
-		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-180</link>
-		<dc:creator><![CDATA[Robson Schmidt]]></dc:creator>
-		<pubDate>Thu, 06 Jul 2017 03:25:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-180</guid>
-		<description><![CDATA[I am in Brazil and having the same error.]]></description>
-		<content:encoded><![CDATA[<p>I am in Brazil and having the same error.</p>
+		<title>Comment on How to authenticate to TP-Link cloud API by Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-221</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Tue, 25 Jul 2017 05:23:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-221</guid>
+		<description><![CDATA[Try to force the header &#039;Content-Type: application/json&#039;, and remove the &quot;json&quot; you specified.]]></description>
+		<content:encoded><![CDATA[<p>Try to force the header &#8216;Content-Type: application/json&#8217;, and remove the &#8220;json&#8221; you specified.</p>
 ]]></content:encoded>
 	</item>
 	<item>
-		<title>Comment on How to get the TP-Link HS100 cloud end-point URL? by Thomas Ratchford</title>
-		<link>http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/#comment-179</link>
-		<dc:creator><![CDATA[Thomas Ratchford]]></dc:creator>
-		<pubDate>Wed, 05 Jul 2017 15:23:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=323#comment-179</guid>
-		<description><![CDATA[I am having a problem again with the Token Expired error message. I somehow was able to use the token to get my device list but now the same token will not work when using curl in my terminal too control the light. I am getting a token expired message. I have tried getting my token several time and each time i get a different token. Seems like a new Token is generated every couple seconds?pretty frustrated. Any suggestions]]></description>
-		<content:encoded><![CDATA[<p>I am having a problem again with the Token Expired error message. I somehow was able to use the token to get my device list but now the same token will not work when using curl in my terminal too control the light. I am getting a token expired message. I have tried getting my token several time and each time i get a different token. Seems like a new Token is generated every couple seconds?pretty frustrated. Any suggestions</p>
-]]></content:encoded>
-	</item>
-	<item>
-		<title>Comment on How to get the TP-Link HS100 cloud end-point URL? by Thomas Ratchford</title>
-		<link>http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/#comment-178</link>
-		<dc:creator><![CDATA[Thomas Ratchford]]></dc:creator>
-		<pubDate>Wed, 05 Jul 2017 12:46:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=323#comment-178</guid>
-		<description><![CDATA[did it again and it worked. 3rd times a charm i guess. thanks.]]></description>
-		<content:encoded><![CDATA[<p>did it again and it worked. 3rd times a charm i guess. thanks.</p>
-]]></content:encoded>
-	</item>
-	<item>
-		<title>Comment on How to get the TP-Link HS100 cloud end-point URL? by Thomas Ratchford</title>
-		<link>http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/#comment-177</link>
-		<dc:creator><![CDATA[Thomas Ratchford]]></dc:creator>
-		<pubDate>Wed, 05 Jul 2017 12:27:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=323#comment-177</guid>
-		<description><![CDATA[I went through that step again and received the same Token. Any suggestions?]]></description>
-		<content:encoded><![CDATA[<p>I went through that step again and received the same Token. Any suggestions?</p>
+		<title>Comment on How to authenticate to TP-Link cloud API by Richard Nardone</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-220</link>
+		<dc:creator><![CDATA[Richard Nardone]]></dc:creator>
+		<pubDate>Mon, 24 Jul 2017 23:28:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-220</guid>
+		<description><![CDATA[I created a script to get my token but I keep getting a format error.
+
+Code:
+$.post(&quot;https://use1-wap.tplinkcloud.com&quot;,
+{
+	method: &quot;login&quot;,
+	params: {
+		appType: &quot;Kasa_Android&quot;,
+		cloudUserName: &quot;email.address@gmail.com&quot;,
+		cloudPassword: &quot;SimplePasswordLettersandNumbers&quot;,
+		terminalUUID: &quot;b6085622-86e0-4940-8fd3-4b60862de994&quot;
+	}
+},
+function(data,status) {
+	$(&#039;#result-data&#039;).append(JSON.stringify(data));
+	$(&#039;#result-status&#039;).append(status);
+}, &quot;json&quot; );
+
+The above code returns error:
+{&quot;error_code&quot;:-10100,&quot;msg&quot;:&quot;JSON format error&quot;}
+
+Anyone know what I&#039;m doing wrong?]]></description>
+		<content:encoded><![CDATA[<p>I created a script to get my token but I keep getting a format error.</p>
+<p>Code:<br />
+$.post(&#8220;https://use1-wap.tplinkcloud.com&#8221;,<br />
+{<br />
+	method: &#8220;login&#8221;,<br />
+	params: {<br />
+		appType: &#8220;Kasa_Android&#8221;,<br />
+		cloudUserName: &#8220;email.address@gmail.com&#8221;,<br />
+		cloudPassword: &#8220;SimplePasswordLettersandNumbers&#8221;,<br />
+		terminalUUID: &#8220;b6085622-86e0-4940-8fd3-4b60862de994&#8221;<br />
+	}<br />
+},<br />
+function(data,status) {<br />
+	$(&#8216;#result-data&#8217;).append(JSON.stringify(data));<br />
+	$(&#8216;#result-status&#8217;).append(status);<br />
+}, &#8220;json&#8221; );</p>
+<p>The above code returns error:<br />
+{&#8220;error_code&#8221;:-10100,&#8221;msg&#8221;:&#8221;JSON format error&#8221;}</p>
+<p>Anyone know what I&#8217;m doing wrong?</p>
 ]]></content:encoded>
 	</item>
 	<item>
 		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by JeremyH</title>
-		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-176</link>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-219</link>
 		<dc:creator><![CDATA[JeremyH]]></dc:creator>
-		<pubDate>Tue, 04 Jul 2017 20:27:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-176</guid>
-		<description><![CDATA[thanks yes I was reaching the same conclusion.
-Thanks for the site really useful and enthusing me to try new things.]]></description>
-		<content:encoded><![CDATA[<p>thanks yes I was reaching the same conclusion.<br />
-Thanks for the site really useful and enthusing me to try new things.</p>
+		<pubDate>Sat, 22 Jul 2017 06:23:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-219</guid>
+		<description><![CDATA[PS - as per an earlier post I have found that my token expires and I need to discover the new one, and then that will need embedding to replace the old in each applet again - easy but a bit of a pain, would be happy if anyone has a solution.]]></description>
+		<content:encoded><![CDATA[<p>PS &#8211; as per an earlier post I have found that my token expires and I need to discover the new one, and then that will need embedding to replace the old in each applet again &#8211; easy but a bit of a pain, would be happy if anyone has a solution.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by JeremyH</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-218</link>
+		<dc:creator><![CDATA[JeremyH]]></dc:creator>
+		<pubDate>Sat, 22 Jul 2017 06:22:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-218</guid>
+		<description><![CDATA[Yes works well, and doesn&#039;t need any programming skills, I just had to populate the .env file and create a webhooks routine applet for each task. For example create an applet that would turn off kitchen lights, same for kitchen plugs etc, then list these in the .env. Very easy once I&#039;d figured out how to make the instructions work, plus learnt much more about the webhooks service which will help with another challenge I have set myself - I want to remotely control my ageing home burglar alarm via webcalls and an arduino interface ... getting there slowly in small steps at present.]]></description>
+		<content:encoded><![CDATA[<p>Yes works well, and doesn&#8217;t need any programming skills, I just had to populate the .env file and create a webhooks routine applet for each task. For example create an applet that would turn off kitchen lights, same for kitchen plugs etc, then list these in the .env. Very easy once I&#8217;d figured out how to make the instructions work, plus learnt much more about the webhooks service which will help with another challenge I have set myself &#8211; I want to remotely control my ageing home burglar alarm via webcalls and an arduino interface &#8230; getting there slowly in small steps at present.</p>
 ]]></content:encoded>
 	</item>
 	<item>
 		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by Alexandre Dumont</title>
-		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-175</link>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-217</link>
 		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
-		<pubDate>Tue, 04 Jul 2017 13:45:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-175</guid>
-		<description><![CDATA[I don&#039;t think that is possible using only IFTTT and Maker. I can see other options, involving creating a small webservice (that you would invoke from Maker as a webhook), and in which you would &quot;code&quot; all the calls you want (I mean calling as many poweron/off as you like to multiple devices)]]></description>
-		<content:encoded><![CDATA[<p>I don&#8217;t think that is possible using only IFTTT and Maker. I can see other options, involving creating a small webservice (that you would invoke from Maker as a webhook), and in which you would &#8220;code&#8221; all the calls you want (I mean calling as many poweron/off as you like to multiple devices)</p>
-]]></content:encoded>
-	</item>
-	<item>
-		<title>Comment on How to get the TP-Link HS100 cloud end-point URL? by Thomas Ratchford</title>
-		<link>http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/#comment-174</link>
-		<dc:creator><![CDATA[Thomas Ratchford]]></dc:creator>
-		<pubDate>Mon, 03 Jul 2017 21:22:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=323#comment-174</guid>
-		<description><![CDATA[I&#039;m also getting a &quot;Token expired&quot; error message can u please explain on how to fix this?]]></description>
-		<content:encoded><![CDATA[<p>I&#8217;m also getting a &#8220;Token expired&#8221; error message can u please explain on how to fix this?</p>
+		<pubDate>Fri, 21 Jul 2017 22:06:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-217</guid>
+		<description><![CDATA[Nice Jeremy! I didn&#039;t know this service. It will definitely help all, as one can recreate like a scene and trigger it with one webhook call in Maker. What I didn&#039;t know was the approach they took in Glitch, to trigger IFTTT applets.  I was looking into an alternative to Glitch, Webtasks, also free. I&#039;ll try to write up an article about another alternative I know, which might be easier for non programmers, and still do all the steps (including logging in, retrieving the token,...). I only need time to write it... ]]></description>
+		<content:encoded><![CDATA[<p>Nice Jeremy! I didn&#8217;t know this service. It will definitely help all, as one can recreate like a scene and trigger it with one webhook call in Maker. What I didn&#8217;t know was the approach they took in Glitch, to trigger IFTTT applets.  I was looking into an alternative to Glitch, Webtasks, also free. I&#8217;ll try to write up an article about another alternative I know, which might be easier for non programmers, and still do all the steps (including logging in, retrieving the token,&#8230;). I only need time to write it&#8230; </p>
 ]]></content:encoded>
 	</item>
 	<item>
 		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by JeremyH</title>
-		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-173</link>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-216</link>
 		<dc:creator><![CDATA[JeremyH]]></dc:creator>
-		<pubDate>Sun, 02 Jul 2017 12:10:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-173</guid>
-		<description><![CDATA[thanks but I am not good enough at JSON to figure out how to do this, I have
+		<pubDate>Fri, 21 Jul 2017 21:40:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-216</guid>
+		<description><![CDATA[I&#039;ve found a fix:
+https://medium.com/glitch/how-to-trigger-multiple-applets-in-ifttt-5877860a76af]]></description>
+		<content:encoded><![CDATA[<p>I&#8217;ve found a fix:<br />
+<a href="https://medium.com/glitch/how-to-trigger-multiple-applets-in-ifttt-5877860a76af" rel="nofollow">https://medium.com/glitch/how-to-trigger-multiple-applets-in-ifttt-5877860a76af</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by JeremyH</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-215</link>
+		<dc:creator><![CDATA[JeremyH]]></dc:creator>
+		<pubDate>Fri, 21 Jul 2017 21:39:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-215</guid>
+		<description><![CDATA[I&#039;ve found a fix:
+https://medium.com/glitch/how-to-trigger-multiple-applets-in-ifttt-5877860a76af
+works great , would be even better if I could work a timer in. so far I can turn on one night and turn off everything else, but would like to have a timer to turn that light off too after 2 mins or something.]]></description>
+		<content:encoded><![CDATA[<p>I&#8217;ve found a fix:<br />
+<a href="https://medium.com/glitch/how-to-trigger-multiple-applets-in-ifttt-5877860a76af" rel="nofollow">https://medium.com/glitch/how-to-trigger-multiple-applets-in-ifttt-5877860a76af</a><br />
+works great , would be even better if I could work a timer in. so far I can turn on one night and turn off everything else, but would like to have a timer to turn that light off too after 2 mins or something.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on How to control your TP-Link HS100 smartplug from Internet by Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/#comment-214</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Fri, 21 Jul 2017 19:25:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=190#comment-214</guid>
+		<description><![CDATA[It does say you need follow the following steps:
 
-{
-	&quot;method&quot;: &quot;passthrough&quot;,
-	&quot;params&quot;: {
-		&quot;deviceId&quot;: &quot;XXX68AF8841FB8C0D29943C00AB1AAC21836XXXX&quot;,
-		&quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_relay_state&quot;:{&quot;state&quot;:1} }}&quot;
-	}
-}
+Authenticate to TP-Link cloud API and get a token
 
-{
-	&quot;method&quot;: &quot;passthrough&quot;,
-	&quot;params&quot;: {
-		&quot;deviceId&quot;: &quot;YYYY8AF8841FB8C0D29943C00AB1AAC21836YYYY&quot;,
-		&quot;requestData&quot;: &quot;{&quot;system&quot;:{&quot;set_relay_state&quot;:{&quot;state&quot;:1} }}&quot;
-	}
-}
-
-I know this is wrong and won&#039;t work but how do I recode this to make it work ? - do I just use one &#039;method&#039; statement with multiple params ?  - can someone give me an example I can learn from please ?]]></description>
-		<content:encoded><![CDATA[<p>thanks but I am not good enough at JSON to figure out how to do this, I have</p>
-<p>{<br />
-	&#8220;method&#8221;: &#8220;passthrough&#8221;,<br />
-	&#8220;params&#8221;: {<br />
-		&#8220;deviceId&#8221;: &#8220;XXX68AF8841FB8C0D29943C00AB1AAC21836XXXX&#8221;,<br />
-		&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1} }}&#8221;<br />
-	}<br />
-}</p>
-<p>{<br />
-	&#8220;method&#8221;: &#8220;passthrough&#8221;,<br />
-	&#8220;params&#8221;: {<br />
-		&#8220;deviceId&#8221;: &#8220;YYYY8AF8841FB8C0D29943C00AB1AAC21836YYYY&#8221;,<br />
-		&#8220;requestData&#8221;: &#8220;{&#8220;system&#8221;:{&#8220;set_relay_state&#8221;:{&#8220;state&#8221;:1} }}&#8221;<br />
-	}<br />
-}</p>
-<p>I know this is wrong and won&#8217;t work but how do I recode this to make it work ? &#8211; do I just use one &#8216;method&#8217; statement with multiple params ?  &#8211; can someone give me an example I can learn from please ?</p>
+http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/]]></description>
+		<content:encoded><![CDATA[<p>It does say you need follow the following steps:</p>
+<p>Authenticate to TP-Link cloud API and get a token</p>
+<p><a href="http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/" rel="nofollow">http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/</a></p>
 ]]></content:encoded>
 	</item>
 </channel>
@@ -179,8 +209,8 @@ I know this is wrong and won&#039;t work but how do I recode this to make it wor
 
 <!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
 
-Object Caching 986/1012 objects using disk
+Object Caching 950/974 objects using disk
 Page Caching using disk: enhanced
-Database Caching 2/17 queries in 0.098 seconds using disk
+Database Caching 2/17 queries in 0.008 seconds using disk
 
- Served from: itnerd.space @ 2017-07-13 21:34:26 by W3 Total Cache -->
+ Served from: itnerd.space @ 2017-07-28 14:44:01 by W3 Total Cache -->

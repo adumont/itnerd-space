@@ -12,11 +12,11 @@
 	<atom:link href="http://itnerd.space/tag/hs100/feed/" rel="self" type="application/rss+xml" />
 	<link>http://itnerd.space</link>
 	<description>Blog about Cloud, Automation, Android, Smart things...</description>
-	<lastBuildDate>Tue, 11 Jul 2017 19:44:22 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 27 Jul 2017 22:59:31 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=4.8</generator>
+	<generator>https://wordpress.org/?v=4.7.5</generator>
 
 <image>
 	<url>https://i2.wp.com/itnerd.space/wp-content/uploads/2016/10/cropped-99789e30b0a6eac11f33246750ca29f9.jpg?fit=32%2C32</url>
@@ -25,7 +25,7 @@
 	<width>32</width>
 	<height>32</height>
 </image> 
-<site xmlns="com-wordpress:feed-additions:1">119014820</site>	<item>
+<site xmlns="com-wordpress:feed-additions:1">133306427</site>	<item>
 		<title>How to authenticate to TP Link cloud API with Tasker</title>
 		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api-with-tasker/</link>
 		<comments>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api-with-tasker/#respond</comments>
@@ -117,11 +117,11 @@ To: { "method" :"login",
  }
 }</pre>
 <p>Isn&#8217;t that cool? Of course you can implement that in any language, Shell script with <a href="https://curlbuilder.com/">cURL</a>, Python, Node.js,&#8230; Your token is response.result.token.</p>
-<p>In a next post I&#8217;ll show how to <a href="http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api-with-tasker/">do the same with Tasker</a>! <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f600.png" alt="😀" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>In a next post I&#8217;ll show how to <a href="http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api-with-tasker/">do the same with Tasker</a>! <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f600.png" alt="😀" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
 <p>From here you can also have a look at this post: <a href="http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/">Get the end point URL and HS100 Device ID.</a></p>
 ]]></content:encoded>
 			<wfw:commentRss>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/feed/</wfw:commentRss>
-		<slash:comments>4</slash:comments>
+		<slash:comments>19</slash:comments>
 	<post-id xmlns="com-wordpress:feed-additions:1">345</post-id>	</item>
 		<item>
 		<title>How to get the TP-Link HS100 cloud end-point URL?</title>
@@ -176,7 +176,7 @@ To: { "method" :"login",
 <p><strong>The <em>appServerUrl</em> is the one we&#8217;ll need to use in further POST requests, to control the plug.</strong></p>
 ]]></content:encoded>
 			<wfw:commentRss>http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url/feed/</wfw:commentRss>
-		<slash:comments>9</slash:comments>
+		<slash:comments>12</slash:comments>
 	<post-id xmlns="com-wordpress:feed-additions:1">323</post-id>	</item>
 		<item>
 		<title>Control your TP-Link HS100 smart plug from your Android Watch!</title>
@@ -226,14 +226,14 @@ To: { "method" :"login",
 
 		<guid isPermaLink="false">http://itnerd.space/?p=252</guid>
 		<description><![CDATA[We&#8217;ve seen in a previous post how to switch our TP-Link HS100 smartplug from command line, from anywhere (not only the local network). In this post we&#8217;ll see how to create some Tasker tasks to control our smartplug. From that, we can imagine any useful/crazy profiles triggered from any events, time,&#8230; ]]></description>
-				<content:encoded><![CDATA[<p>We&#8217;ve seen in a previous post <a href="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/">how to switch our TP-Link HS100 smartplug from command line</a>, from anywhere (not only the local network). In this post we&#8217;ll see how to create some Tasker tasks to control our smartplug. From that, we can imagine any useful/crazy profiles triggered from any events, time, location and switch the plug On/Off, for example &#8220;when I arrive home, switch on the Christmas Tree&#8230;&#8221; <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+				<content:encoded><![CDATA[<p>We&#8217;ve seen in a previous post <a href="http://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/">how to switch our TP-Link HS100 smartplug from command line</a>, from anywhere (not only the local network). In this post we&#8217;ll see how to create some Tasker tasks to control our smartplug. From that, we can imagine any useful/crazy profiles triggered from any events, time, location and switch the plug On/Off, for example &#8220;when I arrive home, switch on the Christmas Tree&#8230;&#8221; <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
 <p>To quickly recap, this is the command that can change the plug state (depending on the %state variable, 0: switch off, 1: switch on):</p>
 <pre>curl --request POST "https://eu-wap.tplinkcloud.com/?token=<span style="color: #800080;">%token</span> HTTP/1.1" \
   --data '{"method":"passthrough", "params": {"deviceId": "<span style="color: #800080;">%deviceId</span>", "requestData": "{\"system\":{\"set_relay_state\":{\"state\":<span style="color: #339966;"><strong>%state</strong></span>}}}" }}' \
   --header "Content-Type: application/json"</pre>
-<h1>Task 1: Switch Plug On <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" /></h1>
+<h1>Task 1: Switch Plug On <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" /></h1>
 <h2>Using an HTTP Post action</h2>
-<p>In Tasker let&#8217;s create a new Task called &#8220;Switch Plug On <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" />&#8221;, then add  3 &#8220;Variable Set&#8221; actions, to set the value of %deviceId, %token and %state to the right values for you.</p>
+<p>In Tasker let&#8217;s create a new Task called &#8220;Switch Plug On <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" />&#8221;, then add  3 &#8220;Variable Set&#8221; actions, to set the value of %deviceId, %token and %state to the right values for you.</p>
 <p>Then we&#8217;ll use an HTTP Post action, that we&#8217;ll configure like this:</p>
 <ul>
 <li><span style="text-decoration: underline;">Server:Port</span>: https://eu-wap.tplinkcloud.com</li>
@@ -267,7 +267,7 @@ To: { "method" :"login",
 <p>Do not hesitate to contribute in the comments with any Profile idea you have to play with your TP-Link HS100 smartplug.</p>
 <hr />
 <p>You can acquire Tasker from the Play Store, personally I believe it&#8217;s really worth the money. You can also download a 7 days free trial from <a href="http://tasker.dinglisch.net/">Tasker official website</a>.</p>
-<!-- WP-Appbox (Version: 4.0.15 // Store: googleplay // ID: net.dinglisch.android.taskerm) --><p><a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en" title="Tasker">Tasker ($2.99, Google Play) →</a></p><!-- /WP-Appbox -->
+<!-- WP-Appbox (Version: 4.0.15 // Store: googleplay // ID: net.dinglisch.android.taskerm) --><p><a target="_blank" rel="nofollow" href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en" title="Tasker">Tasker (€2.99, Google Play) →</a></p><!-- /WP-Appbox -->
 <p>In a next post I&#8217;ll show <a href="http://itnerd.space/2017/04/03/control-your-tp-link-hs100-smart-plug-from-your-android-watch/">how you can control your smart plug from your Android smartwatch</a>, which is super cool!</p>
 ]]></content:encoded>
 			<wfw:commentRss>http://itnerd.space/2017/02/26/control-your-tp-link-hs100-smartplug-with-tasker/feed/</wfw:commentRss>
@@ -338,7 +338,7 @@ To: { "method" :"login",
  --header "Content-Type: application/json" | jq ".result.responseData" | sed -e 's#\\\"#"#g; s#^\"##; s#\"$##' | jq "<span style="color: #008000;">.system.get_sysinfo.relay_state</span>"</pre>
 ]]></content:encoded>
 			<wfw:commentRss>http://itnerd.space/2017/01/29/get-the-state-of-your-hs100-smart-plug/feed/</wfw:commentRss>
-		<slash:comments>6</slash:comments>
+		<slash:comments>7</slash:comments>
 	<post-id xmlns="com-wordpress:feed-additions:1">223</post-id>	</item>
 		<item>
 		<title>Control your TP-Link HS100 smart plug with IFTTT</title>
@@ -378,15 +378,15 @@ To: { "method" :"login",
 <p>That&#8217;s it! Easy, right?</p>
 ]]></content:encoded>
 			<wfw:commentRss>http://itnerd.space/2017/01/22/control-your-tp-link-hs100-smart-plug-with-ifttt/feed/</wfw:commentRss>
-		<slash:comments>27</slash:comments>
+		<slash:comments>38</slash:comments>
 	<post-id xmlns="com-wordpress:feed-additions:1">208</post-id>	</item>
 	</channel>
 </rss>
 
 <!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
 
-Object Caching 4932/4945 objects using disk
+Object Caching 4931/4942 objects using disk
 Page Caching using disk: enhanced
-Database Caching 8/13 queries in 0.005 seconds using disk
+Database Caching 8/13 queries in 0.006 seconds using disk
 
- Served from: itnerd.space @ 2017-07-13 21:34:53 by W3 Total Cache -->
+ Served from: itnerd.space @ 2017-07-28 14:45:09 by W3 Total Cache -->

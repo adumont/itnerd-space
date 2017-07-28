@@ -10,76 +10,201 @@
 	<atom:link href="http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/feed/" rel="self" type="application/rss+xml" />
 	<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/</link>
 	<description>Blog about Cloud, Automation, Android, Smart things...</description>
-	<lastBuildDate>Thu, 06 Jul 2017 10:44:00 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 27 Jul 2017 22:01:00 +0000</lastBuildDate>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=4.8</generator>
+	<generator>https://wordpress.org/?v=4.7.5</generator>
 	<item>
-		<title>By: Ben Nikula</title>
-		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-181</link>
-		<dc:creator><![CDATA[Ben Nikula]]></dc:creator>
-		<pubDate>Thu, 06 Jul 2017 03:45:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-181</guid>
-		<description><![CDATA[Thanks for putting this together. When attempting to find my tp-link token, I get the error message &quot;error_code&quot;:-10100,&quot;msg&quot;:&quot;JSON format error&quot;. I built a request by pasting the template into curlbuilder.com:
+		<title>By: Richard Nardone</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-222</link>
+		<dc:creator><![CDATA[Richard Nardone]]></dc:creator>
+		<pubDate>Tue, 25 Jul 2017 11:50:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-222</guid>
+		<description><![CDATA[The issue was using ajax shorthand ($.post). With shorthand you can&#039;t specify the content-type. The &quot;json&quot; at the end of the code just specifies how you want the data result formatted (Accept Header). Once I updated the code to the following I was able to specify the content-type and retrieve the token without error:
 
-curl -XPOST -H &quot;Content-type: application/json&quot; -d &#039;{
- &quot;method&quot;: &quot;login&quot;,
- &quot;params&quot;: {
- &quot;appType&quot;: &quot;Kasa_Android&quot;,
- &quot;cloudUserName&quot;: &quot;emailwitha+sign@gmail.com&quot;,
- &quot;cloudPassword&quot;: &quot;complicatedPasswordWith$pecialCharacters&quot;,
- &quot;terminalUUID&quot;: &quot;d09fa2bb-26fc-4736-a7fb-525aa87a2c27&quot;
- }
-}&#039; &#039;https://wap.tplinkcloud.com&#039;
+$.ajax({
+      type: &#039;POST&#039;,
+      contentType: &quot;application/json&quot;,
+      url: myURL,
+      data: myData,
+      dataType: &quot;json&quot;,
+      success: function(data, status) {
+      	$(&#039;#result-data&#039;).append(JSON.stringify(data));
+      	$(&#039;#result-status&#039;).append(status);
+      	$(&#039;#result-token&#039;).append(data.result.token);
+      }
+});
 
-If I enter in an incorrect password I get &quot;error_code&quot;:-20601,&quot;msg&quot;:&quot;Password incorrect&quot;, which leads me to believe I am almost getting this correct.
+My new result is:
+{&quot;error_code&quot;:0,&quot;result&quot;:{&quot;regTime&quot;:&quot;2016-10-23 23:45:58&quot;,&quot;email&quot;:&quot;email.address@gmail.com&quot;,&quot;token&quot;:&quot;00xxx111-x1234b45cd6e7fghij89k0l&quot;}}
 
-Any Ideas?]]></description>
-		<content:encoded><![CDATA[<p>Thanks for putting this together. When attempting to find my tp-link token, I get the error message &#8220;error_code&#8221;:-10100,&#8221;msg&#8221;:&#8221;JSON format error&#8221;. I built a request by pasting the template into curlbuilder.com:</p>
-<p>curl -XPOST -H &#8220;Content-type: application/json&#8221; -d &#8216;{<br />
- &#8220;method&#8221;: &#8220;login&#8221;,<br />
- &#8220;params&#8221;: {<br />
- &#8220;appType&#8221;: &#8220;Kasa_Android&#8221;,<br />
- &#8220;cloudUserName&#8221;: &#8220;emailwitha+sign@gmail.com&#8221;,<br />
- &#8220;cloudPassword&#8221;: &#8220;complicatedPasswordWith$pecialCharacters&#8221;,<br />
- &#8220;terminalUUID&#8221;: &#8220;d09fa2bb-26fc-4736-a7fb-525aa87a2c27&#8221;<br />
- }<br />
-}&#8217; &#8216;https://wap.tplinkcloud.com&#8217;</p>
-<p>If I enter in an incorrect password I get &#8220;error_code&#8221;:-20601,&#8221;msg&#8221;:&#8221;Password incorrect&#8221;, which leads me to believe I am almost getting this correct.</p>
-<p>Any Ideas?</p>
-]]></content:encoded>
-	</item>
-	<item>
-		<title>By: Jacob Kossman</title>
-		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-162</link>
-		<dc:creator><![CDATA[Jacob Kossman]]></dc:creator>
-		<pubDate>Tue, 27 Jun 2017 04:28:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-162</guid>
-		<description><![CDATA[https://github.com/jacobkossman/tp-link-info
+My &quot;Success&quot; data is being appended to DIV layers for testing purposes:
 
-ps i created a simple PHP script that authenticates and grabs the specific info (token device ids etc) for you so you don&#039;t have to keep doing it manually.]]></description>
-		<content:encoded><![CDATA[<p><a href="https://github.com/jacobkossman/tp-link-info" rel="nofollow">https://github.com/jacobkossman/tp-link-info</a></p>
-<p>ps i created a simple PHP script that authenticates and grabs the specific info (token device ids etc) for you so you don&#8217;t have to keep doing it manually.</p>
+
+
+]]></description>
+		<content:encoded><![CDATA[<p>The issue was using ajax shorthand ($.post). With shorthand you can&#8217;t specify the content-type. The &#8220;json&#8221; at the end of the code just specifies how you want the data result formatted (Accept Header). Once I updated the code to the following I was able to specify the content-type and retrieve the token without error:</p>
+<p>$.ajax({<br />
+      type: &#8216;POST&#8217;,<br />
+      contentType: &#8220;application/json&#8221;,<br />
+      url: myURL,<br />
+      data: myData,<br />
+      dataType: &#8220;json&#8221;,<br />
+      success: function(data, status) {<br />
+      	$(&#8216;#result-data&#8217;).append(JSON.stringify(data));<br />
+      	$(&#8216;#result-status&#8217;).append(status);<br />
+      	$(&#8216;#result-token&#8217;).append(data.result.token);<br />
+      }<br />
+});</p>
+<p>My new result is:<br />
+{&#8220;error_code&#8221;:0,&#8221;result&#8221;:{&#8220;regTime&#8221;:&#8221;2016-10-23 23:45:58&#8243;,&#8221;email&#8221;:&#8221;email.address@gmail.com&#8221;,&#8221;token&#8221;:&#8221;00xxx111-x1234b45cd6e7fghij89k0l&#8221;}}</p>
+<p>My &#8220;Success&#8221; data is being appended to DIV layers for testing purposes:</p>
 ]]></content:encoded>
 	</item>
 	<item>
 		<title>By: Alexandre Dumont</title>
-		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-161</link>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-221</link>
 		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
-		<pubDate>Sun, 25 Jun 2017 22:13:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-161</guid>
-		<description><![CDATA[It seems you are right. I&#039;ve tried with an empty UUID and it still works fine. But the &quot;terminalUUID&quot; field needs to be present in the payload thought, otherwise I get an error: {&quot;error_code&quot;:-20104,&quot;msg&quot;:&quot;Parameter doesn&#039;t exist&quot;}.]]></description>
-		<content:encoded><![CDATA[<p>It seems you are right. I&#8217;ve tried with an empty UUID and it still works fine. But the &#8220;terminalUUID&#8221; field needs to be present in the payload thought, otherwise I get an error: {&#8220;error_code&#8221;:-20104,&#8221;msg&#8221;:&#8221;Parameter doesn&#8217;t exist&#8221;}.</p>
+		<pubDate>Tue, 25 Jul 2017 05:23:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-221</guid>
+		<description><![CDATA[Try to force the header &#039;Content-Type: application/json&#039;, and remove the &quot;json&quot; you specified.]]></description>
+		<content:encoded><![CDATA[<p>Try to force the header &#8216;Content-Type: application/json&#8217;, and remove the &#8220;json&#8221; you specified.</p>
 ]]></content:encoded>
 	</item>
 	<item>
-		<title>By: Jacob Kossman</title>
-		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-160</link>
-		<dc:creator><![CDATA[Jacob Kossman]]></dc:creator>
-		<pubDate>Sun, 25 Jun 2017 19:04:00 +0000</pubDate>
-		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-160</guid>
-		<description><![CDATA[Thanks! This seemed to work for me without a UUID.. not sure if that&#039;s a mistake on their end or it&#039;s just not a necessary key]]></description>
-		<content:encoded><![CDATA[<p>Thanks! This seemed to work for me without a UUID.. not sure if that&#8217;s a mistake on their end or it&#8217;s just not a necessary key</p>
+		<title>By: Richard Nardone</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-220</link>
+		<dc:creator><![CDATA[Richard Nardone]]></dc:creator>
+		<pubDate>Mon, 24 Jul 2017 23:28:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-220</guid>
+		<description><![CDATA[I created a script to get my token but I keep getting a format error.
+
+Code:
+$.post(&quot;https://use1-wap.tplinkcloud.com&quot;,
+{
+	method: &quot;login&quot;,
+	params: {
+		appType: &quot;Kasa_Android&quot;,
+		cloudUserName: &quot;email.address@gmail.com&quot;,
+		cloudPassword: &quot;SimplePasswordLettersandNumbers&quot;,
+		terminalUUID: &quot;b6085622-86e0-4940-8fd3-4b60862de994&quot;
+	}
+},
+function(data,status) {
+	$(&#039;#result-data&#039;).append(JSON.stringify(data));
+	$(&#039;#result-status&#039;).append(status);
+}, &quot;json&quot; );
+
+The above code returns error:
+{&quot;error_code&quot;:-10100,&quot;msg&quot;:&quot;JSON format error&quot;}
+
+Anyone know what I&#039;m doing wrong?]]></description>
+		<content:encoded><![CDATA[<p>I created a script to get my token but I keep getting a format error.</p>
+<p>Code:<br />
+$.post(&#8220;https://use1-wap.tplinkcloud.com&#8221;,<br />
+{<br />
+	method: &#8220;login&#8221;,<br />
+	params: {<br />
+		appType: &#8220;Kasa_Android&#8221;,<br />
+		cloudUserName: &#8220;email.address@gmail.com&#8221;,<br />
+		cloudPassword: &#8220;SimplePasswordLettersandNumbers&#8221;,<br />
+		terminalUUID: &#8220;b6085622-86e0-4940-8fd3-4b60862de994&#8221;<br />
+	}<br />
+},<br />
+function(data,status) {<br />
+	$(&#8216;#result-data&#8217;).append(JSON.stringify(data));<br />
+	$(&#8216;#result-status&#8217;).append(status);<br />
+}, &#8220;json&#8221; );</p>
+<p>The above code returns error:<br />
+{&#8220;error_code&#8221;:-10100,&#8221;msg&#8221;:&#8221;JSON format error&#8221;}</p>
+<p>Anyone know what I&#8217;m doing wrong?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-201</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Tue, 18 Jul 2017 13:15:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-201</guid>
+		<description><![CDATA[Amazing Richard. I&#039;m glad it worked for you. Enjoy your smartplugs.]]></description>
+		<content:encoded><![CDATA[<p>Amazing Richard. I&#8217;m glad it worked for you. Enjoy your smartplugs.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Richard</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-200</link>
+		<dc:creator><![CDATA[Richard]]></dc:creator>
+		<pubDate>Tue, 18 Jul 2017 12:51:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-200</guid>
+		<description><![CDATA[Your other post describing how to get the list of devices gave me the correct device IDs and it is now working. Thank you for the quick reply!]]></description>
+		<content:encoded><![CDATA[<p>Your other post describing how to get the list of devices gave me the correct device IDs and it is now working. Thank you for the quick reply!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-199</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Tue, 18 Jul 2017 12:33:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-199</guid>
+		<description><![CDATA[To easily identify the DevideID of each plug, within the Kasa app, give a name to each plug. Then use the method shown here http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url to list all your devices. You&#039;ll see the Alias and the corresponding Device ID of each plug. 
+
+Regarding the rate limiting, I guess it&#039;s something to do with IFTTT.]]></description>
+		<content:encoded><![CDATA[<p>To easily identify the DevideID of each plug, within the Kasa app, give a name to each plug. Then use the method shown here <a href="http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url" rel="nofollow">http://itnerd.space/2017/05/21/how-to-get-the-tp-link-hs100-cloud-end-point-url</a> to list all your devices. You&#8217;ll see the Alias and the corresponding Device ID of each plug. </p>
+<p>Regarding the rate limiting, I guess it&#8217;s something to do with IFTTT.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Richard</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-198</link>
+		<dc:creator><![CDATA[Richard]]></dc:creator>
+		<pubDate>Tue, 18 Jul 2017 11:10:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-198</guid>
+		<description><![CDATA[I have 3 of these plugs so I switched 2 of them off at the wall I wasn&#039;t sure how to identify the device ID for each plug. With a single plug switched on, I followed the instructions exactly on your post of how to control via IFTTT and tried basic triggers of email sent from Gmail/Contact added to Gmail just to test it but neither of these worked.
+
+Any idea what I could be doing wrong?
+
+EDIT: If I open the IFTTT app, the Activity shows &#039;Usage limit exceeded&#039;. If I click into the detail, it states &#039;User Rate Limit Exceeded&#039;]]></description>
+		<content:encoded><![CDATA[<p>I have 3 of these plugs so I switched 2 of them off at the wall I wasn&#8217;t sure how to identify the device ID for each plug. With a single plug switched on, I followed the instructions exactly on your post of how to control via IFTTT and tried basic triggers of email sent from Gmail/Contact added to Gmail just to test it but neither of these worked.</p>
+<p>Any idea what I could be doing wrong?</p>
+<p>EDIT: If I open the IFTTT app, the Activity shows &#8216;Usage limit exceeded&#8217;. If I click into the detail, it states &#8216;User Rate Limit Exceeded&#8217;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alexandre Dumont</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-192</link>
+		<dc:creator><![CDATA[Alexandre Dumont]]></dc:creator>
+		<pubDate>Sun, 16 Jul 2017 21:06:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-192</guid>
+		<description><![CDATA[Hum... I don&#039;t have Alexa myself, so I can&#039;t confirm. Others here might have it, hopefully they can help.]]></description>
+		<content:encoded><![CDATA[<p>Hum&#8230; I don&#8217;t have Alexa myself, so I can&#8217;t confirm. Others here might have it, hopefully they can help.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Joe H</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-191</link>
+		<dc:creator><![CDATA[Joe H]]></dc:creator>
+		<pubDate>Sat, 15 Jul 2017 12:28:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-191</guid>
+		<description><![CDATA[Great work finding out how to get a token! 
+I&#039;m having a problem when I go to use the returned token though, always get: {&quot;error_code&quot;:-20651,&quot;msg&quot;:&quot;Token expired&quot;} 
+When I use it. 
+I&#039;ve tried seeing whether there&#039;s a time delay or something, but it doesn&#039;t seem to matter how quick you are, it always says expired. Dunno whether having the Alexa skill connected makes a difference or something. 
+Anyone else having the same problem?]]></description>
+		<content:encoded><![CDATA[<p>Great work finding out how to get a token!<br />
+I&#8217;m having a problem when I go to use the returned token though, always get: {&#8220;error_code&#8221;:-20651,&#8221;msg&#8221;:&#8221;Token expired&#8221;}<br />
+When I use it.<br />
+I&#8217;ve tried seeing whether there&#8217;s a time delay or something, but it doesn&#8217;t seem to matter how quick you are, it always says expired. Dunno whether having the Alexa skill connected makes a difference or something.<br />
+Anyone else having the same problem?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Ben Nikula</title>
+		<link>http://itnerd.space/2017/06/19/how-to-authenticate-to-tp-link-cloud-api/#comment-190</link>
+		<dc:creator><![CDATA[Ben Nikula]]></dc:creator>
+		<pubDate>Thu, 13 Jul 2017 19:29:00 +0000</pubDate>
+		<guid isPermaLink="false">http://itnerd.space/?p=345#comment-190</guid>
+		<description><![CDATA[I think that was it, actually! I escaped &quot;/&quot; and &quot;&quot;, and it worked. Thanks! Now onto the rest of the process...]]></description>
+		<content:encoded><![CDATA[<p>I think that was it, actually! I escaped &#8220;/&#8221; and &#8220;&#8221;, and it worked. Thanks! Now onto the rest of the process&#8230;</p>
 ]]></content:encoded>
 	</item>
 </channel>
@@ -87,8 +212,8 @@ ps i created a simple PHP script that authenticates and grabs the specific info 
 
 <!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
 
-Object Caching 830/840 objects using disk
+Object Caching 918/940 objects using disk
 Page Caching using disk: enhanced
-Database Caching 3/9 queries in 0.166 seconds using disk
+Database Caching 6/15 queries in 0.008 seconds using disk
 
- Served from: itnerd.space @ 2017-07-13 21:34:48 by W3 Total Cache -->
+ Served from: itnerd.space @ 2017-07-28 14:45:16 by W3 Total Cache -->
