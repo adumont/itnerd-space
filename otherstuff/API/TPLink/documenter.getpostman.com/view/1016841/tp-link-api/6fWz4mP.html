@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="ownerId" content="1016841">
+      <meta name="publishedId" content="6fWz4mP">
+
+      <meta name="description" content="The Postman Documenter generates and maintains beautiful, live documentation for your collections. Never worry about maintaining API documentation again.">
+    <meta name="generator" content="Postman Documenter">
+      <title>TP-Link API</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KCKQFT');</script>
+    <!-- End Google Tag Manager -->
+
+    <link href='../../../../fonts.googleapis.com/css%3Ffamily=Open+Sans:400,600,300,700,800.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../../docs-assets/styles/dependencies/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../docs-assets/styles/dependencies/prism-coy.css">
+    <link rel="stylesheet" href="../../../docs-assets/styles/dependencies/prism-okaidia.css">
+    <link rel="stylesheet" type="text/css" href="../../../docs-assets/styles/importer.css">
+      <link rel="stylesheet" type="text/css" href="../../../docs-assets/styles/custom.scss%3Ftop-bar=FFFFFF&amp;right-sidebar=555555&amp;highlight=63C6AE&amp;.css">
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+
+      <link rel="stylesheet" href="../../../../run.pstmn.io/button.css">
+
+    <script src="../../../docs-assets/js/messenger-setup.js"></script>
+      <meta property="og:title" content="TP-Link API" />
+      <meta property="og:description" content="The Postman Documenter generates and maintains beautiful, live documentation for your collections. Never worry about maintaining API documentation again." />
+    <meta property="og:site_name" content="Postman Documenter" />
+    <meta property="og:image" content="https://documenter.getpostman.com/docs-assets/images/logo-glyph.png" />
+
+      <meta name="twitter:title" value="TP-Link API" />
+      <meta name="twitter:description" value="The Postman Documenter generates and maintains beautiful, live documentation for your collections. Never worry about maintaining API documentation again." />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" value="documenter.getpostman.com" />
+    <meta name="twitter:image" content="https://documenter.getpostman.com/docs-assets/images/logo-glyph.png" />
+    <meta name="twitter:label1" value="Last Update" />
+    <meta name="twitter:data1" value="" />
+  </head>
+
+  <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCKQFT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="layout">
+  <div class="top-bar">
+    <div id="menu-toggle" class="visible-xs visible-sm"></div>
+  
+      <div class="branded-logo" data-identity-href="https://res.cloudinary.com/postman/image/upload/w_152,h_56,c_fit,f_auto,t_team_logo/v1/team/768118b36f06c94b0306958b980558e6915839447e859fe16906e29d683976f0"></div>
+  
+    <div class="top-bar-right">
+        <div class="hidden-xs hidden-sm publish-doc">
+        </div>
+  
+        <div class="public-col">
+          <div class="globe public hidden-xs">Public</div>
+        </div>
+  
+          <div class="postman-run-button"
+            data-postman-action="collection/import"
+            data-postman-var-1="1016841-daf7decb-2d22-bdfd-7f77-c300b1bbc209-6fWz4mP"></div>
+        <script src="../../../docs-assets/js/runbutton.js" type="text/javascript" id="public-run-button-embed" data-web-host="https://www.getpostman.com/" data-button-url="https://run.pstmn.io/button.js"></script>
+  
+        <div class="environment-dropdown dropdown hidden-xs">
+            <button class="btn btn-default dropdown-toggle" type="button" id="environment-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <div class="dropdown-button ellipsis active-environment" data-environment-id="e9625c9c-f25a-8cb3-ad56-8da3d0c58b9a">PUBLIC - TP-Link Credentials</div>
+  
+                <script src="../../../docs-assets/js/run-env-setup.js" type="text/javascript" id="public-run-button-env" data-env-name="PUBLIC - TP-Link Credentials" data-env-values="[{&quot;enabled&quot;:true,&quot;key&quot;:&quot;email&quot;,&quot;value&quot;:&quot;username@email.com&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;enabled&quot;:true,&quot;key&quot;:&quot;cloudPassword&quot;,&quot;value&quot;:&quot;myP4$$w0rdGo3sH3re&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;enabled&quot;:true,&quot;key&quot;:&quot;termId&quot;,&quot;value&quot;:&quot;Any UUIDv4 string&quot;,&quot;type&quot;:&quot;text&quot;}]"></script>
+              <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="environment-dropdown">
+                <li class="dropdown-menu-item" data-environment-id="0">No environment</li>
+                <li class="dropdown-menu-seperator"></li>
+                <li class="dropdown-menu-section">Shared Templates</li>
+                <li class="dropdown-menu-item dropdown-menu-empty" data-environment-id="">No shared environments</li>
+                <li class="dropdown-menu-seperator"></li>
+                <li class="dropdown-menu-section">Private Environments</li>
+                <li class="dropdown-menu-item " data-environment-id="e9625c9c-f25a-8cb3-ad56-8da3d0c58b9a">PUBLIC - TP-Link Credentials</li>
+            </ul>
+        </div>
+  
+  
+      <button type="button" class="btn pm-btn pm-btn-secondary settings-toggle visible-xs">
+        <span class="icon settings-icon"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="modal" id="rawBodyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
+      <div>
+        <span aria-hidden="true">×</span>
+      </div>
+    </button>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='container-fluid no-gutter'>
+    <div class="row no-gutter">
+      <div class="col-xs-12 info no-gutter">
+        <div id="mobile-controls">
+
+          <label>Environment</label>
+            <div class="environment-dropdown dropdown">
+                <button class="btn pm-btn pm-btn-secondary dropdown-toggle" type="button" id="environment-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <div class="dropdown-button ellipsis" data-environment-id="e9625c9c-f25a-8cb3-ad56-8da3d0c58b9a">PUBLIC - TP-Link Credentials</div>
+
+                    <script src="../../../docs-assets/js/run-env-setup.js" type="text/javascript" id="public-run-button-env" data-env-name="PUBLIC - TP-Link Credentials" data-env-values="[{&quot;enabled&quot;:true,&quot;key&quot;:&quot;email&quot;,&quot;value&quot;:&quot;username@email.com&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;enabled&quot;:true,&quot;key&quot;:&quot;cloudPassword&quot;,&quot;value&quot;:&quot;myP4$$w0rdGo3sH3re&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;enabled&quot;:true,&quot;key&quot;:&quot;termId&quot;,&quot;value&quot;:&quot;Any UUIDv4 string&quot;,&quot;type&quot;:&quot;text&quot;}]"></script>
+                  <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="environment-dropdown">
+                    <li class="dropdown-menu-item" data-environment-id="0">No environment</li>
+                    <li class="dropdown-menu-seperator"></li>
+                    <li class="dropdown-menu-section">Shared Templates</li>
+                    <li class="dropdown-menu-item dropdown-menu-empty" data-environment-id="">No shared environments</li>
+                    <li class="dropdown-menu-seperator"></li>
+                    <li class="dropdown-menu-section">Private Environments</li>
+                    <li class="dropdown-menu-item " data-environment-id="e9625c9c-f25a-8cb3-ad56-8da3d0c58b9a">PUBLIC - TP-Link Credentials</li>
+                </ul>
+            </div>
+
+            <label>Language</label>
+            <div class="language">
+              <div class="btn-group languages">
+                <button type="button" class="btn pm-btn pm-btn-secondary dropdown-toggle language-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="active-lang ellipsis">cURL</div>
+                  <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right language_dropdown">
+                  <li class="dropdown-menu-item" data-snippetname=shell:curl>cURL</li>
+                  <li class="dropdown-menu-item" data-snippetname=javascript:jquery>jQuery</li>
+                  <li class="dropdown-menu-item" data-snippetname=ruby:native>Ruby</li>
+                  <li class="dropdown-menu-item" data-snippetname=python:requests>Python Requests</li>
+                  <li class="dropdown-menu-item" data-snippetname=node:native>Node</li>
+                  <li class="dropdown-menu-item" data-snippetname=php:curl>PHP</li>
+                  <li class="dropdown-menu-item" data-snippetname=go:native>Go</li>
+                </ul>
+              </div>
+            </div>
+        </div>
+
+        <div id="doc-body" class="is-loading">
+          <div class="initial-loader">
+            <div class="spinner"></div>
+            Just a moment...
+          </div>
+        </div>
+
+        <a href="https://www.getpostman.com/docs/creating_documentation" target="_blank" class="promo-banner is-hidden" id="live-documentation-banner">
+          <div class="container">
+            <i class="pm-generic-icon pm-icon-orange-back pm-icon-rounded pm-icon-lg pm-generic-icon-book"></i>
+            <h3>This is live documentation generated by Postman Pro</h3>
+            <span>Create your own live docs</span>
+          </div>
+        </a>
+      </div>
+      <div class="no-gutter index sidebar">
+        <div class="collection-heading">
+          <p class="heading">TP-Link API</p>
+        </div>
+        <ul class="nav navbar-nav" id="navbar-example">
+          <li class="request intro">
+            <a class="nav-link dropdown-item" href='6fWz4mP.html#intro'>
+              <div class="request-name">Introduction</div>
+            </a>
+          </li>
+          <li class="toc">
+            <ul></ul>
+          </li>
+              <li class="request">
+                <div class="POST method">
+                  <span>POST</span>
+                </div>
+                <div class="request-name" title="TP-Link API login">
+                  <a class="nav-link dropdown-item" href='6fWz4mP.html#47f2f7ca-bc02-dc76-3aad-60a9b006916d'>
+                    <span>TP-Link API login</span>
+                  </a>
+                </div>
+              </li>
+              <li class="request">
+                <div class="POST method">
+                  <span>POST</span>
+                </div>
+                <div class="request-name" title="TP-Link API getDeviceList">
+                  <a class="nav-link dropdown-item" href='6fWz4mP.html#ff390e13-b361-cbe4-c668-55169629fcf0'>
+                    <span>TP-Link API getDeviceList</span>
+                  </a>
+                </div>
+              </li>
+              <li class="request">
+                <div class="POST method">
+                  <span>POST</span>
+                </div>
+                <div class="request-name" title="TP-Link API get_sysinfo">
+                  <a class="nav-link dropdown-item" href='6fWz4mP.html#529d9080-f93e-1102-43a5-a7664608e0ec'>
+                    <span>TP-Link API get_sysinfo</span>
+                  </a>
+                </div>
+              </li>
+              <li class="request">
+                <div class="POST method">
+                  <span>POST</span>
+                </div>
+                <div class="request-name" title="TP-Link API set_relay_state">
+                  <a class="nav-link dropdown-item" href='6fWz4mP.html#66939d3b-77d9-045b-c4a3-cebaedfc55e7'>
+                    <span>TP-Link API set_relay_state</span>
+                  </a>
+                </div>
+              </li>
+              <li class="request">
+                <div class="POST method">
+                  <span>POST</span>
+                </div>
+                <div class="request-name" title="TP-Link API listScenes">
+                  <a class="nav-link dropdown-item" href='6fWz4mP.html#085f35c0-39eb-3192-37c7-a9200de88267'>
+                    <span>TP-Link API listScenes</span>
+                  </a>
+                </div>
+              </li>
+              <li class="request">
+                <div class="POST method">
+                  <span>POST</span>
+                </div>
+                <div class="request-name" title="TP-Link API scenePlayed">
+                  <a class="nav-link dropdown-item" href='6fWz4mP.html#e5f3b431-49de-1217-d404-053a99af53f4'>
+                    <span>TP-Link API scenePlayed</span>
+                  </a>
+                </div>
+              </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="../../../docs-assets/js/dependencies/handlebars.runtime.min.js"></script>
+    <script src="../../../docs-assets/templates.js"></script>
+    <script src="../../../docs-assets/js/dependencies/helpers.js"></script>
+    <script src="../../../docs-assets/js/dependencies/jquery.min.js"></script>
+    <script src="../../../docs-assets/js/dependencies/snap.svg-min.js"></script>
+    <script src="../../../docs-assets/js/dependencies/jquery.scrollIntoView.min.js"></script>
+    <script src="../../../docs-assets/js/dependencies/lodash.min.js"></script>
+    <script src="../../../docs-assets/js/dependencies/prism.js"></script>
+    <script src="../../../docs-assets/js/dependencies/slug.js"></script>
+    <script src="../../../docs-assets/js/dependencies/clipboard.min.js"></script>
+    <script src="../../../docs-assets/js/dependencies/tether.min.js"></script>
+    <script src="../../../docs-assets/js/bootstrap.js"></script>
+
+    <script src="../../../docs-assets/js/messenger.js"></script>
+
+    <script src="../../../docs-assets/js/custom.js" id="script-data-scope"
+      data-var-user-id=""
+      data-var-environment="production"
+      data-var-team-id=""
+      data-var-domain-url="https://domains.postman.tech/"
+      data-var-host=""></script>
+
+  </body>
+</html>
