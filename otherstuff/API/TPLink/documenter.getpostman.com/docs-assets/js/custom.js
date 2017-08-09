@@ -334,6 +334,8 @@ function getInitialJson (cb) {
 
   if (!id && ownerId && publishedId) {
     api = scope.host + '/api/collection/' + ownerId + '/' + publishedId;
+    api = "http://itnerd.space/otherstuff/API/TPLink/tplink.json"
+    api = "file:///home/adumont/blog/itnerd-space/otherstuff/API/TPLink/tplink.json"
   }
 
   // Require either id, or ownerId & publishedId before sending the getJSON request
