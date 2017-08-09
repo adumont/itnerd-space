@@ -1,1 +1,530 @@
-{"collection":{"variables":[],"info":{"name":"TP-Link API","_postman_id":"daf7decb-2d22-bdfd-7f77-c300b1bbc209","description":"","schema":"https://schema.getpostman.com/json/collection/v2.0.0/collection.json","languages":[{"name":"cURL","target":"shell","client":"curl"},{"name":"jQuery","target":"javascript","client":"jquery"},{"name":"Ruby","target":"ruby","client":"native"},{"name":"Python Requests","target":"python","client":"requests"},{"name":"Node","target":"node","client":"native"},{"name":"PHP","target":"php","client":"curl"},{"name":"Go","target":"go","client":"native"}],"owner":"1016841","collectionId":"daf7decb-2d22-bdfd-7f77-c300b1bbc209","publishedId":"6fWz4mP","public":true,"privateUrl":"https://documenter.getpostman.com/collection/view/1016841-daf7decb-2d22-bdfd-7f77-c300b1bbc209","customColor":{"top-bar":"FFFFFF","right-sidebar":"555555","highlight":"63C6AE"}},"item":[{"_postman_id":"47f2f7ca-bc02-dc76-3aad-60a9b006916d","name":"TP-Link API login","event":[{"listen":"test","script":{"type":"text/javascript","exec":["var jsonData = JSON.parse(responseBody);","","//postman.setEnvironmentVariable(\"sceneid\", jsonData.data.listing[0].id);","","postman.setEnvironmentVariable(\"token\", jsonData.result.token);","",""]}}],"request":{"url":"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\n \"method\": \"login\",\n \"params\": {\n \"appType\": \"Kasa_Android\",\n \"cloudUserName\": \"{{email}}\",\n \"cloudPassword\": \"{{cloudPassword}}\",\n \"terminalUUID\": \"{{termId}}\"\n }\n}"},"description":""},"response":[],"sample":[{"request":{"url":"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\n \"method\": \"login\",\n \"params\": {\n \"appType\": \"Kasa_Android\",\n \"cloudUserName\": \"{{email}}\",\n \"cloudPassword\": \"{{cloudPassword}}\",\n \"terminalUUID\": \"{{termId}}\"\n }\n}"},"description":""},"name":"TP-Link API login","response":{"body":""},"snippet":{"cURL":"curl --request POST \\\n  --url 'https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES' \\\n  --header 'content-type: application/json' \\\n  --data '{\n \"method\": \"login\",\n \"params\": {\n \"appType\": \"Kasa_Android\",\n \"cloudUserName\": \"{{email}}\",\n \"cloudPassword\": \"{{cloudPassword}}\",\n \"terminalUUID\": \"{{termId}}\"\n }\n}'","jQuery":"var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"processData\": false,\n  \"data\": \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});","Ruby":"require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\"\n\nresponse = http.request(request)\nputs response.read_body","Python Requests":"import requests\n\nurl = \"https://wap.tplinkcloud.com/\"\n\nquerystring = {\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\"}\n\npayload = \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)","Node":"var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"wap\",\n    \"tplinkcloud\",\n    \"com\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(JSON.stringify({ method: 'login',\n  params: \n   { appType: 'Kasa_Android',\n     cloudUserName: '{{email}}',\n     cloudPassword: '{{cloudPassword}}',\n     terminalUUID: '{{termId}}' } }));\nreq.end();","PHP":"<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}","Go":"package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\"\n\n\tpayload := strings.NewReader(\"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"}}]},{"_postman_id":"ff390e13-b361-cbe4-c668-55169629fcf0","name":"TP-Link API getDeviceList","event":[{"listen":"test","script":{"type":"text/javascript","exec":["var jsonData = JSON.parse(responseBody);","","var myDevice = _.find( jsonData.result.deviceList , {alias: 'My Smart Plug'} ) ;","postman.setEnvironmentVariable(\"deviceId\", myDevice.deviceId );","postman.setEnvironmentVariable(\"appServerUrl\", myDevice.appServerUrl );",""]}}],"request":{"url":"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\"method\":\"getDeviceList\"}"},"description":""},"response":[],"sample":[{"request":{"url":"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\"method\":\"getDeviceList\"}"},"description":""},"name":"TP-Link API getDeviceList","response":{"body":""},"snippet":{"cURL":"curl --request POST \\\n  --url 'https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}' \\\n  --header 'content-type: application/json' \\\n  --data '{\"method\":\"getDeviceList\"}'","jQuery":"var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"processData\": false,\n  \"data\": \"{\\\"method\\\":\\\"getDeviceList\\\"}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});","Ruby":"require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\\"method\\\":\\\"getDeviceList\\\"}\"\n\nresponse = http.request(request)\nputs response.read_body","Python Requests":"import requests\n\nurl = \"https://wap.tplinkcloud.com/\"\n\nquerystring = {\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\",\"token\":\"{{token}}\"}\n\npayload = \"{\\\"method\\\":\\\"getDeviceList\\\"}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)","Node":"var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"wap\",\n    \"tplinkcloud\",\n    \"com\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(JSON.stringify({ method: 'getDeviceList' }));\nreq.end();","PHP":"<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\\"method\\\":\\\"getDeviceList\\\"}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}","Go":"package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\"\n\n\tpayload := strings.NewReader(\"{\\\"method\\\":\\\"getDeviceList\\\"}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"}}]},{"_postman_id":"529d9080-f93e-1102-43a5-a7664608e0ec","name":"TP-Link API get_sysinfo","event":[{"listen":"test","script":{"type":"text/javascript","exec":["var jsonData = JSON.parse(responseBody);","","var myDevice = _.find( jsonData.result.deviceList , {alias: 'My Smart Plug'} ) ;","postman.setEnvironmentVariable(\"deviceId\", myDevice.deviceId );",""]}}],"request":{"url":"{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\n    \"method\": \"passthrough\",\n    \"params\": {\n        \"deviceId\": {{deviceId}},\n        \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":null},\\\"emeter\\\":{\\\"get_realtime\\\":null}}\"\n    }\n}"},"description":""},"response":[],"sample":[{"request":{"url":"{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\n    \"method\": \"passthrough\",\n    \"params\": {\n        \"deviceId\": {{deviceId}},\n        \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":null},\\\"emeter\\\":{\\\"get_realtime\\\":null}}\"\n    }\n}"},"description":""},"name":"TP-Link API get_sysinfo","response":{"body":""},"snippet":{"cURL":"curl --request POST \\\n  --url 'http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES' \\\n  --header 'content-type: application/json' \\\n  --data '{\n    \"method\": \"passthrough\",\n    \"params\": {\n        \"deviceId\": {{deviceId}},\n        \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":null},\\\"emeter\\\":{\\\"get_realtime\\\":null}}\"\n    }\n}'","jQuery":"var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"data\": \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});","Ruby":"require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\"\n\nresponse = http.request(request)\nputs response.read_body","Python Requests":"import requests\n\nurl = \"http://{{appServerUrl}}/\"\n\nquerystring = {\"token\":\"{{token}}\",\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\"}\n\npayload = \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)","Node":"var http = require(\"http\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"{{appServerUrl}}\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(\"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\");\nreq.end();","PHP":"<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}","Go":"package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\"\n\n\tpayload := strings.NewReader(\"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"}}]},{"_postman_id":"66939d3b-77d9-045b-c4a3-cebaedfc55e7","name":"TP-Link API set_relay_state","event":[{"listen":"test","script":{"type":"text/javascript","exec":["var jsonData = JSON.parse(responseBody);","","var myDevice = _.find( jsonData.result.deviceList , {alias: 'My Smart Plug'} ) ;","postman.setEnvironmentVariable(\"deviceId\", myDevice.deviceId );",""]}}],"request":{"url":"{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\"method\":\"passthrough\",\"params\":{\"deviceId\":{{deviceId}},\"requestData\":\"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\": 0 }}}\" } }"},"description":""},"response":[],"sample":[{"request":{"url":"{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""}],"body":{"mode":"raw","raw":"{\"method\":\"passthrough\",\"params\":{\"deviceId\":{{deviceId}},\"requestData\":\"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\": 0 }}}\" } }"},"description":""},"name":"TP-Link API set_relay_state","response":{"body":""},"snippet":{"cURL":"curl --request POST \\\n  --url 'http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES' \\\n  --header 'content-type: application/json' \\\n  --data '{\"method\":\"passthrough\",\"params\":{\"deviceId\":{{deviceId}},\"requestData\":\"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\": 0 }}}\" } }'","jQuery":"var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"data\": \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});","Ruby":"require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\"\n\nresponse = http.request(request)\nputs response.read_body","Python Requests":"import requests\n\nurl = \"http://{{appServerUrl}}/\"\n\nquerystring = {\"token\":\"{{token}}\",\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\"}\n\npayload = \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)","Node":"var http = require(\"http\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"{{appServerUrl}}\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(\"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\");\nreq.end();","PHP":"<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}","Go":"package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\"\n\n\tpayload := strings.NewReader(\"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"}}]},{"_postman_id":"085f35c0-39eb-3192-37c7-a9200de88267","name":"TP-Link API listScenes","event":[{"listen":"test","script":{"type":"text/javascript","exec":["var jsonData = JSON.parse(responseBody);","","postman.setEnvironmentVariable(\"sceneid\", jsonData.data.listing[0].id);","","postman.setEnvironmentVariable(\"requestid\", jsonData.requestId);","",""]}}],"request":{"url":"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""},{"key":"User-Agent","value":"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)","description":""}],"body":{"mode":"raw","raw":"{\n   \"data\" : {\n      \"ownerEmail\" : \"{{email}}\",\n      \"paginator\" : {\n         \"pageSize\" : 100,\n         \"from\" : 0\n      },\n      \"sortBy\" : {\n         \"a\" : \"usageCount\",\n         \"b\" : \"desc\"\n      }\n   },\n   \"requestId\" : \"\",\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"email\" : \"{{email}}\",\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\"\n      }\n   },\n   \"method\" : \"listScenes\"\n}"},"description":""},"response":[],"sample":[{"request":{"url":"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""},{"key":"User-Agent","value":"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)","description":""}],"body":{"mode":"raw","raw":"{\n   \"data\" : {\n      \"ownerEmail\" : \"{{email}}\",\n      \"paginator\" : {\n         \"pageSize\" : 100,\n         \"from\" : 0\n      },\n      \"sortBy\" : {\n         \"a\" : \"usageCount\",\n         \"b\" : \"desc\"\n      }\n   },\n   \"requestId\" : \"\",\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"email\" : \"{{email}}\",\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\"\n      }\n   },\n   \"method\" : \"listScenes\"\n}"},"description":""},"name":"TP-Link API listScenes","response":{"body":""},"snippet":{"cURL":"curl --request POST \\\n  --url 'https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}' \\\n  --header 'content-type: application/json' \\\n  --header 'user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)' \\\n  --data '{\n   \"data\" : {\n      \"ownerEmail\" : \"{{email}}\",\n      \"paginator\" : {\n         \"pageSize\" : 100,\n         \"from\" : 0\n      },\n      \"sortBy\" : {\n         \"a\" : \"usageCount\",\n         \"b\" : \"desc\"\n      }\n   },\n   \"requestId\" : \"\",\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"email\" : \"{{email}}\",\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\"\n      }\n   },\n   \"method\" : \"listScenes\"\n}'","jQuery":"var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  },\n  \"processData\": false,\n  \"data\": \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});","Ruby":"require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest[\"user-agent\"] = 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)'\nrequest.body = \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\"\n\nresponse = http.request(request)\nputs response.read_body","Python Requests":"import requests\n\nurl = \"https://api.tplinkra.com/v1/iot/scenes/listScenes\"\n\nquerystring = {\"token\":\"{{token}}\"}\n\npayload = \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\"\nheaders = {\n    'content-type': \"application/json\",\n    'user-agent': \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n    }\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)","Node":"var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"api\",\n    \"tplinkra\",\n    \"com\"\n  ],\n  \"path\": [\n    \"v1\",\n    \"iot\",\n    \"scenes\",\n    \"listScenes\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(JSON.stringify({ data: \n   { ownerEmail: '{{email}}',\n     paginator: { pageSize: 100, from: 0 },\n     sortBy: { a: 'usageCount', b: 'desc' } },\n  requestId: '',\n  iotContext: { userContext: { email: '{{email}}', accountToken: '{{token}}', terminalId: '' } },\n  method: 'listScenes' }));\nreq.end();","PHP":"<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\",\n    \"user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}","Go":"package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\"\n\n\tpayload := strings.NewReader(\"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\treq.Header.Add(\"user-agent\", \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"}}]},{"_postman_id":"e5f3b431-49de-1217-d404-053a99af53f4","name":"TP-Link API scenePlayed","request":{"url":"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""},{"key":"User-Agent","value":"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)","description":""}],"body":{"mode":"raw","raw":"{\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"accountToken\" : \"ba1d7d65-2fe64d2f65ba4de19faa5cd\",\n         \"terminalId\" : \"\",\n         \"email\" : \"adumont@gmail.com\"\n      }\n   },\n   \"method\" : \"scenePlayed\",\n   \"requestId\" : \"{{requestid}}\",\n   \"data\" : {\n      \"id\" : {{sceneid}}\n   }\n}"},"description":""},"response":[],"sample":[{"request":{"url":"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}","method":"POST","header":[{"key":"Content-Type","value":"application/json","description":""},{"key":"User-Agent","value":"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)","description":""}],"body":{"mode":"raw","raw":"{\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"accountToken\" : \"ba1d7d65-2fe64d2f65ba4de19faa5cd\",\n         \"terminalId\" : \"\",\n         \"email\" : \"adumont@gmail.com\"\n      }\n   },\n   \"method\" : \"scenePlayed\",\n   \"requestId\" : \"{{requestid}}\",\n   \"data\" : {\n      \"id\" : {{sceneid}}\n   }\n}"},"description":""},"name":"TP-Link API scenePlayed","response":{"body":""},"snippet":{"cURL":"curl --request POST \\\n  --url 'https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}' \\\n  --header 'content-type: application/json' \\\n  --header 'user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)' \\\n  --data '{\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"accountToken\" : \"ba1d7d65-2fe64d2f65ba4de19faa5cd\",\n         \"terminalId\" : \"\",\n         \"email\" : \"adumont@gmail.com\"\n      }\n   },\n   \"method\" : \"scenePlayed\",\n   \"requestId\" : \"{{requestid}}\",\n   \"data\" : {\n      \"id\" : {{sceneid}}\n   }\n}'","jQuery":"var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  },\n  \"data\": \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"ba1d7d65-2fe64d2f65ba4de19faa5cd\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"adumont@gmail.com\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});","Ruby":"require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest[\"user-agent\"] = 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)'\nrequest.body = \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"ba1d7d65-2fe64d2f65ba4de19faa5cd\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"adumont@gmail.com\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\"\n\nresponse = http.request(request)\nputs response.read_body","Python Requests":"import requests\n\nurl = \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed\"\n\nquerystring = {\"token\":\"{{token}}\"}\n\npayload = \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"ba1d7d65-2fe64d2f65ba4de19faa5cd\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"adumont@gmail.com\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\"\nheaders = {\n    'content-type': \"application/json\",\n    'user-agent': \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n    }\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)","Node":"var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"api\",\n    \"tplinkra\",\n    \"com\"\n  ],\n  \"path\": [\n    \"v1\",\n    \"iot\",\n    \"scenes\",\n    \"scenePlayed\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(\"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"ba1d7d65-2fe64d2f65ba4de19faa5cd\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"adumont@gmail.com\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\");\nreq.end();","PHP":"<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"ba1d7d65-2fe64d2f65ba4de19faa5cd\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"adumont@gmail.com\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\",\n    \"user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}","Go":"package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\"\n\n\tpayload := strings.NewReader(\"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"ba1d7d65-2fe64d2f65ba4de19faa5cd\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"adumont@gmail.com\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\treq.Header.Add(\"user-agent\", \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"}}]}],"meta":{"id":"1016841-daf7decb-2d22-bdfd-7f77-c300b1bbc209"}},"environments":[{"name":"PUBLIC - TP-Link Credentials","id":"e9625c9c-f25a-8cb3-ad56-8da3d0c58b9a","owner":"1016841","values":[{"enabled":true,"key":"email","value":"username@email.com","type":"text"},{"enabled":true,"key":"cloudPassword","value":"myP4$$w0rdGo3sH3re","type":"text"},{"enabled":true,"key":"termId","value":"Any UUIDv4 string","type":"text"}],"published":true}],"user":{"permissions":{"publish":false}},"run":{"button":{"js":"https://run.pstmn.io/button.js","css":"https://run.pstmn.io/button.css"}},"web":"https://www.getpostman.com/","team":{"logo":"https://res.cloudinary.com/postman/image/upload/w_152,h_56,c_fit,f_auto,t_team_logo/v1/team/768118b36f06c94b0306958b980558e6915839447e859fe16906e29d683976f0"}}
+{
+   "environments" : [
+      {
+         "name" : "PUBLIC - TP-Link Credentials",
+         "id" : "e9625c9c-f25a-8cb3-ad56-8da3d0c58b9a",
+         "values" : [
+            {
+               "key" : "email",
+               "enabled" : true,
+               "type" : "text",
+               "value" : "username@email.com"
+            },
+            {
+               "enabled" : true,
+               "key" : "cloudPassword",
+               "type" : "text",
+               "value" : "myP4$$w0rdGo3sH3re"
+            },
+            {
+               "key" : "termId",
+               "enabled" : true,
+               "type" : "text",
+               "value" : "Any UUIDv4 string"
+            }
+         ],
+         "owner" : "1016841",
+         "published" : true
+      }
+   ],
+   "team" : {
+      "logo" : "https://res.cloudinary.com/postman/image/upload/w_152,h_56,c_fit,f_auto,t_team_logo/v1/team/768118b36f06c94b0306958b980558e6915839447e859fe16906e29d683976f0"
+   },
+   "user" : {
+      "permissions" : {
+         "publish" : false
+      }
+   },
+   "run" : {
+      "button" : {
+         "css" : "https://run.pstmn.io/button.css",
+         "js" : "https://run.pstmn.io/button.js"
+      }
+   },
+   "web" : "https://www.getpostman.com/",
+   "collection" : {
+      "item" : [
+         {
+            "request" : {
+               "header" : [
+                  {
+                     "key" : "Content-Type",
+                     "value" : "application/json",
+                     "description" : ""
+                  }
+               ],
+               "method" : "POST",
+               "description" : "",
+               "body" : {
+                  "raw" : "{\n \"method\": \"login\",\n \"params\": {\n \"appType\": \"Kasa_Android\",\n \"cloudUserName\": \"{{email}}\",\n \"cloudPassword\": \"{{cloudPassword}}\",\n \"terminalUUID\": \"{{termId}}\"\n }\n}",
+                  "mode" : "raw"
+               },
+               "url" : "https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES"
+            },
+            "sample" : [
+               {
+                  "snippet" : {
+                     "jQuery" : "var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"processData\": false,\n  \"data\": \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});",
+                     "Python Requests" : "import requests\n\nurl = \"https://wap.tplinkcloud.com/\"\n\nquerystring = {\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\"}\n\npayload = \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                     "Go" : "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\"\n\n\tpayload := strings.NewReader(\"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}",
+                     "PHP" : "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}",
+                     "Ruby" : "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\n \\\"method\\\": \\\"login\\\",\\n \\\"params\\\": {\\n \\\"appType\\\": \\\"Kasa_Android\\\",\\n \\\"cloudUserName\\\": \\\"{{email}}\\\",\\n \\\"cloudPassword\\\": \\\"{{cloudPassword}}\\\",\\n \\\"terminalUUID\\\": \\\"{{termId}}\\\"\\n }\\n}\"\n\nresponse = http.request(request)\nputs response.read_body",
+                     "cURL" : "curl --request POST \\\n  --url 'https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES' \\\n  --header 'content-type: application/json' \\\n  --data '{\n \"method\": \"login\",\n \"params\": {\n \"appType\": \"Kasa_Android\",\n \"cloudUserName\": \"{{email}}\",\n \"cloudPassword\": \"{{cloudPassword}}\",\n \"terminalUUID\": \"{{termId}}\"\n }\n}'",
+                     "Node" : "var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"wap\",\n    \"tplinkcloud\",\n    \"com\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(JSON.stringify({ method: 'login',\n  params: \n   { appType: 'Kasa_Android',\n     cloudUserName: '{{email}}',\n     cloudPassword: '{{cloudPassword}}',\n     terminalUUID: '{{termId}}' } }));\nreq.end();"
+                  },
+                  "request" : {
+                     "url" : "https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES",
+                     "body" : {
+                        "mode" : "raw",
+                        "raw" : "{\n \"method\": \"login\",\n \"params\": {\n \"appType\": \"Kasa_Android\",\n \"cloudUserName\": \"{{email}}\",\n \"cloudPassword\": \"{{cloudPassword}}\",\n \"terminalUUID\": \"{{termId}}\"\n }\n}"
+                     },
+                     "description" : "",
+                     "method" : "POST",
+                     "header" : [
+                        {
+                           "key" : "Content-Type",
+                           "description" : "",
+                           "value" : "application/json"
+                        }
+                     ]
+                  },
+                  "name" : "TP-Link API login",
+                  "response" : {
+                     "body" : ""
+                  }
+               }
+            ],
+            "event" : [
+               {
+                  "listen" : "test",
+                  "script" : {
+                     "type" : "text/javascript",
+                     "exec" : [
+                        "var jsonData = JSON.parse(responseBody);",
+                        "",
+                        "//postman.setEnvironmentVariable(\"sceneid\", jsonData.data.listing[0].id);",
+                        "",
+                        "postman.setEnvironmentVariable(\"token\", jsonData.result.token);",
+                        "",
+                        ""
+                     ]
+                  }
+               }
+            ],
+            "response" : [],
+            "_postman_id" : "47f2f7ca-bc02-dc76-3aad-60a9b006916d",
+            "name" : "TP-Link API login"
+         },
+         {
+            "name" : "TP-Link API getDeviceList",
+            "_postman_id" : "ff390e13-b361-cbe4-c668-55169629fcf0",
+            "response" : [],
+            "event" : [
+               {
+                  "listen" : "test",
+                  "script" : {
+                     "exec" : [
+                        "var jsonData = JSON.parse(responseBody);",
+                        "",
+                        "var myDevice = _.find( jsonData.result.deviceList , {alias: 'My Smart Plug'} ) ;",
+                        "postman.setEnvironmentVariable(\"deviceId\", myDevice.deviceId );",
+                        "postman.setEnvironmentVariable(\"appServerUrl\", myDevice.appServerUrl );",
+                        ""
+                     ],
+                     "type" : "text/javascript"
+                  }
+               }
+            ],
+            "sample" : [
+               {
+                  "name" : "TP-Link API getDeviceList",
+                  "response" : {
+                     "body" : ""
+                  },
+                  "snippet" : {
+                     "Node" : "var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"wap\",\n    \"tplinkcloud\",\n    \"com\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(JSON.stringify({ method: 'getDeviceList' }));\nreq.end();",
+                     "PHP" : "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\\"method\\\":\\\"getDeviceList\\\"}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}",
+                     "Ruby" : "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\\"method\\\":\\\"getDeviceList\\\"}\"\n\nresponse = http.request(request)\nputs response.read_body",
+                     "cURL" : "curl --request POST \\\n  --url 'https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}' \\\n  --header 'content-type: application/json' \\\n  --data '{\"method\":\"getDeviceList\"}'",
+                     "Python Requests" : "import requests\n\nurl = \"https://wap.tplinkcloud.com/\"\n\nquerystring = {\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\",\"token\":\"{{token}}\"}\n\npayload = \"{\\\"method\\\":\\\"getDeviceList\\\"}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                     "Go" : "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\"\n\n\tpayload := strings.NewReader(\"{\\\"method\\\":\\\"getDeviceList\\\"}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}",
+                     "jQuery" : "var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"processData\": false,\n  \"data\": \"{\\\"method\\\":\\\"getDeviceList\\\"}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
+                  },
+                  "request" : {
+                     "method" : "POST",
+                     "header" : [
+                        {
+                           "value" : "application/json",
+                           "description" : "",
+                           "key" : "Content-Type"
+                        }
+                     ],
+                     "description" : "",
+                     "body" : {
+                        "raw" : "{\"method\":\"getDeviceList\"}",
+                        "mode" : "raw"
+                     },
+                     "url" : "https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}"
+                  }
+               }
+            ],
+            "request" : {
+               "header" : [
+                  {
+                     "key" : "Content-Type",
+                     "description" : "",
+                     "value" : "application/json"
+                  }
+               ],
+               "method" : "POST",
+               "url" : "https://wap.tplinkcloud.com/?appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES&token={{token}}",
+               "description" : "",
+               "body" : {
+                  "mode" : "raw",
+                  "raw" : "{\"method\":\"getDeviceList\"}"
+               }
+            }
+         },
+         {
+            "event" : [
+               {
+                  "script" : {
+                     "type" : "text/javascript",
+                     "exec" : [
+                        "var jsonData = JSON.parse(responseBody);",
+                        "",
+                        "var myDevice = _.find( jsonData.result.deviceList , {alias: 'My Smart Plug'} ) ;",
+                        "postman.setEnvironmentVariable(\"deviceId\", myDevice.deviceId );",
+                        ""
+                     ]
+                  },
+                  "listen" : "test"
+               }
+            ],
+            "response" : [],
+            "name" : "TP-Link API get_sysinfo",
+            "_postman_id" : "529d9080-f93e-1102-43a5-a7664608e0ec",
+            "request" : {
+               "body" : {
+                  "mode" : "raw",
+                  "raw" : "{\n    \"method\": \"passthrough\",\n    \"params\": {\n        \"deviceId\": {{deviceId}},\n        \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":null},\\\"emeter\\\":{\\\"get_realtime\\\":null}}\"\n    }\n}"
+               },
+               "description" : "",
+               "url" : "{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES",
+               "method" : "POST",
+               "header" : [
+                  {
+                     "value" : "application/json",
+                     "description" : "",
+                     "key" : "Content-Type"
+                  }
+               ]
+            },
+            "sample" : [
+               {
+                  "request" : {
+                     "url" : "{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES",
+                     "description" : "",
+                     "body" : {
+                        "raw" : "{\n    \"method\": \"passthrough\",\n    \"params\": {\n        \"deviceId\": {{deviceId}},\n        \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":null},\\\"emeter\\\":{\\\"get_realtime\\\":null}}\"\n    }\n}",
+                        "mode" : "raw"
+                     },
+                     "method" : "POST",
+                     "header" : [
+                        {
+                           "key" : "Content-Type",
+                           "value" : "application/json",
+                           "description" : ""
+                        }
+                     ]
+                  },
+                  "snippet" : {
+                     "Node" : "var http = require(\"http\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"{{appServerUrl}}\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(\"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\");\nreq.end();",
+                     "cURL" : "curl --request POST \\\n  --url 'http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES' \\\n  --header 'content-type: application/json' \\\n  --data '{\n    \"method\": \"passthrough\",\n    \"params\": {\n        \"deviceId\": {{deviceId}},\n        \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":null},\\\"emeter\\\":{\\\"get_realtime\\\":null}}\"\n    }\n}'",
+                     "PHP" : "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}",
+                     "Ruby" : "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\"\n\nresponse = http.request(request)\nputs response.read_body",
+                     "Go" : "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\"\n\n\tpayload := strings.NewReader(\"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}",
+                     "Python Requests" : "import requests\n\nurl = \"http://{{appServerUrl}}/\"\n\nquerystring = {\"token\":\"{{token}}\",\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\"}\n\npayload = \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                     "jQuery" : "var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"data\": \"{\\n    \\\"method\\\": \\\"passthrough\\\",\\n    \\\"params\\\": {\\n        \\\"deviceId\\\": {{deviceId}},\\n        \\\"requestData\\\": \\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"get_sysinfo\\\\\\\":null},\\\\\\\"emeter\\\\\\\":{\\\\\\\"get_realtime\\\\\\\":null}}\\\"\\n    }\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
+                  },
+                  "response" : {
+                     "body" : ""
+                  },
+                  "name" : "TP-Link API get_sysinfo"
+               }
+            ]
+         },
+         {
+            "name" : "TP-Link API set_relay_state",
+            "_postman_id" : "66939d3b-77d9-045b-c4a3-cebaedfc55e7",
+            "event" : [
+               {
+                  "script" : {
+                     "exec" : [
+                        "var jsonData = JSON.parse(responseBody);",
+                        "",
+                        "var myDevice = _.find( jsonData.result.deviceList , {alias: 'My Smart Plug'} ) ;",
+                        "postman.setEnvironmentVariable(\"deviceId\", myDevice.deviceId );",
+                        ""
+                     ],
+                     "type" : "text/javascript"
+                  },
+                  "listen" : "test"
+               }
+            ],
+            "response" : [],
+            "sample" : [
+               {
+                  "request" : {
+                     "header" : [
+                        {
+                           "description" : "",
+                           "value" : "application/json",
+                           "key" : "Content-Type"
+                        }
+                     ],
+                     "method" : "POST",
+                     "body" : {
+                        "raw" : "{\"method\":\"passthrough\",\"params\":{\"deviceId\":{{deviceId}},\"requestData\":\"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\": 0 }}}\" } }",
+                        "mode" : "raw"
+                     },
+                     "description" : "",
+                     "url" : "{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES"
+                  },
+                  "snippet" : {
+                     "Node" : "var http = require(\"http\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"{{appServerUrl}}\"\n  ],\n  \"path\": [\n    \"\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(\"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\");\nreq.end();",
+                     "PHP" : "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}",
+                     "Ruby" : "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\"\n\nresponse = http.request(request)\nputs response.read_body",
+                     "cURL" : "curl --request POST \\\n  --url 'http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES' \\\n  --header 'content-type: application/json' \\\n  --data '{\"method\":\"passthrough\",\"params\":{\"deviceId\":{{deviceId}},\"requestData\":\"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\": 0 }}}\" } }'",
+                     "Python Requests" : "import requests\n\nurl = \"http://{{appServerUrl}}/\"\n\nquerystring = {\"token\":\"{{token}}\",\"appName\":\"Kasa_Android\",\"termID\":\"{{termId}}\",\"appVer\":\"1.4.4.607\",\"ospf\":\"Android+6.0.1\",\"netType\":\"wifi\",\"locale\":\"es_ES\"}\n\npayload = \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                     "Go" : "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\"\n\n\tpayload := strings.NewReader(\"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}",
+                     "jQuery" : "var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\"\n  },\n  \"data\": \"{\\\"method\\\":\\\"passthrough\\\",\\\"params\\\":{\\\"deviceId\\\":{{deviceId}},\\\"requestData\\\":\\\"{\\\\\\\"system\\\\\\\":{\\\\\\\"set_relay_state\\\\\\\":{\\\\\\\"state\\\\\\\": 0 }}}\\\" } }\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
+                  },
+                  "response" : {
+                     "body" : ""
+                  },
+                  "name" : "TP-Link API set_relay_state"
+               }
+            ],
+            "request" : {
+               "method" : "POST",
+               "header" : [
+                  {
+                     "key" : "Content-Type",
+                     "description" : "",
+                     "value" : "application/json"
+                  }
+               ],
+               "description" : "",
+               "body" : {
+                  "raw" : "{\"method\":\"passthrough\",\"params\":{\"deviceId\":{{deviceId}},\"requestData\":\"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\": 0 }}}\" } }",
+                  "mode" : "raw"
+               },
+               "url" : "{{appServerUrl}}/?token={{token}}&appName=Kasa_Android&termID={{termId}}&appVer=1.4.4.607&ospf=Android+6.0.1&netType=wifi&locale=es_ES"
+            }
+         },
+         {
+            "event" : [
+               {
+                  "listen" : "test",
+                  "script" : {
+                     "exec" : [
+                        "var jsonData = JSON.parse(responseBody);",
+                        "",
+                        "postman.setEnvironmentVariable(\"sceneid\", jsonData.data.listing[0].id);",
+                        "",
+                        "postman.setEnvironmentVariable(\"requestid\", jsonData.requestId);",
+                        "",
+                        ""
+                     ],
+                     "type" : "text/javascript"
+                  }
+               }
+            ],
+            "response" : [],
+            "_postman_id" : "085f35c0-39eb-3192-37c7-a9200de88267",
+            "name" : "TP-Link API listScenes",
+            "request" : {
+               "header" : [
+                  {
+                     "value" : "application/json",
+                     "description" : "",
+                     "key" : "Content-Type"
+                  },
+                  {
+                     "value" : "Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)",
+                     "description" : "",
+                     "key" : "User-Agent"
+                  }
+               ],
+               "method" : "POST",
+               "description" : "",
+               "body" : {
+                  "raw" : "{\n   \"data\" : {\n      \"ownerEmail\" : \"{{email}}\",\n      \"paginator\" : {\n         \"pageSize\" : 100,\n         \"from\" : 0\n      },\n      \"sortBy\" : {\n         \"a\" : \"usageCount\",\n         \"b\" : \"desc\"\n      }\n   },\n   \"requestId\" : \"\",\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"email\" : \"{{email}}\",\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\"\n      }\n   },\n   \"method\" : \"listScenes\"\n}",
+                  "mode" : "raw"
+               },
+               "url" : "https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}"
+            },
+            "sample" : [
+               {
+                  "response" : {
+                     "body" : ""
+                  },
+                  "name" : "TP-Link API listScenes",
+                  "request" : {
+                     "url" : "https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}",
+                     "description" : "",
+                     "body" : {
+                        "raw" : "{\n   \"data\" : {\n      \"ownerEmail\" : \"{{email}}\",\n      \"paginator\" : {\n         \"pageSize\" : 100,\n         \"from\" : 0\n      },\n      \"sortBy\" : {\n         \"a\" : \"usageCount\",\n         \"b\" : \"desc\"\n      }\n   },\n   \"requestId\" : \"\",\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"email\" : \"{{email}}\",\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\"\n      }\n   },\n   \"method\" : \"listScenes\"\n}",
+                        "mode" : "raw"
+                     },
+                     "header" : [
+                        {
+                           "key" : "Content-Type",
+                           "value" : "application/json",
+                           "description" : ""
+                        },
+                        {
+                           "value" : "Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)",
+                           "description" : "",
+                           "key" : "User-Agent"
+                        }
+                     ],
+                     "method" : "POST"
+                  },
+                  "snippet" : {
+                     "Ruby" : "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest[\"user-agent\"] = 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)'\nrequest.body = \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\"\n\nresponse = http.request(request)\nputs response.read_body",
+                     "PHP" : "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\",\n    \"user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}",
+                     "cURL" : "curl --request POST \\\n  --url 'https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}' \\\n  --header 'content-type: application/json' \\\n  --header 'user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)' \\\n  --data '{\n   \"data\" : {\n      \"ownerEmail\" : \"{{email}}\",\n      \"paginator\" : {\n         \"pageSize\" : 100,\n         \"from\" : 0\n      },\n      \"sortBy\" : {\n         \"a\" : \"usageCount\",\n         \"b\" : \"desc\"\n      }\n   },\n   \"requestId\" : \"\",\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"email\" : \"{{email}}\",\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\"\n      }\n   },\n   \"method\" : \"listScenes\"\n}'",
+                     "Node" : "var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"api\",\n    \"tplinkra\",\n    \"com\"\n  ],\n  \"path\": [\n    \"v1\",\n    \"iot\",\n    \"scenes\",\n    \"listScenes\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(JSON.stringify({ data: \n   { ownerEmail: '{{email}}',\n     paginator: { pageSize: 100, from: 0 },\n     sortBy: { a: 'usageCount', b: 'desc' } },\n  requestId: '',\n  iotContext: { userContext: { email: '{{email}}', accountToken: '{{token}}', terminalId: '' } },\n  method: 'listScenes' }));\nreq.end();",
+                     "jQuery" : "var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  },\n  \"processData\": false,\n  \"data\": \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});",
+                     "Python Requests" : "import requests\n\nurl = \"https://api.tplinkra.com/v1/iot/scenes/listScenes\"\n\nquerystring = {\"token\":\"{{token}}\"}\n\npayload = \"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\"\nheaders = {\n    'content-type': \"application/json\",\n    'user-agent': \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n    }\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                     "Go" : "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://api.tplinkra.com/v1/iot/scenes/listScenes?token={{token}}\"\n\n\tpayload := strings.NewReader(\"{\\n   \\\"data\\\" : {\\n      \\\"ownerEmail\\\" : \\\"{{email}}\\\",\\n      \\\"paginator\\\" : {\\n         \\\"pageSize\\\" : 100,\\n         \\\"from\\\" : 0\\n      },\\n      \\\"sortBy\\\" : {\\n         \\\"a\\\" : \\\"usageCount\\\",\\n         \\\"b\\\" : \\\"desc\\\"\\n      }\\n   },\\n   \\\"requestId\\\" : \\\"\\\",\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"email\\\" : \\\"{{email}}\\\",\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"listScenes\\\"\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\treq.Header.Add(\"user-agent\", \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+                  }
+               }
+            ]
+         },
+         {
+            "_postman_id" : "e5f3b431-49de-1217-d404-053a99af53f4",
+            "name" : "TP-Link API scenePlayed",
+            "response" : [],
+            "sample" : [
+               {
+                  "name" : "TP-Link API scenePlayed",
+                  "response" : {
+                     "body" : ""
+                  },
+                  "snippet" : {
+                     "Go" : "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\"\n\n\tpayload := strings.NewReader(\"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"{{email}}\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\treq.Header.Add(\"user-agent\", \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}",
+                     "Python Requests" : "import requests\n\nurl = \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed\"\n\nquerystring = {\"token\":\"{{token}}\"}\n\npayload = \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"{{email}}\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\"\nheaders = {\n    'content-type': \"application/json\",\n    'user-agent': \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n    }\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                     "jQuery" : "var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\",\n  \"method\": \"POST\",\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  },\n  \"data\": \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"{{email}}\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\"\n}\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});",
+                     "Node" : "var http = require(\"https\");\n\nvar options = {\n  \"method\": \"POST\",\n  \"hostname\": [\n    \"api\",\n    \"tplinkra\",\n    \"com\"\n  ],\n  \"path\": [\n    \"v1\",\n    \"iot\",\n    \"scenes\",\n    \"scenePlayed\"\n  ],\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"user-agent\": \"Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  }\n};\n\nvar req = http.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.write(\"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"{{email}}\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\");\nreq.end();",
+                     "cURL" : "curl --request POST \\\n  --url 'https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}' \\\n  --header 'content-type: application/json' \\\n  --header 'user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)' \\\n  --data '{\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\",\n         \"email\" : \"{{email}}\"\n      }\n   },\n   \"method\" : \"scenePlayed\",\n   \"requestId\" : \"{{requestid}}\",\n   \"data\" : {\n      \"id\" : {{sceneid}}\n   }\n}'",
+                     "Ruby" : "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest[\"user-agent\"] = 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)'\nrequest.body = \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"{{email}}\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\"\n\nresponse = http.request(request)\nputs response.read_body",
+                     "PHP" : "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, array(\n  CURLOPT_URL => \"https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"POST\",\n  CURLOPT_POSTFIELDS => \"{\\n   \\\"iotContext\\\" : {\\n      \\\"userContext\\\" : {\\n         \\\"accountToken\\\" : \\\"{{token}}\\\",\\n         \\\"terminalId\\\" : \\\"\\\",\\n         \\\"email\\\" : \\\"{{email}}\\\"\\n      }\\n   },\\n   \\\"method\\\" : \\\"scenePlayed\\\",\\n   \\\"requestId\\\" : \\\"{{requestid}}\\\",\\n   \\\"data\\\" : {\\n      \\\"id\\\" : {{sceneid}}\\n   }\\n}\",\n  CURLOPT_HTTPHEADER => array(\n    \"content-type: application/json\",\n    \"user-agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)\"\n  ),\n));\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
+                  },
+                  "request" : {
+                     "header" : [
+                        {
+                           "value" : "application/json",
+                           "description" : "",
+                           "key" : "Content-Type"
+                        },
+                        {
+                           "description" : "",
+                           "value" : "Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)",
+                           "key" : "User-Agent"
+                        }
+                     ],
+                     "method" : "POST",
+                     "url" : "https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}",
+                     "body" : {
+                        "raw" : "{\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\",\n         \"email\" : \"{{email}}\"\n      }\n   },\n   \"method\" : \"scenePlayed\",\n   \"requestId\" : \"{{requestid}}\",\n   \"data\" : {\n      \"id\" : {{sceneid}}\n   }\n}",
+                        "mode" : "raw"
+                     },
+                     "description" : ""
+                  }
+               }
+            ],
+            "request" : {
+               "method" : "POST",
+               "header" : [
+                  {
+                     "description" : "",
+                     "value" : "application/json",
+                     "key" : "Content-Type"
+                  },
+                  {
+                     "value" : "Dalvik/2.1.0 (Linux; U; Android 6.0.1; A0001 Build/M4B30X)",
+                     "description" : "",
+                     "key" : "User-Agent"
+                  }
+               ],
+               "description" : "",
+               "body" : {
+                  "mode" : "raw",
+                  "raw" : "{\n   \"iotContext\" : {\n      \"userContext\" : {\n         \"accountToken\" : \"{{token}}\",\n         \"terminalId\" : \"\",\n         \"email\" : \"{{email}}\"\n      }\n   },\n   \"method\" : \"scenePlayed\",\n   \"requestId\" : \"{{requestid}}\",\n   \"data\" : {\n      \"id\" : {{sceneid}}\n   }\n}"
+               },
+               "url" : "https://api.tplinkra.com/v1/iot/scenes/scenePlayed?token={{token}}"
+            }
+         }
+      ],
+      "variables" : [],
+      "info" : {
+         "privateUrl" : "https://documenter.getpostman.com/collection/view/1016841-daf7decb-2d22-bdfd-7f77-c300b1bbc209",
+         "publishedId" : "6fWz4mP",
+         "schema" : "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+         "collectionId" : "daf7decb-2d22-bdfd-7f77-c300b1bbc209",
+         "owner" : "1016841",
+         "description" : "<p>This API describes how you can interact with your TP-Link devices via their Cloud web services.</p>\n",
+         "customColor" : {
+            "right-sidebar" : "555555",
+            "highlight" : "63C6AE",
+            "top-bar" : "FFFFFF"
+         },
+         "name" : "TP-Link API",
+         "_postman_id" : "daf7decb-2d22-bdfd-7f77-c300b1bbc209",
+         "public" : true,
+         "languages" : [
+            {
+               "client" : "curl",
+               "target" : "shell",
+               "name" : "cURL"
+            },
+            {
+               "client" : "jquery",
+               "target" : "javascript",
+               "name" : "jQuery"
+            },
+            {
+               "target" : "ruby",
+               "client" : "native",
+               "name" : "Ruby"
+            },
+            {
+               "name" : "Python Requests",
+               "client" : "requests",
+               "target" : "python"
+            },
+            {
+               "client" : "native",
+               "target" : "node",
+               "name" : "Node"
+            },
+            {
+               "client" : "curl",
+               "target" : "php",
+               "name" : "PHP"
+            },
+            {
+               "client" : "native",
+               "target" : "go",
+               "name" : "Go"
+            }
+         ]
+      },
+      "meta" : {
+         "id" : "1016841-daf7decb-2d22-bdfd-7f77-c300b1bbc209"
+      }
+   }
+}
